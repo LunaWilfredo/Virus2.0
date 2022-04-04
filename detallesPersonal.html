@@ -138,14 +138,15 @@
                                     <div class="card-body">
                                         <h4 class="box-title">Listado de Personal Detallado</h4>
                                     </div>
-                                    <button class="btn btn-success btn-sm">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registromodal">
                                         Añadir
                                     </button>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
-                                        <table class="table ">
-                                            <thead>
+                                        <table class="table">
+                                            <thead class="text-center">
                                                 <tr>
                                                     <th class="serial">#</th>
                                                     <th>Doc.Id</th>
@@ -155,6 +156,7 @@
                                                     <th>Sexo</th>
                                                     <th>Direccion</th>
                                                     <th>C.Emerg</th>
+                                                    <th>Fam</th>
                                                     <th>T.Pens</th>
                                                     <th>Area</th>
                                                     <th>Emp</th>
@@ -163,13 +165,20 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="serial">1.</td>
+                                                    <td class="serial">1</td>
                                                     <td> #5469 </td>
                                                     <td>  <span class="name">Louis Stanley</span> </td>
+                                                    <td> <span class="product">01/01/2022</span> </td>
+                                                    <td> <span class="product">123456789</span> </td>
+                                                    <td> <span class="product">iMax</span> </td>
+                                                    <td> <span class="product">iMax</span> </td>
+                                                    <td> <span class="product">iMax</span> </td>
+                                                    <td> <span class="product">si/no</span> </td>
+                                                    <td> <span class="product">iMax</span> </td>
                                                     <td> <span class="product">iMax</span> </td>
                                                     <td><span class="count">231</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">Activo</span>
                                                     </td>
                                                 </tr>                                               
                                             </tbody>
@@ -202,6 +211,67 @@
         <!-- /.site-footer -->
     </div>
     <!-- /#right-panel -->
+
+    <!-- Modal -->
+    <form action="" method="post">
+        <div class="modal fade" id="registromodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registromodal">Registro de Personal</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="nombreinput">Nombres</label>
+                                    <input type="text" class="form-control" id="nombresInput" name="nombres">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Apellidos</label>
+                                    <input type="text" class="form-control" id="apellidosInput" name="apellidos">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="fechaNac">Fecha Nac.</label>
+                                <input type="date" name="fechaNac" id="fechaNac" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="movil">Movil</label>
+                                <input type="text" class="form-control" name="movil" id="movil" maxlength="9">
+                            </div>
+                            <div class="col">
+                                <label for="sexo">Sexo</label>
+                                <div class="form-group">
+                                    <label for="Sexo" class="form-check-label">M</label>
+                                    <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="M">
+                                    <label for="Sexo" class="form-check-label">F</label>
+                                    <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="F">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <textarea class="form-control" id="direccion" rows="1" placeholder="Direcion & Referencia"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencia">Contacto en caso de Emergencia</label>
+                            <textarea name="emergencia" id="emergencia" rows="1" class="form-control" placeholder="Nombre/Numero"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- !Modal -->
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
