@@ -161,24 +161,29 @@
                                                     <th>Area</th>
                                                     <th>Emp</th>
                                                     <th>Estado</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td class="serial">1</td>
                                                     <td> #5469 </td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
+                                                    <td> <span class="name">Louis Stanley</span> </td>
                                                     <td> <span class="product">01/01/2022</span> </td>
+                                                    <td> <span class="count">123456789</span> </td>
+                                                    <td> <span class="product">M</span> </td>
+                                                    <td> <span class="product">Av.Tupa...</span> </td>
                                                     <td> <span class="product">123456789</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
                                                     <td> <span class="product">si/no</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td><span class="count">231</span></td>
+                                                    <td> <span class="product">AFP/ONP</span> </td>
+                                                    <td> <span class="product">CONT</span> </td>
+                                                    <td> <span class="product">Y<span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Activo</span>
+                                                        <span class="badge badge-complete">A</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
+                                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-trash"></i></button>
                                                     </td>
                                                 </tr>                                               
                                             </tbody>
@@ -212,7 +217,7 @@
     </div>
     <!-- /#right-panel -->
 
-    <!-- Modal -->
+    <!-- Modal Registro-->
     <form action="" method="post">
         <div class="modal fade" id="registromodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -224,33 +229,50 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="nombreinput">Nombres</label>
+                                    <label for="nombresInput">Nombres</label>
                                     <input type="text" class="form-control" id="nombresInput" name="nombres">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Apellidos</label>
+                                    <label for="apellidosInput">Apellidos</label>
                                     <input type="text" class="form-control" id="apellidosInput" name="apellidos">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <label for="fechaNac">Fecha Nac.</label>
-                                <input type="date" name="fechaNac" id="fechaNac" class="form-control">
-                            </div>
-                            <div class="col">
-                                <label for="movil">Movil</label>
-                                <input type="text" class="form-control" name="movil" id="movil" maxlength="9">
-                            </div>
-                            <div class="col">
-                                <label for="sexo">Sexo</label>
                                 <div class="form-group">
-                                    <label for="Sexo" class="form-check-label">M</label>
-                                    <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="M">
-                                    <label for="Sexo" class="form-check-label">F</label>
-                                    <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="F">
+                                    <label for="fechaNac">Fecha Nacimiento</label>
+                                    <input type="date" name="fechaNac" id="fechaNac" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="movil">Movil</label>
+                                    <input type="text" class="form-control" name="movil" id="movil" maxlength="9">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="sexo">Sexo</label>
+                                    <div class="form-group">
+                                        <label for="Sexo" class="form-check-label">M</label>
+                                        <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="Masculino">
+                                        <label for="Sexo" class="form-check-label">F</label>
+                                        <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="Femenino">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="hijos">¿Tiene Hijos?</label>
+                                    <div class="form-group">
+                                        <label for="hijos" class="form-check-label">Si</label>
+                                        <input type="radio" class="form-check-inline" name="sexo" id="hijos" value="si">
+                                        <label for="Sexo" class="form-check-label">No</label>
+                                        <input type="radio" class="form-check-inline" name="sexo" id="hijos" value="no">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -271,6 +293,122 @@
             </div>
         </div>
     </form>
+    <!-- !Modal -->
+
+    <!-- Modal Plan Laboral -->
+    <form action="" method="post">
+        <div class="modal fade" id="laboralModal" tabindex="-1" aria-labelledby="laboralModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Plan Laboral</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="">Id</label>
+                                    <input type="text" class="form-control" name="idU" id="idU" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="horarioI">Hora Ing</label>
+                                    <input type="time" class="form-control" name="horarioI" id="horarioI">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="horarios">Hora Salida</label>
+                                    <input type="time" class="form-control" name="horarioS" id="horarioS">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="area">Area</label>
+                                    <select name="area" id="area" class="form-control">
+                                        <option value="">Contabilidad</option>
+                                        <option value="">DT</option>
+                                        <option value="">Operacion</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cargo">Cargo</label>
+                                    <select name="cargo" id="cargo" class="form-control">
+                                        <option value="">Contabilidad</option>
+                                        <option value="">DT</option>
+                                        <option value="">Operacion</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="pension">T.Pen</label>
+                                    <select name="pension" id="pension" class="form-control">
+                                        <option value="">AFP</option>
+                                        <option value="">ONP</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="sueldo">Sueldo</label>
+                                    <input type="text" name="sueldo" id="sueldo" class="form-control" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="periodoP">P.P(D)</label>
+                                    <input type="number" name="periodoP" id="periodoP" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="formaP">Forma de Pago</label>
+                                    <select name="formaP" id="formaP" class="form-control">
+                                        <option value="">Efectivo</option>
+                                        <option value="">Deposito</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cuenta">N° Cuenta</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder="00-000-0000">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="entidad">Entidad</label>
+                                    <select type="text" name="entidad" id="entidad" class="form-control">
+                                        <option value="">BBVA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="titular">Titular Cuenta</label>
+                                    <input type="text" name="titular" id="titular" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </form>   
     <!-- !Modal -->
 
     <!-- Scripts -->
