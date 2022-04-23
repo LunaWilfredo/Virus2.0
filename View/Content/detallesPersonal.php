@@ -229,6 +229,13 @@
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
+                                    <label for="nafp">AFP</label>
+                                    <input type="text" name="nafp" id="nafp" class="form-control" maxlength="4">
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="form-group">
                                     <label for="sueldo">Sueldo</label>
                                     <input type="text" name="sueldo" id="sueldo" class="form-control" maxlength="4">
                                 </div>
