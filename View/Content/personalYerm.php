@@ -145,7 +145,7 @@
                                                     <td> <span class="product">Monitor</span> </td>
                                                     <td><span class="count">250</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">A</span>
                                                     </td>
                                                 </tr>
                                             </tbody>

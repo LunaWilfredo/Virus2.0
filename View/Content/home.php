@@ -105,7 +105,7 @@
                                                     <td> <span class="product">iMax</span> </td>
                                                     <td><span class="count">231</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">A</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -115,7 +115,7 @@
                                                     <td> <span class="product">iPad</span> </td>
                                                     <td><span class="count">250</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">A</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -125,7 +125,7 @@
                                                     <td> <span class="product">SSD</span> </td>
                                                     <td><span class="count">250</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">A</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -135,7 +135,7 @@
                                                     <td> <span class="product">Magic Mouse</span> </td>
                                                     <td><span class="count">250</span></td>
                                                     <td>
-                                                        <span class="badge badge-pending">Pending</span>
+                                                        <span class="badge badge-pending">B</span>
                                                     </td>
                                                 </tr>
                                                 <tr class=" pb-0">
@@ -145,7 +145,7 @@
                                                     <td> <span class="product">Monitor</span> </td>
                                                     <td><span class="count">250</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">A</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
