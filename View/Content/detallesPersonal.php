@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="card-footer bg-success">
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
-                                    <button class="btn btn-danger" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
@@ -199,7 +199,7 @@
                                 </div>
                                 <div class="card-footer bg-success">
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
-                                    <button class="btn btn-danger" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-danger" ><i class="fa fa-trash"></i></button>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
