@@ -4,7 +4,7 @@
                 <!-- Orders -->
                 <div class="orders">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="d-flex">
                                     <div class="card-body">
@@ -15,52 +15,181 @@
                                         Añadir
                                     </button>
                                 </div>
-                                <div class="card-body--">
-                                    <div class="table-stats order-table ov-h">
-                                        <table class="table">
-                                            <thead class="text-center">
-                                                <tr>
-                                                    <th class="serial">#</th>
-                                                    <th>Doc.Id</th>
-                                                    <th>Nombres y Apellidos</th>
-                                                    <th>F.Nac</th>
-                                                    <th>Movil</th>
-                                                    <th>Sexo</th>
-                                                    <th>Direccion</th>
-                                                    <th>C.Emerg</th>
-                                                    <th>Fam</th>
-                                                    <th>T.Pens</th>
-                                                    <th>Area</th>
-                                                    <th>Emp</th>
-                                                    <th>Estado</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="serial">1</td>
-                                                    <td> #5469 </td>
-                                                    <td> <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">01/01/2022</span> </td>
-                                                    <td> <span class="count">123456789</span> </td>
-                                                    <td> <span class="product">M</span> </td>
-                                                    <td> <span class="product">Av.Tupa...</span> </td>
-                                                    <td> <span class="product">123456789</span> </td>
-                                                    <td> <span class="product">si/no</span> </td>
-                                                    <td> <span class="product">AFP/ONP</span> </td>
-                                                    <td> <span class="product">CONT</span> </td>
-                                                    <td> <span class="product">Y<span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">A</span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
-                                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-trash"></i></button>
-                                                    </td>
-                                                </tr>                                               
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- /.table-stats -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-head bg-success p-2">
+                                    <span class="badge badge-danger"> 01 </span>
+                                    <span class="badge badge-dark">Documento de Identidad :</span> <!--tipo de documento -->
+                                    <span class="count text-light">123456789</span> <!--numero de documento -->
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <div class="px-3">
+                                            <div class="row">                                                 
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Nombres:</span>
+                                                    <span class="name">Louis tony</span>  
+                                                </div>                                                  
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Apellidos:</span>
+                                                    <span class="name">Stanley Galvez</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Fecha de Nacimiento:</span>
+                                                    <span class="product">01/01/2022</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Nacionalidad:</span>
+                                                    <span class="product">PE</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Estado Civil:</span>
+                                                    <span class="product">S </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Movil:</span>
+                                                    <span class="count">123456789</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Sexo:</span>
+                                                    <span class="product">M</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Direccion</span>
+                                                    <span class="product">Av.Tupa...</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Contacto Emergencia</span>
+                                                    <span class="count">123456789</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Familia</span>
+                                                    <span class="product">SI</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Tipo de Pension</span>
+                                                    <span class="product">AFP</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Area</span>
+                                                    <span class="product">CONT</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Empresa</span>
+                                                    <span class="product">Y<span>  
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-dark">Estado</span>
+                                                    <span class="bg-success badge badge-complete text-light" >H</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div class="card-footer bg-success">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </div> <!-- /.card -->
+                        </div>  <!-- /.col-lg-8 -->
+
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-head bg-warning p-2">
+                                    <span class="badge badge-danger"> 01 </span>
+                                    <span class="badge badge-info">Doc. Identidad :</span> <!--tipo de documento -->
+                                    <span class="count">123456789</span> <!---dni de persona-->
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <div class="px-3">
+                                            <div class="row">                                                 
+                                                <div class="col">
+                                                    <span class="badge badge-info">Nombres:</span>
+                                                    <span class="name">Louis tony</span>  
+                                                </div>                                                  
+                                                <div class="col">
+                                                    <span class="badge badge-info">Apellidos:</span>
+                                                    <span class="name">Stanley Galvez</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-info">F.Nac:</span>
+                                                    <span class="product">01/01/2022</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-info">Nacionalidad:</span>
+                                                    <span class="product">Peruana</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-info">Movil:</span>
+                                                    <span class="count">123456789</span>
+                                                </div>
+                                                <div class="col-3">
+                                                    <span class="badge badge-info">Sexo:</span>
+                                                    <span class="product">M</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-info">Direccion</span>
+                                                    <span class="product">Av.Tupa...</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <span class="badge badge-info">C.Emerg</span>
+                                                    <span class="count">123456789</span>
+                                                </div>
+                                                <div class="col-3">
+                                                    <span class="badge badge-info">Familia</span>
+                                                    <span class="product">SI</span>
+                                                </div>
+                                                <div class="col-4">
+                                                    <span class="badge badge-info">T.Pension</span>
+                                                    <span class="product">AFP</span>
+                                                </div>
+                                            </div>   
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="badge badge-info">Area</span>
+                                                    <span class="product">CONT</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-info">Empresa</span>
+                                                    <span class="product">Y<span>  
+                                                </div>
+                                                <div class="col">
+                                                    <span class="badge badge-info">Estado</span>
+                                                    <span class="bg-danger badge badge-complete text-light" >D</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div class="card-footer bg-warning">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-trash"></i></button>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
@@ -110,18 +239,34 @@
                                     <input type="text" class="form-control" name="doc" id="doc" maxlength="20">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="fechaNac">Fecha Nacimiento</label>
                                     <input type="date" name="fechaNac" id="fechaNac" class="form-control">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="nacionalidad">Nacionalidad</label>
+                                    <input type="text" class="form-control" name="nacionalidad" id="movil" maxlength="">
+                                </div>
+                            </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="movil">Movil</label>
                                     <input type="text" class="form-control" name="movil" id="movil" maxlength="9">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="estado">Estado Civil</label>
+                                    <select name="ecivil" id="" class="form-control">
+                                        <option value="">S</option>
+                                        <option value="">C</option>
+                                        <option value="">V</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col">
@@ -151,9 +296,19 @@
                             <label for="direccion">Direccion</label>
                             <textarea class="form-control" id="direccion" rows="1" placeholder="Direcion & Referencia"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="emergencia">Contacto en caso de Emergencia</label>
-                            <textarea name="emergencia" id="emergencia" rows="1" class="form-control" placeholder="Nombre/Numero"></textarea>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="emergencia">Contacto de Emergencia</label>
+                                    <textarea name="emergencia" id="emergencia" rows="1" class="form-control" placeholder="Nombre/Numero"></textarea>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="emergencia">Parentesco</label>
+                                    <input type="text" class="form-control" name="parentesco" id="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -227,13 +382,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-2">
-                                <div class="form-group">
-                                    <label for="nafp">AFP</label>
-                                    <input type="text" name="nafp" id="nafp" class="form-control" maxlength="4">
-                                </div>
-                            </div>
-
                             <div class="col-2">
                                 <div class="form-group">
                                     <label for="sueldo">Sueldo</label>
