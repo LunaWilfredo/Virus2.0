@@ -12,7 +12,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Activos</div>
+                                            <div class="stat-heading">Sueldos</div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
-                                        <table class="table ">
+                                        <table class="table text-center">
                                             <thead>
                                                 <tr>
                                                     <th class="serial">#</th>
@@ -103,9 +103,9 @@
                                                     <td> #5469 </td>
                                                     <td>  <span class="name">Louis Stanley</span> </td>
                                                     <td> <span class="product">iMax</span> </td>
-                                                    <td><span class="count">231</span></td>
+                                                    <td><span class="badge badge-complete">Y</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">Habilitado</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -113,9 +113,9 @@
                                                     <td> #5468 </td>
                                                     <td>  <span class="name">Gregory Dixon</span> </td>
                                                     <td> <span class="product">iPad</span> </td>
-                                                    <td><span class="count">250</span></td>
+                                                    <td><span class="badge badge-dark">S</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-complete">Habilitado</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -123,29 +123,9 @@
                                                     <td> #5467 </td>
                                                     <td>  <span class="name">Catherine Dixon</span> </td>
                                                     <td> <span class="product">SSD</span> </td>
-                                                    <td><span class="count">250</span></td>
+                                                    <td><span class="badge badge-secondary">JJ</span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">4.</td>
-                                                    <td> #5466 </td>
-                                                    <td>  <span class="name">Mary Silva</span> </td>
-                                                    <td> <span class="product">Magic Mouse</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-pending">Pending</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class=" pb-0">
-                                                    <td class="serial">5.</td>
-                                                    <td> #5465 </td>
-                                                    <td>  <span class="name">Johnny Stephens</span> </td>
-                                                    <td> <span class="product">Monitor</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <span class="badge badge-danger">Deshabilitado</span>
                                                     </td>
                                                 </tr>
                                             </tbody>

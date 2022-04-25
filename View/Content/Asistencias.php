@@ -16,6 +16,7 @@
                                             <th>Empresa</th>
                                             <th>H.Ingreso</th>
                                             <th>H.Salida</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -26,6 +27,7 @@
                                             <td>Edinburgh</td>
                                             <td>12:30</td>
                                             <td>16:20</td>
+                                            <td>12/02/2022</td>
                                         </tr>
                                     </tbody>
                                 </table>

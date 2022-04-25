@@ -50,9 +50,9 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Horarios</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-clock-o"></i><a href="tables-basic.html">Horarios administrativos</a></li>
-                            <li><i class="fa fa-clock-o"></i><a href="tables-data.html">Horarios de operacion</a></li>
-                            <li><i class="fa fa-clock-o"></i><a href="tables-data.html">Asistencias</a></li>
+                            <li><i class="fa fa-clock-o"></i><a href="index.php?page=horarioAdmin">Horarios administrativos</a></li>
+                            <li><i class="fa fa-clock-o"></i><a href="index.php?page=horarioOp">Horarios de operacion</a></li>
+                            <li><i class="fa fa-clock-o"></i><a href="index.php?page=Asistencias">Asistencias</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
