@@ -85,7 +85,7 @@
                                     <h4 class="box-title">Mejor Asistencia</h4>
                                 </div>
                                 <div class="card-body--">
-                                    <div class="table-stats order-table ov-h">
+                                    <div class="table-stats order-table ov-h text-center">
                                         <table class="table ">
                                             <thead>
                                                 <tr>
@@ -94,59 +94,43 @@
                                                     <th>Nombre</th>
                                                     <th>Area</th>
                                                     <th>Dia/Hora</th>
-                                                    <th>Estado</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="serial">1.</td>
-                                                    <td> #5469 </td>
+                                                    <td class="serial">1</td>
+                                                    <td> 12345678 </td>
                                                     <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td><span class="count">231</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">A</span>
-                                                    </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
+                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="serial">2.</td>
-                                                    <td> #5468 </td>
+                                                    <td class="serial">2</td>
+                                                    <td> 12345678 </td>
                                                     <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">iPad</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">A</span>
-                                                    </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
+                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="serial">3.</td>
-                                                    <td> #5467 </td>
+                                                    <td class="serial">3</td>
+                                                    <td> 12345678 </td>
                                                     <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">SSD</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">A</span>
-                                                    </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
+                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="serial">4.</td>
-                                                    <td> #5466 </td>
+                                                    <td class="serial">4</td>
+                                                    <td> 12345678 </td>
                                                     <td>  <span class="name">Mary Silva</span> </td>
-                                                    <td> <span class="product">Magic Mouse</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-pending">B</span>
-                                                    </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
+                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
                                                 </tr>
                                                 <tr class=" pb-0">
-                                                    <td class="serial">5.</td>
-                                                    <td> #5465 </td>
+                                                    <td class="serial">5</td>
+                                                    <td> 12345678 </td>
                                                     <td>  <span class="name">Johnny Stephens</span> </td>
-                                                    <td> <span class="product">Monitor</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">A</span>
-                                                    </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
+                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -105,9 +105,10 @@
                                         </div>
                                     </div>  
                                 </div>
-                                <div class="card-footer bg-success">
+                                <div class="card-footer bg-success text-center">
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <a href="#!" class="btn btn-success btn-sm text-light"><i class="fa fa-pencil-square-o"></i></a>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
