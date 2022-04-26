@@ -57,44 +57,54 @@
                                                     <th>Nombre</th>
                                                     <th>Area</th>
                                                     <th>Empresa</th>
-                                                    <th>Horas Realizadas</th>
+                                                    <th>Dias Trabajados</th>
                                                     <th>Sueldo Base</th>
                                                     <th>Horas Extras</th>
-                                                    <th>Dominical</th>
                                                     <th>Feriados</th>
-                                                    <th>AFP</th>
+                                                    <th>AFP %</th>
                                                     <th>Seguro</th>
                                                     <th>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="serial">1.</td>
-                                                    <td> #5469 </td>
+                                                    <td class="serial">1</td>
                                                     <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
                                                     <td><span class="badge badge-complete">Y</span></td>
-                                                    <td><span class="product">Habilitado</span></td>
+                                                    <td><span class="count">7</span></td>
+                                                    <td><span class="count">930</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="serial">2.</td>
-                                                    <td> #5468 </td>
+                                                    <td class="serial">2</td>
                                                     <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">iPad</span> </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
                                                     <td><span class="badge badge-dark">S</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Habilitado</span>
-                                                    </td>
+                                                    <td><span class="count">7</span></td>
+                                                    <td><span class="count">930</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="serial">3.</td>
-                                                    <td> #5467 </td>
+                                                    <td class="serial">3</td>
                                                     <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">SSD</span> </td>
+                                                    <td> <span class="product">Contabilidad</span> </td>
                                                     <td><span class="badge badge-secondary">JJ</span></td>
-                                                    <td>
-                                                        <span class="badge badge-danger">Deshabilitado</span>
-                                                    </td>
+                                                    <td><span class="count">7</span></td>
+                                                    <td><span class="count">930</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
                                                 </tr>
                                             </tbody>
                                         </table>
