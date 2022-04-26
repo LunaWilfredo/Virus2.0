@@ -58,8 +58,9 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-usd"></i>Pagos</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-usd"></i><a href="forms-basic.html">Pagos administrativos</a></li>
-                            <li><i class="menu-icon fa fa-usd"></i><a href="forms-advanced.html">Pagos operarios</a></li>
+                            <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosAdm">Pagos administrativos</a></li>
+                            <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosOpe">Pagos operarios</a></li>
+                            <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosBlack">Lista Negra Pagos</a></li>
                         </ul>
                     </li>
 
@@ -68,6 +69,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-group"></i>Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="#!">Registro</a></li>
+                            <li><i class="menu-icon fa fa-plus"></i><a href="#!">Panel General Gerencial</a></li>
                         </ul>
                     </li>
                     <!-- Charts -->
