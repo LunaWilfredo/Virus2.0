@@ -57,9 +57,11 @@
                                                     <th>Nombre</th>
                                                     <th>Area</th>
                                                     <th>Empresa</th>
-                                                    <th>Horas Realizadas</th>
+                                                    <th>HR</th>
                                                     <th>Sueldo Base</th>
-                                                    <th>Horas Extras</th>
+                                                    <th>AF</th>
+                                                    <th>H (25%)</th>
+                                                    <th>H (35%)</th>
                                                     <th>Feriados</th>
                                                     <th>AFP %</th>
                                                     <th>Seguro</th>
@@ -79,6 +81,8 @@
                                                     <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="serial">2</td>
@@ -92,6 +96,8 @@
                                                     <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="serial">3</td>
@@ -100,6 +106,8 @@
                                                     <td><span class="badge badge-secondary">JJ</span></td>
                                                     <td><span class="count">48</span></td>
                                                     <td><span class="count">930</span></td>
+                                                    <td><span class="count">0</span></td>
+                                                    <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
                                                     <td><span class="count">0</span></td>
