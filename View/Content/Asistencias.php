@@ -1,6 +1,13 @@
             <div class="animated fadeIn">
                 <div class="row">
-
+                    <div class="col-md-4">
+                        <div class="p-2 d-flex">
+                            <input type="text" name="" class="form-control mr-2" placeholder="Buscar">
+                            <button type="" name="" class="btn btn-secondary justify-content-end"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
