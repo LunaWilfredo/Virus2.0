@@ -69,7 +69,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-group"></i>Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="index.php?page=registroUs">Registro</a></li>
-                            <li><i class="menu-icon fa fa-plus"></i><a href="#!">Panel General Gerencial</a></li>
+                            <li><i class="menu-icon fa fa-plus"></i><a href="index.php?page=general">Panel General</a></li>
                         </ul>
                     </li>
                     <!-- Charts -->

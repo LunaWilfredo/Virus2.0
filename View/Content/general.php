@@ -1,26 +1,5 @@
             <!-- Animated -->
             <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Usuarios</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Widgets -->
                 <div class="clearfix"></div>
                 <!-- Orders -->
                 <div class="orders">
@@ -29,7 +8,7 @@
                             <div class="card">
                                 <div class="d-flex">
                                     <div class="card-body">
-                                        <h4 class="box-title">Lista de Usuarios </h4>
+                                        <h4 class="box-title">Panel General</h4>
                                     </div>
                                     <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registroUmodal">
                                         Añadir

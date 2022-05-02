@@ -35,6 +35,7 @@
                                                     <td><span class="product">17:00</span></td>
                                                     <td>
                                                         <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        <!-- <a href="" class="btn btn-danger"><i class="fa fa-minus-square" aria-hidden="true"></i></a> -->
                                                     </td>
                                                 </tr>
                                                 <tr>
