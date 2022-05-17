@@ -1,7 +1,16 @@
 <!-- Documentacion -->
 <?php 
-    //header
-    require_once './View/Layout/header.php'; 
+    //DB
+    include_once './BD/db.php';
+    //Model
+    //include_once 'Model/UModel.php';
+    //Controller
+    include_once 'Controller/UController.php';
+    include_once 'Controller/PController.php';
+
+    //header and lateral
+    include_once 'View/Layout/header.php'; 
+    
     // Body
     if(isset($_GET['page'])){
         $page = $_GET['page'];
@@ -11,8 +20,10 @@
             require_once 'View/Content/home.php';
         }
     }else{
-        require_once './View/Content/home.php'; //body
+        require_once 'View/Content/home.php'; //body
     }
     // Footer
-    require_once './View/Layout/footer.php'; //footer
+    include_once './View/Layout/footer.php';
+
+
 ?>
