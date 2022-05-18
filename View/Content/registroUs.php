@@ -3,17 +3,6 @@
 if(isset($_GET['idb']) && !empty($_GET['idb'])){
     $idb = $_GET['idb'];
     $borrar=UsuariosController::borrar($idb);
-    return $borrar;
-    
-    if($respuesta){
-        echo '<div class="alert alert-success" role="alert">
-        Borrado Exitoso!
-        </div>';
-     }else{
-         echo '<div class="alert alert-danger" role="alert">
-         Error de Borrado!
-         </div>';
-     }
 }
 
 if(isset($_POST['nombre']) && !empty($_POST['nombre'])){

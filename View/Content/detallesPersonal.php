@@ -1,3 +1,9 @@
+<?php
+    $documento=PersonalController::tipod();
+    $estado=PersonalController::estadoC();
+    $sexo=PersonalController::sexo();
+    $parentesco=PersonalController::parentesco();
+?>
             <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
@@ -18,7 +24,7 @@
                             </div>
                         </div>
                     </div>
-
+ 
                     <div class="row">
                         <div class="col-6">
                             <div class="card">
@@ -239,9 +245,9 @@
                                 <div class="form-group">
                                     <label for="Tdoc">Tipo Documento</label>
                                     <select class="form-control" name="Tdoc" id="Tdoc">
-                                        <option value="">DNI</option>
-                                        <option value="">Carnet de Estranjeria</option>
-                                        <option value="">Otros</option>
+                                        <?php foreach($documento as $doc): ?>
+                                            <option value="<?=$doc['id']?>"><?=$doc['tdname']?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
@@ -262,7 +268,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="nacionalidad">Nacionalidad</label>
-                                    <input type="text" class="form-control" name="nacionalidad" id="movil" maxlength="">
+                                    <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" maxlength="20">
                                 </div>
                             </div>
                             <div class="col">
@@ -273,11 +279,11 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="estado">Estado Civil</label>
+                                    <label for="ecivil">Estado Civil</label>
                                     <select name="ecivil" id="" class="form-control">
-                                        <option value="">S</option>
-                                        <option value="">C</option>
-                                        <option value="">V</option>
+                                        <?php foreach($estado as $sc):?>
+                                            <option value="<?=$sc['id']?>"><?=$sc['ecname']?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
@@ -285,10 +291,10 @@
                                 <div class="form-group">
                                     <label for="sexo">Sexo</label>
                                     <div class="form-group">
-                                        <label for="Sexo" class="form-check-label">M</label>
-                                        <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="Masculino">
-                                        <label for="Sexo" class="form-check-label">F</label>
-                                        <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="Femenino">
+                                        <?php foreach($sexo as $sx): ?>
+                                            <label for="Sexo" class="form-check-label"><?=$sx['nombre']?></label>
+                                            <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="<?=$sx['id']?>">
+                                        <?php endforeach;?>
                                     </div>
                                 </div>
                             </div>
@@ -317,15 +323,19 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="emergencia">Parentesco</label>
-                                    <input type="text" class="form-control" name="parentesco" id="">
+                                    <label for="parentesco">Parentesco</label>
+                                    <select name="parentesco" id="parentesco" class="form-control">
+                                        <?php foreach($parentesco as $ptc):?>
+                                            <option value="<?=$ptc['id']?>"><?=$ptc['prname']?></option>
+                                        <?php endforeach;?>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success">Registrar</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
                     </div>
                 </div>
             </div>
