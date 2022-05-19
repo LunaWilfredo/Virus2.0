@@ -1,16 +1,12 @@
 <!-- Documentacion -->
 <?php 
     //DB
-    include_once './BD/db.php';
-    //Model
-    //include_once 'Model/UModel.php';
+    include_once '';
     //Controller
-    include_once 'Controller/UController.php';
-    include_once 'Controller/PController.php';
+    include_once '';
 
     //header and lateral
-    include_once 'View/Layout/header.php'; 
-    
+    include_once 'View/Layout/header.php';  
     // Body
     if(isset($_GET['page'])){
         $page = $_GET['page'];
@@ -24,6 +20,5 @@
     }
     // Footer
     include_once './View/Layout/footer.php';
-
 
 ?>

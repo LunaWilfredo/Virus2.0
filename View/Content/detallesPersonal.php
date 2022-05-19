@@ -1,9 +1,4 @@
-<?php
-    $documento=PersonalController::tipod();
-    $estado=PersonalController::estadoC();
-    $sexo=PersonalController::sexo();
-    $parentesco=PersonalController::parentesco();
-?>
+
             <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
@@ -229,14 +224,14 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="nombresInput">Nombres</label>
-                                    <input type="text" class="form-control" id="nombresInput" name="nombres">
+                                    <label for="nombres">Nombres</label>
+                                    <input type="text" class="form-control" id="nombres" name="nombres">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="apellidosInput">Apellidos</label>
-                                    <input type="text" class="form-control" id="apellidosInput" name="apellidos">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input type="text" class="form-control" id="apellidos" name="apellidos">
                                 </div>
                             </div>
                         </div>
@@ -245,9 +240,9 @@
                                 <div class="form-group">
                                     <label for="Tdoc">Tipo Documento</label>
                                     <select class="form-control" name="Tdoc" id="Tdoc">
-                                        <?php foreach($documento as $doc): ?>
-                                            <option value="<?=$doc['id']?>"><?=$doc['tdname']?></option>
-                                        <?php endforeach; ?>
+                                        
+                                            <option value="<?=$td['id']?>"><?$td['tdname']?></option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -280,10 +275,10 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="ecivil">Estado Civil</label>
-                                    <select name="ecivil" id="" class="form-control">
-                                        <?php foreach($estado as $sc):?>
+                                    <select name="ecivil" id="ecivil" class="form-control">
+                                        
                                             <option value="<?=$sc['id']?>"><?=$sc['ecname']?></option>
-                                        <?php endforeach;?>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -291,10 +286,10 @@
                                 <div class="form-group">
                                     <label for="sexo">Sexo</label>
                                     <div class="form-group">
-                                        <?php foreach($sexo as $sx): ?>
-                                            <label for="Sexo" class="form-check-label"><?=$sx['nombre']?></label>
-                                            <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="<?=$sx['id']?>">
-                                        <?php endforeach;?>
+                                        
+                                            <label for="Sexo" class="form-check-label"></label>
+                                            <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -325,9 +320,9 @@
                                 <div class="form-group">
                                     <label for="parentesco">Parentesco</label>
                                     <select name="parentesco" id="parentesco" class="form-control">
-                                        <?php foreach($parentesco as $ptc):?>
-                                            <option value="<?=$ptc['id']?>"><?=$ptc['prname']?></option>
-                                        <?php endforeach;?>
+                                        
+                                            <option value=""></option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -344,7 +339,7 @@
     <!-- !Modal -->
 
     <!-- Modal Plan Laboral -->
-    <form action="" method="post">
+    <form  action="" method="post">
         <div class="modal fade" id="laboralModal" tabindex="-1" aria-labelledby="laboralModal" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
