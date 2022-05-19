@@ -1,6 +1,6 @@
 <?php
 require_once './BD/db.php';
-
+ 
 class UsuariosModel{
 
     static public function roles($tabla){

@@ -1,10 +1,10 @@
 <?php
-require_once '';
+require_once './BD/db.php';
 
 class PersonalModel{
 
-    static public function tipod($tabla){
-        $sql = "SELECT * FROM $tabla";
+    static public function tipodoc($tabla){
+        $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();
@@ -12,15 +12,4 @@ class PersonalModel{
         $cn->close();
         $cn=NULL;
     }
-
-    static public function listar($tabla){
-        $sql = "SELECT * FROM $tabla";
-        $cn=Conexion::conectar()->prepare($sql);
-        $cn->execute();
-        return $cn->fecthAll();
-
-        $cn->close();
-        $cn=NULL;
-    }
-
 }

@@ -1,9 +1,10 @@
 <!-- Documentacion -->
 <?php 
     //DB
-    include_once '';
+    include_once 'BD/db.php';
     //Controller
-    include_once '';
+    include_once 'Controller/PController.php';
+    include_once 'Controller/UController.php';
 
     //header and lateral
     include_once 'View/Layout/header.php';  

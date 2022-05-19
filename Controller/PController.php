@@ -1,18 +1,11 @@
 <?php
-
-require_once '';
+require_once 'Model/PModel.php';
 
 class PersonalController{
 
-    static public function tipod(){
+    static public function tipodoc(){
         $tabla="tpdoc";
-        $respuesta=PersonalModel::tipod($tabla);
-        return $respuesta;
-    }
-
-    static public function listar(){
-        $tabla="personal";
-        $respuesta = PersonalModal::listar($tabla);
+        $respuesta=PersonalModel::tipodoc($tabla);
         return $respuesta;
     }
 }

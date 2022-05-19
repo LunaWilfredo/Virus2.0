@@ -2,15 +2,9 @@
 
 class Conexion{
     static public function conectar(){
-        try{
-            $cn = New PDO("mysql:host=localhost;dbname=labyermedic","root","userroot1@");
-            $cn->exec("SET NAMES UTF-8");
+            $cn=New PDO("mysql:host=localhost;dbname=labyermedic","root","");
+            $cn->exec("SET NAMES UTF8");
             return $cn;
-        }catch(PDOException $e){
-            echo $e->getMessage('Error de coe
-            nexion');
-        }
-        
     }
 
     //Test de conexion

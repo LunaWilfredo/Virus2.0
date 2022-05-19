@@ -1,4 +1,4 @@
-
+<?php $tipo=PersonalController::tipodoc(); ?>
             <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
@@ -240,9 +240,9 @@
                                 <div class="form-group">
                                     <label for="Tdoc">Tipo Documento</label>
                                     <select class="form-control" name="Tdoc" id="Tdoc">
-                                        
-                                            <option value="<?=$td['id']?>"><?$td['tdname']?></option>
-                                        
+                                        <?php foreach($tipo as $td):?>
+                                            <option value="<?=$td['id']?>"><?=$td['tdname']?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
