@@ -1,5 +1,5 @@
 <?php
-require_once 'BD/db.php';
+require_once './BD/db.php';
 
 class PersonalModel{
 

@@ -1,3 +1,4 @@
+CREATE DATABASE labyermedic;
 use labyermedic;
 show tables;
 /*Tabla Asistencia*/

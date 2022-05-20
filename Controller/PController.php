@@ -37,7 +37,7 @@ class PersonalController{
                 "doc"=>$_POST['doc'],
                 "fecha"=>$_POST['fechaNac'],
                 "nacionalidad"=>$_POST['nacionalidad'],
-                "movil"=$_POST['movil'],
+                "movil"=>$_POST['movil'],
                 "estadoc"=>$_POST['ecivil'],
                 "sexo"=>$_POST['sexo'],
                 "hijos"=>$_POST['hijos'],
