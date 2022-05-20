@@ -1,5 +1,8 @@
-<?php $tipo=PersonalController::tipodoc(); ?>
-            <!-- Animated -->
+<?php 
+    $tipo=PersonalController::tipodoc(); 
+    $sexo=PersonalController::sex();
+?>
+    <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
                 <!-- Orders -->
@@ -286,10 +289,10 @@
                                 <div class="form-group">
                                     <label for="sexo">Sexo</label>
                                     <div class="form-group">
-                                        
-                                            <label for="Sexo" class="form-check-label"></label>
-                                            <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="">
-                                        
+                                        <?php foreach($sexo as $sx):?>
+                                            <label for="Sexo" class="form-check-label"><?=$sx['nombre']?></label>
+                                            <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="<?=$sx['id']?>">
+                                        <?php endforeach;?>
                                     </div>
                                 </div>
                             </div>

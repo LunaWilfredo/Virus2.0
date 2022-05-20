@@ -8,4 +8,10 @@ class PersonalController{
         $respuesta=PersonalModel::tipodoc($tabla);
         return $respuesta;
     }
+
+    static public function sex(){
+        $tabla="sexos";
+        $respuesta=PersonalModel::sex($tabla);
+        return $respuesta;
+    }
 }
