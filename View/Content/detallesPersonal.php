@@ -1,6 +1,12 @@
 <?php 
     $tipo=PersonalController::tipodoc(); 
-    $sexo=PersonalController::sex();
+    $estado=PersonalController::estadoc();
+    $sexo=PersonalController::sexo();
+    $parentesco=PersonalController::parent();
+
+    if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
+        $registro=PersonalController::registra();
+    }
 ?>
     <!-- Animated -->
             <div class="animated fadeIn">
@@ -279,9 +285,9 @@
                                 <div class="form-group">
                                     <label for="ecivil">Estado Civil</label>
                                     <select name="ecivil" id="ecivil" class="form-control">
-                                        
+                                        <?php foreach($estado as $sc):?>
                                             <option value="<?=$sc['id']?>"><?=$sc['ecname']?></option>
-                                        
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
@@ -323,9 +329,9 @@
                                 <div class="form-group">
                                     <label for="parentesco">Parentesco</label>
                                     <select name="parentesco" id="parentesco" class="form-control">
-                                        
-                                            <option value=""></option>
-                                        
+                                        <?php foreach($parentesco as $pt):?>
+                                            <option value="<?=$pt['id']?>"><?=$pt['prname']?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>

@@ -2,9 +2,12 @@
 <?php 
     //DB
     include_once 'BD/db.php';
+    //Model 
+    include_once 'Model/PModel.php';
+    include_once 'Model/UModel.php';
     //Controller
-    include_once 'Controller/PController.php';
     include_once 'Controller/UController.php';
+    include_once 'Controller/PController.php';
 
     //header and lateral
     include_once 'View/Layout/header.php';  
