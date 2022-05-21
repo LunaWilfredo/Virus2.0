@@ -294,12 +294,11 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="sexo">Sexo</label>
-                                    <div class="form-group">
+                                    <select name="sexo" id="sexo" class="form-control">
                                         <?php foreach($sexo as $sx):?>
-                                            <label for="Sexo" class="form-check-label"><?=$sx['nombre']?></label>
-                                            <input type="radio" class="form-check-inline" name="sexo" id="sexo" value="<?=$sx['id']?>">
+                                            <option value="<?=$sx['id']?>"><?=$sx['nombre']?></option>
                                         <?php endforeach;?>
-                                    </div>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col">
@@ -307,16 +306,16 @@
                                     <label for="hijos">¿Tiene Hijos?</label>
                                     <div class="form-group">
                                         <label for="hijos" class="form-check-label">Si</label>
-                                        <input type="radio" class="form-check-inline" name="sexo" id="hijos" value="si">
+                                        <input type="radio" class="form-check-inline" name="hijos" id="hijos" value="si">
                                         <label for="Sexo" class="form-check-label">No</label>
-                                        <input type="radio" class="form-check-inline" name="sexo" id="hijos" value="no">
+                                        <input type="radio" class="form-check-inline" name="hijos" id="hijos" value="no">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="direccion">Direccion</label>
-                            <textarea class="form-control" id="direccion" rows="1" placeholder="Direcion & Referencia"></textarea>
+                            <textarea class="form-control" name="direccion" id="direccion" rows="1" placeholder="Direcion & Referencia"></textarea>
                         </div>
                         <div class="row">
                             <div class="col">
