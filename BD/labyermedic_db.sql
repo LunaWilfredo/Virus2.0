@@ -1,13 +1,7 @@
 CREATE DATABASE labyermedic;
 use labyermedic;
 show tables;
-/*Tabla Asistencia*/
-CREATE TABLE IF NOT EXISTS asistencias(
-	id int not null auto_increment primary key,
-    doc varchar(20),
-    fecha date,
-    hora time
-)ENGINE=INNODB;
+
 /*Tabla Roles*/
 CREATE TABLE IF NOT EXISTS roles(
 	id int not null auto_increment primary key,
@@ -21,51 +15,81 @@ CREATE TABLE IF NOT EXISTS empresas(
 	id int not null auto_increment primary key,
     ename varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla Estado*/
 CREATE TABLE IF NOT EXISTS estados(
 	id int not null auto_increment primary key,
     ename varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla Areas*/
 CREATE TABLE IF NOT EXISTS areas(
 	id int not null auto_increment primary key,
     aname varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla Cargos*/
 CREATE TABLE IF NOT EXISTS cargos(
 	id int not null auto_increment primary key,
     cname varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla Tipo_Pension*/
 CREATE TABLE IF NOT EXISTS pensiones(
 	id int not null auto_increment primary key,
     psname varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla pensiones AFP*/
 CREATE TABLE IF NOT EXISTS afp(
 	id int not null auto_increment primary key,
 	afname varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla Formas_Pago*/
 CREATE TABLE IF NOT EXISTS fpagos(
 	id int not null primary key auto_increment,
     fpname varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla bancos*/
 CREATE TABLE IF NOT EXISTS bancos(
 	id int not null auto_increment primary key,
     bname varchar(255)
 )ENGINE = INNODB;
+
 /*Tabla Sexo*/
 CREATE TABLE IF NOT EXISTS sexos(
 	id int not null auto_increment primary key,
     sname varchar(255)
 )ENGINE=INNODB;
+
 /*Tabla Estado civil*/
 CREATE TABLE IF NOT EXISTS estadoC(
 	id int not null auto_increment primary key,
     ecname varchar(255)
 )ENGINE=INNODB;
+
+/*Tabla de tipo de documento*/
+CREATE TABLE IF NOT EXISTS tpdoc(
+	id int not null auto_increment primary key,
+    tdname varchar(255)
+)ENGINE=INNODB;
+
+/*Tabla de parentesco*/
+CREATE TABLE IF NOT EXISTS parentescos(
+	id int not null auto_increment primary key,
+    prname varchar(255)
+)ENGINE=INNODB;
+
+/*Tabla Asistencia*/
+CREATE TABLE IF NOT EXISTS asistencias(
+	id int not null auto_increment primary key,
+    doc varchar(20),
+    fecha date,
+    hora time
+)ENGINE=INNODB;
+
 /*Tabla usuarios*/
 CREATE TABLE IF NOT EXISTS usuarios(
 	id int not null auto_increment primary key,
@@ -78,16 +102,31 @@ CREATE TABLE IF NOT EXISTS usuarios(
     constraint fk_rol_id foreign key(fk_rol)references roles(id),
     constraint fk_estado_id foreign key(fk_estado) references estados(id)
 )ENGINE = INNODB;
-/*Tabla de tipo de documento*/
-CREATE TABLE IF NOT EXISTS tpdoc(
-	id int not null auto_increment primary key,
-    tdname varchar(255)
-)ENGINE=INNODB;
-/*Tabla de parentesco*/
-CREATE TABLE IF NOT EXISTS parentescos(
-	id int not null auto_increment primary key,
-    prname varchar(255)
-)ENGINE=INNODB;
+
+/*Tabla personal*/
+CREATE TABLE IF NOT EXISTS personal(
+	 id int not null auto_increment primary key,
+    pname varchar(255),
+    papellido varchar(255),
+    fk_tpdoc int, /*tipo de documento*/
+    pdoc varchar(20) unique,
+    pnac VARCHAR(20),
+    pnacionalidad VARCHAR(255),
+    pmovil varchar(9),
+    fk_estadoc INT,/*estado civil*/
+    fk_sexo int,
+    pfam int(5),/*familia e hijos*/
+    pdireccion text,
+    pce varchar(255),/*contacto de emergencia*/
+    fk_ptc int, /*parentesco*/
+    fk_estado int,
+    constraint fk_tpdoc_id foreign key(fk_tpdoc)references tpdoc(id),
+    CONSTRAINT fk_estacoc_id FOREIGN KEY (fk_estadoc)REFERENCES estadoc(id),
+    constraint fk_sexo_id foreign key (fk_sexo) references sexos(id),
+    constraint fk_ptc_id foreign key(fk_ptc)references parentescos(id),
+    constraint fk_estados_id foreign key (fk_estado) references estados(id)
+)ENGINE=innodb;
+
 /*Tabla Plan Laboral*/
 CREATE TABLE IF NOT EXISTS planes(
 	id int not null auto_increment primary key,
@@ -114,27 +153,6 @@ CREATE TABLE IF NOT EXISTS planes(
     constraint fk_emp_id foreign key (fk_emp) references empresas(id),
     constraint fk_personal_id foreign key (fk_personal) references personal(id)
 )ENGINE=INNODB;
-/*Tabla personal*/
-CREATE TABLE IF NOT EXISTS personal(
-	id int not null auto_increment primary key,
-    pname varchar(255),
-    papellido varchar(255),
-    fk_tpdoc int, /*tipo de documento*/
-    pdoc varchar(20) unique,
-    pnac date,
-    pnacionalidad varchar(20),
-    pmovil varchar(9),
-    fk_sexo int,
-    pdireccion text,
-    pfam varchar(5),/*familia*/
-    pce varchar(255),/*contacto de emergencia*/
-    fk_ptc int, /*parentesco*/
-    fk_estado int,
-    constraint fk_tpdoc_id foreign key(fk_tpdoc)references tpdoc(id),
-    constraint fk_sexo_id foreign key (fk_sexo) references sexos(id),
-    constraint fk_ptc_id foreign key(fk_ptc)references parentescos(id),
-    constraint fk_estados_id foreign key (fk_estado) references estados(id)
-)ENGINE=innodb;
 
 /*Selects simples*/
 select *  from asistencias;

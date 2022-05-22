@@ -29,20 +29,21 @@ class PersonalController{
 
     static public function registra(){
         if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
+            
             $tabla = "personal";
             $datos = array(
                 "nombres"=>$_POST['nombres'],
                 "apellidos"=>$_POST['apellidos'],
                 "tipodoc"=>$_POST['Tdoc'],
-                "doc"=>$_POST['doc']/*,
-                "fecha"=>$_POST['fechaNac'],
-                "nacionalidad"=>$_POST['nacionalidad'],
+                "doc"=>$_POST['doc'],
+                "fecha"=>$_POST['fecha'],
+                "nacion"=>$_POST['nacion'],
                 "movil"=>$_POST['movil'],
                 "estadoc"=>$_POST['ecivil'],
                 "sexo"=>$_POST['sexo'],
-                "hijos"=>$_POST['hijos'],
+                "hijos"=>$_POST['hijos']/*,
                 "direccion"=>$_POST['direccion'],
-                "contacto"=>$_POST['emergencia'],
+                "contacto"=>$_POST['contacto'],
                 "parentesco"=>$_POST['parentesco']*/
             );
             var_dump($datos);
