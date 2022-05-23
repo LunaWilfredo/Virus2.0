@@ -197,7 +197,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="hijos">¿Hijos?</label>
+                                    <label for="hijos">Hijos?</label>
                                     <input type="text" class="form-control" name="hijos" id="hijos" value="">
                                 </div>
                             </div>
@@ -210,13 +210,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="contacto">Contacto de Emergencia</label>
-                                    <textarea name="contacto" id="contacto" rows="1" class="form-control" placeholder="Nombre/Numero"></textarea>
+                                    <input type="text" name="contacto" id="contacto" class="form-control" placeholder="Numero">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="parentesco">Parentesco</label>
-                                    <select name="parentesco" id="parentesco" class="form-control">
+                                    <label for="relacion">Parentesco</label>
+                                    <select name="relacion" id="relacion" class="form-control">
                                         <?php foreach($parentesco as $pt):?>
                                             <option value="<?=$pt['id']?>"><?=$pt['prname']?></option>
                                         <?php endforeach;?>

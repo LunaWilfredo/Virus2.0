@@ -41,10 +41,10 @@ class PersonalController{
                 "movil"=>$_POST['movil'],
                 "estadoc"=>$_POST['ecivil'],
                 "sexo"=>$_POST['sexo'],
-                "hijos"=>$_POST['hijos']/*,
+                "hijos"=>$_POST['hijos'],
                 "direccion"=>$_POST['direccion'],
                 "contacto"=>$_POST['contacto'],
-                "parentesco"=>$_POST['parentesco']*/
+                "relacion"=>$_POST['relacion']
             );
             var_dump($datos);
             $respuesta = PersonalModel::registra($tabla,$datos);
