@@ -44,7 +44,7 @@ class PersonalModel{
     }
 
     static public function registra($tabla,$datos){
-        $sql="INSERT INTO $tabla (pname,papellido,fk_tpdoc,pdoc,pnac,pnacionalidad,pmovil,fk_estadoc,fk_sexo,pfam,pdireccion,pcemerg,fk_ptc/*,fk_estado*/) VALUES (:nombres,:apellidos,:tipodoc,:doc,:fecha,:nacion,:movil,:estadoc,:sexo,:hijos,:direccion,:contacto,:relacion)";
+        $sql="INSERT INTO $tabla ( `pname`, `papellido`, `fk_tpdoc`, `pdoc`, `pnac`, `pnacionalidad`, `pmovil`, `fk_estadoc`, `fk_sexo`, `pfam`, `pdireccion`, `pcemerg`, `fk_ptc`, `fk_estado`) VALUES (:nombres,:apellidos,:tipodoc,:doc,:fecha,:nacion,:movil,:estadoc,:sexo,:hijos,:direccion,:contacto,:relacion,1)";
 
         $cn=Conexion::conectar()->prepare($sql);
         $cn->bindParam(':nombres',$datos['nombres'],PDO::PARAM_STR);
@@ -59,7 +59,7 @@ class PersonalModel{
         $cn->bindParam(':hijos',$datos['hijos'],PDO::PARAM_INT);
         $cn->bindParam(':direccion',$datos['direccion'],PDO::PARAM_STR);
         $cn->bindParam(':contacto',$datos['contacto'],PDO::PARAM_STR);
-        $cn->bindParam(':relacion',$datos['relacion'],PDO::PARAM_STR);
+        $cn->bindParam(':relacion',$datos['relacion'],PDO::PARAM_INT);
 
         if($cn->execute()){
             return 'ok';

@@ -144,7 +144,7 @@
                                     <label for="Tdoc">Tipo Documento</label>
                                     <select class="form-control" name="Tdoc" id="Tdoc">
                                         <?php foreach($tipo as $td):?>
-                                            <option value="<?=$td['id']?>"><?=$td['tdname']?></option>
+                                            <option value="<?=$td['id'];?>"><?=$td['tdname'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -180,7 +180,7 @@
                                     <label for="ecivil">Estado Civil</label>
                                     <select name="ecivil" id="ecivil" class="form-control">
                                         <?php foreach($estado as $sc):?>
-                                            <option value="<?=$sc['id']?>"><?=$sc['ecname']?></option>
+                                            <option value="<?=$sc['id'];?>"><?=$sc['ecname'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -190,7 +190,7 @@
                                     <label for="sexo">Sexo</label>
                                     <select name="sexo" id="sexo" class="form-control">
                                         <?php foreach($sexo as $sx):?>
-                                            <option value="<?=$sx['id']?>"><?=$sx['nombre']?></option>
+                                            <option value="<?=$sx['id'];?>"><?=$sx['nombre'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -218,7 +218,7 @@
                                     <label for="relacion">Parentesco</label>
                                     <select name="relacion" id="relacion" class="form-control">
                                         <?php foreach($parentesco as $pt):?>
-                                            <option value="<?=$pt['id']?>"><?=$pt['prname']?></option>
+                                            <option value="<?=$pt['id'];?>"><?=$pt['prname'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>

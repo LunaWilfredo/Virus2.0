@@ -105,27 +105,27 @@ CREATE TABLE IF NOT EXISTS usuarios(
 
 /*Tabla personal*/
 CREATE TABLE IF NOT EXISTS personal(
-	 id int not null auto_increment primary key,
-    pname varchar(255),
-    papellido varchar(255),
-    fk_tpdoc int, /*tipo de documento*/
-    pdoc varchar(20) unique,
+	id INT not null auto_increment primary key,
+    pname VARCHAR (255),
+    papellido VARCHAR (255),
+    fk_tpdoc INT , /*tipo de documento*/
+    pdoc VARCHAR (20) unique,
     pnac VARCHAR(20),
     pnacionalidad VARCHAR(255),
-    pmovil varchar(9),
+    pmovil VARCHAR (9),
     fk_estadoc INT,/*estado civil*/
-    fk_sexo int,
-    pfam int(5),/*familia e hijos*/
-    pdireccion text,
-    pce varchar(255),/*contacto de emergencia*/
-    fk_ptc int, /*parentesco*/
-    fk_estado int,
+    fk_sexo INT ,
+    pfam INT(5),/*familia e hijos*/
+    pdireccion VARCHAR(255),
+    pcemerg VARCHAR(255),/*contacto de emergencia*/
+    fk_ptc INT, /*parentesco*/
+    fk_estado INT,
     constraint fk_tpdoc_id foreign key(fk_tpdoc)references tpdoc(id),
     CONSTRAINT fk_estacoc_id FOREIGN KEY (fk_estadoc)REFERENCES estadoc(id),
     constraint fk_sexo_id foreign key (fk_sexo) references sexos(id),
     constraint fk_ptc_id foreign key(fk_ptc)references parentescos(id),
     constraint fk_estados_id foreign key (fk_estado) references estados(id)
-)ENGINE=innodb;
+)ENGINE=INNODB;
 
 /*Tabla Plan Laboral*/
 CREATE TABLE IF NOT EXISTS planes(
