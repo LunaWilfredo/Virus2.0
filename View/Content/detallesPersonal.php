@@ -6,7 +6,23 @@
 
     if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
         $registro=PersonalController::registra();
+        if($registro='ok'){
+            echo '<div class="alert alert-success" role="alert">
+            Registro Exitoso!
+            </div>';
+         }else{
+             echo '<div class="alert alert-danger" role="alert">
+             Error de Registro!
+             </div>';
+         }
     }
+    
+    $lista = PersonalController::lista();
+    $area = PersonalController::area();
+    $cargo = PersonalController::cargos();
+    $pension = PersonalController::pension();
+    $afp=PersonalController::afp();
+    $empresa = PersonalController::empresa();
 ?>
     <!-- Animated -->
             <div class="animated fadeIn">
@@ -28,60 +44,65 @@
                             </div>
                         </div>
                     </div>
- 
+                <?php $i=0;foreach($lista as $lt):$i++;?>
                     <div class="row">
                         <div class="col">
                             <div class="card">
                                 <div class="card-head p-2">
-                                    <span class="label-form bg-danger rounded text-center px-2 text-light"> 01 </span>
-                                    <span class="label-form mx-2">Documento de Identidad :</span> <!--tipo de documento -->
-                                    <span class="count text-light">123456789</span> <!--numero de documento -->
+                                    <span class="label-form bg-danger rounded text-center px-2 text-light"> <?=$i;?> </span>
+                                    <span class="label-form mx-2"><?=$lt['tipodoc'];?> :</span> <!--tipo de documento -->
+                                    <span class="product"><?=$lt['documento'];?></span> <!--numero de documento -->
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="label-form">Nombres: <span class="form-control">Louis tony</span></span>
+                                            <span class="label-form">Id:</span>
+                                            <?php $idp = $lt['idp'];?>
+                                            <input type="text" class="form-control" class="form-control" value="<?=$lt['idp'];?>">
                                         </div>
                                         <div class="col">
-                                            <span class="label-form">Apellidos: <span class="form-control">Stanley Galvez</span></span>
+                                            <span class="label-form">Nombres: <span class="form-control"><?=$lt['nombre'];?></span></span>
                                         </div>
                                         <div class="col">
-                                            <span class="label-form">Fecha de Nacimiento: <span class="form-control">01/01/2022</span></span>
+                                            <span class="label-form">Apellidos: <span class="form-control"><?=$lt['apellido'];?></span></span>
+                                        </div>
+                                        <div class="col">
+                                            <span class="label-form">Fecha de Nacimiento: <span class="form-control"><?=$lt['nacimiento'];?></span></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <span class="label-form">Nacionalidad:</span>
-                                            <span class="form-control">PE</span>
+                                            <span class="form-control"><?=$lt['nacionalidad'];?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Estado Civil:</span>
-                                            <span class="form-control">S </span>
+                                            <span class="form-control"><?=$lt['estadocivil'];?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Sexo:</span>
-                                            <span class="form-control">M</span>
+                                            <span class="form-control"><?=$lt['sexo'];?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Movil:</span>
-                                            <span class="form-control">123456789</span>
+                                            <span class="form-control"><?=$lt['movil'];?></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <span class="label-form">Direccion</span>
-                                            <span class="form-control">Av.Tupa...</span>
+                                            <span class="form-control"><?=$lt['direccion'];?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Contacto Emergencia</span>
-                                            <span class="form-control">123456789</span>
+                                            <span class="form-control"><?=$lt['contacto'];?></span>
                                         </div>
                                     </div>
                                     
                                     <div class="row">
                                         <div class="col">
                                             <span class="label-form">Familia</span>
-                                            <span class="form-control">SI</span>
+                                            <span class="form-control"><?=$lt['hijos'];?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Tipo de Pension</span>
@@ -108,8 +129,8 @@
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
-
                     </div>
+                <?php endforeach;?>
                 </div>
                 <!-- /.orders -->
             </div>
@@ -245,31 +266,31 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col">
+                            <!-- <div class="col">
                                 <div class="form-group">
                                     <label for="">Id</label>
-                                    <input type="text" class="form-control" name="idU" id="idU" value="1" readonly>
+                                    <input type="text" class="form-control" name="idU" id="idU" value=" " readonly>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col">
                                 <div class="form-group">
                                     <label for="horarioI">Hora Ing</label>
-                                    <input type="time" class="form-control" name="horarioI" id="horarioI">
+                                    <input type="time" class="form-control" name="hI" id="hI">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="horarios">Hora Salida</label>
-                                    <input type="time" class="form-control" name="horarioS" id="horarioS">
+                                    <input type="time" class="form-control" name="hS" id="v">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="area">Area</label>
                                     <select name="area" id="area" class="form-control">
-                                        <option value="">Contabilidad</option>
-                                        <option value="">DT</option>
-                                        <option value="">Operacion</option>
+                                        <?php foreach($area as $a):?>
+                                            <option value="<?=$a['id']?>"><?=$a['aname']?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
@@ -279,9 +300,9 @@
                                 <div class="form-group">
                                     <label for="cargo">Cargo</label>
                                     <select name="cargo" id="cargo" class="form-control">
-                                        <option value="">Contabilidad</option>
-                                        <option value="">DT</option>
-                                        <option value="">Operacion</option>
+                                        <?php foreach($cargo as $c):?>
+                                        <option value="<?=$c['id']?>"><?=$c['cname']?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
@@ -289,8 +310,9 @@
                                 <div class="form-group">
                                     <label for="pension">Sist.Pension</label>
                                     <select name="pension" id="pension" class="form-control">
-                                        <option value="">AFP</option>
-                                        <option value="">ONP</option>
+                                        <?php foreach($pension as $ps):?>
+                                            <option value="<?$ps['id']?>"><?=$ps['psname']?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
@@ -298,17 +320,19 @@
                                 <div class="form-group">
                                     <label for="nafp">Entidad(AFP)</label>
                                     <select name="nafp" id="nafp" class="form-control">
-                                        <option value="">HABITAD</option>
-                                        <option value="">PROFUTURO</option>
-                                    </select>                                </div>
+                                        <?php foreach($afp as $np):?>
+                                            <option value="<?=$np['id']?>"><?=$np['afname']?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="empresa">Empresa</label>
                                     <select name="empresa" id="empresa" class="form-control">
-                                        <option value="">Yermedic</option>
+                                        <?php foreach($empresa as $ep):?>
                                         <option value="">Sideruck</option>
-                                        <option value="">JJBoggio</option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>

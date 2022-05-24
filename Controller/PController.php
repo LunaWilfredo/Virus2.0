@@ -58,4 +58,36 @@ class PersonalController{
         return $respuesta;
     }
 
+    /* Tablas de plan laboral*/
+
+    public static function area(){
+        $tabla="areas";
+        $respuesta=PersonalModel::area($tabla);
+        return $respuesta;
+    }
+
+    public static function cargos(){
+        $tabla="cargos";
+        $respuesta=PersonalModel::cargos($tabla);
+        return $respuesta;
+    }
+
+    public static function pension(){
+        $tabla="pensiones";
+        $respuesta=PersonalModel::pension($tabla);
+        return $respuesta;
+    }
+
+    public static function afp(){
+        $tabla="afp";
+        $respuesta=PersonalModel::afp($tabla);
+        return $respuesta;
+    }
+
+    public static function afp(){
+        $tabla="afp";
+        $respuesta=PersonalModel::afp($tabla);
+        return $respuesta;
+    }
+    
 }

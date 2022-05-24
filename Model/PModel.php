@@ -72,6 +72,26 @@ class PersonalModel{
     }
 
     static public function lista($tabla){
+        $sql="SELECT p.id AS 'idp', p.pname AS 'nombre', p.papellido AS 'apellido', tp.tdname AS 'tipodoc', p.pdoc AS 'documento',
+        p.pnac AS 'nacimiento',p.pnacionalidad AS 'nacionalidad',p.pmovil AS 'movil', ec.ecname AS 'estadocivil', s.sname AS 'sexo',
+         p.pfam AS 'hijos',p.pdireccion AS 'direccion', p.pcemerg AS 'contacto', pt.prname AS 'parentesco', es.ename AS 'estado' 
+         FROM $tabla p 
+         LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
+         LEFT JOIN estadoC ec ON p.fk_estadoc = ec.id
+         LEFT JOIN sexos s ON p.fk_sexo = s.id
+         LEFT JOIN parentescos pt ON p.fk_ptc = pt.id
+         LEFT JOIN estados es ON p.fk_estado = es.id ;";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    /*Tablas de plan laboral */
+
+    public static function area($tabla){
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -81,4 +101,33 @@ class PersonalModel{
         $cn=NULL;
     }
 
+    public static function cargos($tabla){
+        $sql="SELECT * FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function pension($tabla){
+        $sql="SELECT * FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function afp($tabla){
+        $sql="SELECT * FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
 }
