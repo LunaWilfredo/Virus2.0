@@ -84,10 +84,47 @@ class PersonalController{
         return $respuesta;
     }
 
-    public static function afp(){
-        $tabla="afp";
-        $respuesta=PersonalModel::afp($tabla);
+    public static function empresa(){
+        $tabla="empresas";
+        $respuesta=PersonalModel::empresa($tabla);
         return $respuesta;
     }
-    
+
+    public static function formap(){
+        $tabla="fpagos";
+        $respuesta=PersonalModel::formap($tabla);
+        return $respuesta;
+    }
+
+    public static function banco(){
+        $tabla="bancos";
+        $respuesta=PersonalModel::banco($tabla);
+        return $respuesta;
+    }
+
+    public static function planes(){
+        if(isset($_GET['idp']) && !empty($_POST['hI'])){
+            $tabla="planes";
+            $datos=array(
+                "hi"=>$_POST['hI'],
+                "hS"=>$_POST['hS'],
+                "areas"=>$_POST['area'],
+                "cargo"=>$_POST['cargo'],
+                "pension"=>$_POST['pension'],
+                "nafp"=>$_POST['nafp'],
+                "empresa"=>$_POST['empresa'],
+                "sueldo"=>$_POST['sueldo'],
+                "periodoP"=>$_POST['periodoP'],
+                "formaP"=>$_POST['formaP'],
+                "cuenta"=>$_POST['cuenta'],
+                "entidad"=>$_POST['entidad'],
+                "titular"=>$_POST['titular'],
+                "idp"=>$_GET['idp']
+            );
+            // var_dump($datos);
+            $respuesta=PersonalModel::planes($tabla,$datos);
+            return $respuesta;
+        }
+    }
+
 }

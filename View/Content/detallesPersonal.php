@@ -4,6 +4,7 @@
     $sexo=PersonalController::sexo();
     $parentesco=PersonalController::parent();
 
+    // Personal
     if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
         $registro=PersonalController::registra();
         if($registro='ok'){
@@ -23,8 +24,25 @@
     $pension = PersonalController::pension();
     $afp=PersonalController::afp();
     $empresa = PersonalController::empresa();
+    $formap=PersonalController::formap();
+    $banco=PersonalController::banco();
+
+    // Planes
+    if(isset($_POST['hI']) && !empty($_POST['hI'])){
+        $plan=PersonalController::planes();
+        if($registro='ok'){
+            echo '<div class="alert alert-success" role="alert">
+            Registro Exitoso!
+            </div>';
+         }else{
+             echo '<div class="alert alert-danger" role="alert">
+             Error de Registro!
+             </div>';
+         }
+    }
 ?>
     <!-- Animated -->
+        
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
                 <!-- Orders -->
@@ -55,11 +73,12 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col">
-                                            <span class="label-form">Id:</span>
-                                            <?php $idp = $lt['idp'];?>
-                                            <input type="text" class="form-control" class="form-control" value="<?=$lt['idp'];?>">
-                                        </div>
+                                        <!-- <form action="" method="POST"> -->
+                                            <div class="col">
+                                                <span class="label-form">Id:</span>
+                                                <input type="text" name="idp" id="idp" class="form-control" value="<?=$lt['idp'];?>">
+                                            </div>
+                                        <!-- </form> -->
                                         <div class="col">
                                             <span class="label-form">Nombres: <span class="form-control"><?=$lt['nombre'];?></span></span>
                                         </div>
@@ -123,7 +142,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer  text-center">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#laboralModal"><i class="fa fa-inbox"></i></button>
+                                    <a href="index.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     <a href="#!" class="btn btn-success btn-sm text-light"><i class="fa fa-pencil-square-o"></i></a>
                                 </div>
@@ -134,6 +153,7 @@
                 </div>
                 <!-- /.orders -->
             </div>
+
             <!-- .animated -->
 
     <!-- Modal Registro-->
@@ -254,147 +274,4 @@
             </div>
         </div>
     </form>
-    <!-- !Modal -->
-
-    <!-- Modal Plan Laboral -->
-    <form  action="" method="post">
-        <div class="modal fade" id="laboralModal" tabindex="-1" aria-labelledby="laboralModal" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Plan Laboral</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <!-- <div class="col">
-                                <div class="form-group">
-                                    <label for="">Id</label>
-                                    <input type="text" class="form-control" name="idU" id="idU" value=" " readonly>
-                                </div>
-                            </div> -->
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="horarioI">Hora Ing</label>
-                                    <input type="time" class="form-control" name="hI" id="hI">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="horarios">Hora Salida</label>
-                                    <input type="time" class="form-control" name="hS" id="v">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="area">Area</label>
-                                    <select name="area" id="area" class="form-control">
-                                        <?php foreach($area as $a):?>
-                                            <option value="<?=$a['id']?>"><?=$a['aname']?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="cargo">Cargo</label>
-                                    <select name="cargo" id="cargo" class="form-control">
-                                        <?php foreach($cargo as $c):?>
-                                        <option value="<?=$c['id']?>"><?=$c['cname']?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="form-group">
-                                    <label for="pension">Sist.Pension</label>
-                                    <select name="pension" id="pension" class="form-control">
-                                        <?php foreach($pension as $ps):?>
-                                            <option value="<?$ps['id']?>"><?=$ps['psname']?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="nafp">Entidad(AFP)</label>
-                                    <select name="nafp" id="nafp" class="form-control">
-                                        <?php foreach($afp as $np):?>
-                                            <option value="<?=$np['id']?>"><?=$np['afname']?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="empresa">Empresa</label>
-                                    <select name="empresa" id="empresa" class="form-control">
-                                        <?php foreach($empresa as $ep):?>
-                                        <option value="">Sideruck</option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                            <!--  -->
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="sueldo">Sueldo</label>
-                                    <input type="text" name="sueldo" id="sueldo" class="form-control" maxlength="4">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="periodoP">Periodo de Pago(Dias)</label>
-                                    <!-- <input type="number" name="periodoP" id="periodoP" class="form-control"> -->
-                                    <select name="periodoP" id="periodoP" class="form-control">
-                                        <option value="15">Semanal</option>
-                                        <option value="30">Mensual</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="formaP">Forma de Pago</label>
-                                    <select name="formaP" id="formaP" class="form-control">
-                                        <option value="">Efectivo</option>
-                                        <option value="">Deposito</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="cuenta">N° Cuenta</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder="00-000-0000">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="entidad">Entidad</label>
-                                    <select type="text" name="entidad" id="entidad" class="form-control">
-                                        <option value="">BBVA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="titular">Titular Cuenta</label>
-                                    <input type="text" name="titular" id="titular" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </form>   
     <!-- !Modal -->

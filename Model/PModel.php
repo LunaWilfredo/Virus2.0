@@ -130,4 +130,63 @@ class PersonalModel{
         $cn->close();
         $cn=NULL;
     }
+
+    public static function empresa($tabla){
+        $sql="SELECT * FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function formap($tabla){
+        $sql="SELECT * FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function banco($tabla){
+        $sql="SELECT * FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function planes($tabla,$datos){
+        $sql="INSERT INTO $tabla (`plhi`, `plhs`, `fk_area`, `fk_cargo`, `fk_pen`, `fk_afp`, `plsueldo`, `plpp`, `fk_pago`, `plcuenta`, `fk_bank`, `pltitular`, `fk_emp`, `fk_personal`) VALUES (:hi,:hS,:areas,:cargo,:pension,:nafp,:sueldo,:periodoP,:formaP,:cuenta,:entidad,:titular,:empresa,:idp)";
+        $cn=Conexion::conectar()->prepare($sql);
+
+        $cn->bindParam(':hi',$datos['hi'],PDO::PARAM_STR);
+        $cn->bindParam(':hS',$datos['hS'],PDO::PARAM_STR);
+        $cn->bindParam(':areas',$datos['areas'],PDO::PARAM_INT);
+        $cn->bindParam(':cargo',$datos['cargo'],PDO::PARAM_INT);
+        $cn->bindParam(':pension',$datos['pension'],PDO::PARAM_INT);
+        $cn->bindParam(':nafp',$datos['nafp'],PDO::PARAM_INT);
+        $cn->bindParam(':sueldo',$datos['sueldo'],PDO::PARAM_STR);
+        $cn->bindParam(':periodoP',$datos['periodoP'],PDO::PARAM_INT);
+        $cn->bindParam(':formaP',$datos['formaP'],PDO::PARAM_INT);
+        $cn->bindParam(':cuenta',$datos['cuenta'],PDO::PARAM_STR);
+        $cn->bindParam(':entidad',$datos['entidad'],PDO::PARAM_INT);
+        $cn->bindParam(':titular',$datos['titular'],PDO::PARAM_STR);
+        $cn->bindParam(':empresa',$datos['empresa'],PDO::PARAM_INT);
+        $cn->bindParam(':idp',$datos['idp'],PDO::PARAM_STR);
+
+        if($cn->execute()){
+            return 'ok';
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $cn->close();
+        $cn=NULL;
+    }
 }
