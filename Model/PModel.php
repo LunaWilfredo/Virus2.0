@@ -24,7 +24,7 @@ class PersonalModel{
     }
 
     static public function sexo($tabla){
-        $sql="SELECT id,SUBSTRING(sname,1,1) as nombre FROM $tabla ";
+        $sql="SELECT id,SUBSTRING(sname,1,3) as nombre FROM $tabla ";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();

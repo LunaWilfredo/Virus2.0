@@ -46,7 +46,7 @@ class PersonalController{
                 "contacto"=>$_POST['contacto'],
                 "relacion"=>$_POST['relacion']
             );
-            var_dump($datos);
+            //var_dump($datos);
             $respuesta = PersonalModel::registra($tabla,$datos);
             return $respuesta;
         }
