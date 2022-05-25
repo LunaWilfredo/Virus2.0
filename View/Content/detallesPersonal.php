@@ -52,7 +52,7 @@
                             <div class="card">
                                 <div class="d-flex">
                                     <div class="card-body">
-                                        <h4 class="box-title">Listado de Personal Detallado</h4>
+                                        <h4 class="box-title">Listado de Personal Registrado</h4>
                                     </div>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registromodal">
@@ -124,20 +124,26 @@
                                             <span class="form-control"><?=$lt['hijos'];?></span>
                                         </div>
                                         <div class="col">
-                                            <span class="label-form">Tipo de Pension</span>
-                                            <span class="form-control">AFP</span>
+                                            <span class="label-form">T. Pension</span>
+                                            <span class="form-control"><?=$lt['pension']?></span>
                                         </div>
+                                        <?php if($lt['pension'] = 'afp'):?>
+                                        <div class="col">
+                                            <span class="label-form">Nombre AFP</span>
+                                            <span class="form-control"><?=$lt['afp_name']?></span>
+                                        </div>
+                                        <?php endif;?>
                                         <div class="col">
                                             <span class="label-form">Area</span>
-                                            <span class="form-control">CONT</span>
+                                            <span class="form-control"><?=$lt['area']?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Empresa</span>
-                                            <span class="form-control">Y<span>  
+                                            <span class="form-control"><?=$lt['empresa']?><span>  
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Estado</span>
-                                            <span class="form-control bg-success  badge-complete text-light" >H</span>
+                                            <span class="form-control bg-success  badge-complete text-light" ><?=$lt['estado']?></span>
                                         </div>
                                     </div>
                                 </div>

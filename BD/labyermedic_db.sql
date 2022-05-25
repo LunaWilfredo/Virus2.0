@@ -130,20 +130,20 @@ CREATE TABLE IF NOT EXISTS personal(
 /*Tabla Plan Laboral*/
 CREATE TABLE IF NOT EXISTS planes(
 	id int not null auto_increment primary key,
-    plhi time,
-    plhs time,
-    fk_area int,
-    fk_cargo int,
-    fk_pen int,
-    fk_afp int,
-    plsueldo int,
-    plpp int,/*periodo de pago*/
-    fk_pago int,
-    plcuenta varchar(20),
-    fk_bank int,
-    pltitular varchar(255),
-    fk_emp int,
-    fk_personal int,
+    plhi VARCHAR(20) ,
+    plhs VARCHAR(20) ,
+    fk_area INT ,
+    fk_cargo INT ,
+    fk_pen INT ,
+    fk_afp INT ,
+    plsueldo INT ,
+    plpp INT ,/*periodo de pago*/
+    fk_pago INT ,
+    plcuenta VARCHAR(20) ,
+    fk_bank INT ,
+    pltitular VARCHAR(255),
+    fk_emp INT ,
+    fk_personal INT ,
     constraint fk_area_id foreign key (fk_area) references areas(id),
     constraint fk_cargo_id foreign key (fk_cargo) references cargos(id),
     constraint fk_pen_id foreign key (fk_pen) references pensiones(id),
@@ -156,6 +156,53 @@ CREATE TABLE IF NOT EXISTS planes(
 
 /*Selects simples*/
 select *  from asistencias;
+
+/* Selects completos */
+
+SELECT p.id AS 'idp', 
+p.pname AS 'nombre', 
+p.papellido AS 'apellido',
+ tp.tdname AS 'tipodoc', 
+ p.pdoc AS 'documento',
+p.pnac AS 'nacimiento',
+p.pnacionalidad AS 'nacionalidad',
+p.pmovil AS 'movil',
+ec.ecname AS 'estadocivil', 
+s.sname AS 'sexo',
+p.pfam AS 'hijos',
+p.pdireccion AS 'direccion', 
+p.pcemerg AS 'contaco', 
+pt.prname AS 'parentesco', 
+pl.plhi AS 'hora_ingreso',
+pl.plhs AS 'hora_salida',
+a.aname AS 'area',
+c.cname AS 'cargo',
+ps.psname AS 'pension',
+af.afname AS 'afp_name',
+pl.plsueldo AS 'sueldo',
+pl.plpp AS 'periodo_pago',
+fp.fpname AS 'forma_pago',
+pl.plcuenta AS 'cuenta',
+bk.bname AS 'banco',
+pl.pltitular AS 'titular_cuenta',
+e.ename AS 'empresa', 
+es.ename AS 'estado'
+ FROM personal p 
+ LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
+ LEFT JOIN estadoC ec ON p.fk_estadoc = ec.id
+ LEFT JOIN sexos s ON p.fk_sexo = s.id
+ LEFT JOIN parentescos pt ON p.fk_ptc = pt.id
+ LEFT JOIN estados es ON p.fk_estado = es.id
+ LEFT JOIN planes pl ON pl.fk_personal = p.id
+ LEFT JOIN areas a ON pl.fk_area = a.id
+ LEFT JOIN cargos c ON pl.fk_cargo = c.id
+ LEFT JOIN pensiones ps ON pl.fk_pen = ps.id
+ LEFT JOIN afp af ON pl.fk_afp = af.id
+ LEFT JOIN fpagos fp ON pl.fk_pago = fp.id
+ LEFT JOIN bancos bk ON pl.fk_bank = bk.id
+ LEFT JOIN empresas e ON pl.fk_emp = e.id 
+ ORDER BY p.id DESC;
+
 /*Vistas */
 CREATE VIEW listaPersonal AS SELECT p.id as 'id_p',pl.id as 'id_pl' FROM personal p INNER JOIN planes pl ON p.fk_pl = pl.id WHERE pl.fk_emp=1;
 select * from listaPersonal;

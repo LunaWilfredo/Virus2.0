@@ -12,9 +12,18 @@
     if(isset($_GET['idp']) && !empty($_POST['hI'])){
         $plan=PersonalController::planes();
         if($registro='ok'){
-            echo '<div class="alert alert-success" role="alert">
-            Registro Exitoso!
-            </div>';
+            echo '<script>
+                    if(window.history.replaceState){
+                        window.history.repaceState(null,null,window.location.href);
+                    }
+                </script>';
+            echo " <div class='alert alert-success'>Registro Exitoso</div>
+                <script>
+                    setTimeout(function(){
+                        window.location = 'index.php?page=detallesPersonal';
+                    },3000);
+                </script>
+            ";
          }else{
              echo '<div class="alert alert-danger" role="alert">
              Error de Registro!

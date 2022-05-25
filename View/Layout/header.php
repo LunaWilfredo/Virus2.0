@@ -43,7 +43,7 @@
                             <li><i class="fa fa-user"></i><a href="index.php?page=personalJJB">Personal JJBoggio</a></li>
                             <li><i class="fa fa-user"></i><a href="index.php?page=personalYerm">Personal Yermedic</a></li>
                             <li><i class="fa fa-user"></i><a href="index.php?page=personalSideruk">Personal Sideruk</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="index.php?page=detallesPersonal">Lista de Personal Detallado</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="index.php?page=detallesPersonal">Registro de Personal</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="index.php?page=personalList">Lista de Personal</a></li>
                         </ul>
                     </li>
