@@ -1,3 +1,6 @@
+<?php
+    $asistencias=PersonalController::asistencias();
+?>
             <div class="animated fadeIn">
                 <div class="row">
                     <div class="col-md-4">
@@ -21,21 +24,21 @@
                                             <th>Nombre</th>
                                             <th>Area</th>
                                             <th>Empresa</th>
-                                            <th>H.Ingreso</th>
-                                            <th>H.Salida</th>
+                                            <th>H.Marcacion</th>
                                             <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach($asistencias as $ast): ?>
                                         <tr>
-                                            <td>12345678</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>12:30</td>
-                                            <td>16:20</td>
-                                            <td>12/02/2022</td>
+                                            <td><?=$ast['documento']?></td>
+                                            <td><?=$ast['nombre'].' '.$ast['apellido']?></td>
+                                            <td><?=$ast['area']?></td>
+                                            <td><?=$ast['empresa']?></td>
+                                            <td><?=$ast['hora']?></td>
+                                            <td><?=$ast['fecha']?></td>
                                         </tr>
+                                        <?php endforeach;?>
                                     </tbody>
                                 </table>
                             </div>

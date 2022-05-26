@@ -141,4 +141,11 @@ class PersonalController{
         return $respuesta;
     }
 
+    /*Asistencias */
+    public static function asistencias(){
+        $tabla = "personal";
+        $respuesta = PersonalModel::asistencias($tabla);
+        return $respuesta;
+    }
+
 }

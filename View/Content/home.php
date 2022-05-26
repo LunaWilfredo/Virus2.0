@@ -2,7 +2,7 @@
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
-                    <!-- <div class="col-lg-3 col-md-6">
+                    <div class="col-lg col-md">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -11,16 +11,16 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Revenue</div>
+                                            <div class="stat-text"><span class="count">23569</span></div>
+                                            <div class="stat-heading">Personal Total</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
 
-                    <!-- <div class="col-lg-3 col-md-6">
+                    <div class="col-lg col-md">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -30,13 +30,13 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Sales</div>
+                                            <div class="stat-heading">Personal Habilitado</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="col-lg col-md">
                         <div class="card">
@@ -48,7 +48,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Templates</div>
+                                            <div class="stat-heading">Personal Deshabilitado</div>
                                         </div>
                                     </div>
                                 </div>
@@ -66,13 +66,32 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Personal</div>
+                                            <div class="stat-heading">Personal Administrativo</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg col-md">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-4">
+                                        <i class="pe-7s-users"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count">2986</span></div>
+                                            <div class="stat-heading">Personal Operacones</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /Widgets -->            
 

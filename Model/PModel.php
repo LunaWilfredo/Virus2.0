@@ -269,4 +269,29 @@ class PersonalModel{
         $cn->close();
         $cn=NULL;
     }
+
+    /*Asistencias */
+    public static function asistencias($tabla){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre' ,
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento',
+        a.aname AS 'area',
+        ep.ename AS 'empresa',
+        ast.fecha AS 'fecha',
+        ast.hora AS 'hora'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id 
+        LEFT JOIN areas a ON pl.fk_area = a.id
+        LEFT JOIN empresas ep ON pl.fk_emp = ep.id
+        LEFT JOIN asistencias ast ON ast.doc = p.pdoc
+        WHERE ast.fecha = CURDATE()
+        ORDER BY p.id DESC,p.pdoc,ast.fecha ;";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
 }
