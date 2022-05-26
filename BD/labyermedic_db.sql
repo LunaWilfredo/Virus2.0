@@ -202,7 +202,7 @@ es.ename AS 'estado'
  LEFT JOIN bancos bk ON pl.fk_bank = bk.id
  LEFT JOIN empresas e ON pl.fk_emp = e.id 
  ORDER BY p.id DESC;
-
+ 
 /*Vistas */
 CREATE VIEW listaPersonal AS SELECT p.id as 'id_p',pl.id as 'id_pl' FROM personal p INNER JOIN planes pl ON p.fk_pl = pl.id WHERE pl.fk_emp=1;
 select * from listaPersonal;

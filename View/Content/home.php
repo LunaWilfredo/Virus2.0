@@ -38,7 +38,7 @@
                         </div>
                     </div> -->
 
-                    <!-- <div class="col-lg-3 col-md-6">
+                    <div class="col-lg col-md">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -54,9 +54,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg col-md">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -74,153 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /Widgets -->
-                <div class="clearfix"></div>
-                <!-- Orders -->
-                <div class="orders">
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="box-title">Mejor Asistencia</h4>
-                                </div>
-                                <div class="card-body--">
-                                    <div class="table-stats order-table ov-h text-center">
-                                        <table class="table ">
-                                            <thead>
-                                                <tr>
-                                                    <th class="serial">#</th>
-                                                    <th>Doc.Id</th>
-                                                    <th>Nombre</th>
-                                                    <th>Area</th>
-                                                    <th>Dia/Hora</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="serial">1</td>
-                                                    <td> 12345678 </td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">2</td>
-                                                    <td> 12345678 </td>
-                                                    <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">3</td>
-                                                    <td> 12345678 </td>
-                                                    <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">4</td>
-                                                    <td> 12345678 </td>
-                                                    <td>  <span class="name">Mary Silva</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
-                                                </tr>
-                                                <tr class=" pb-0">
-                                                    <td class="serial">5</td>
-                                                    <td> 12345678 </td>
-                                                    <td>  <span class="name">Johnny Stephens</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="product">26-04-2022 | 7:00</span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- /.table-stats -->
-                                </div>
-                            </div> <!-- /.card -->
-                        </div>  <!-- /.col-lg-8 -->
-                    </div>
-                </div>
-                <!-- /.orders -->
+                <!-- /Widgets -->            
 
-                <!-- Calender Chart Weather  -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <!-- <h4 class="box-title">Chandler</h4> -->
-                                <div class="calender-cont widget-calender">
-                                    <div id="calendar"></div>
-                                </div>
-                            </div>
-                        </div><!-- /.card -->
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card ov-h">
-                            <div class="card-body bg-flat-color-2">
-                                <div id="flotBarChart" class="float-chart ml-4 mr-4"></div>
-                            </div>
-                            <div id="cellPaiChart" class="float-chart"></div>
-                        </div><!-- /.card -->
-                    </div>
-                </div>
-                <!-- /Calender Chart Weather -->
-
-                <!-- Modal - Calendar - Add New Event -->
-                <div class="modal fade none-border" id="event-modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Añadir Evento</strong></h4>
-                            </div>
-                            <div class="modal-body"></div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Crear</button>
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Borrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /#event-modal -->
-
-                <!-- Modal - Calendar - Add Category -->
-                <div class="modal fade none-border" id="add-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Añadir Categoria </strong></h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">Nombre de Categoria</label>
-                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="control-label">Seleccionar color de Categoria</label>
-                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                <option value="success">Success</option>
-                                                <option value="danger">Danger</option>
-                                                <option value="info">Info</option>
-                                                <option value="pink">Pink</option>
-                                                <option value="primary">Primary</option>
-                                                <option value="warning">Warning</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- /#add-category -->
             </div>
             <!-- .animated -->
