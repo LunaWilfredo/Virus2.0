@@ -1,4 +1,7 @@
-            <!-- Animated -->
+ <?php 
+    $administrativo = PersonalController::horarioAdmin();
+ ?>
+ <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
                 <!-- Orders -->
@@ -25,42 +28,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i=0; foreach($administrativo as $ad): $i++;?>
                                                 <tr>
-                                                    <td class="serial">1.</td>
-                                                    <td> #5469 </td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td><span class="badge badge-complete">Y</span></td>
-                                                    <td><span class="product">08:00</span></td>
-                                                    <td><span class="product">17:00</span></td>
+                                                    <td class="serial"><?=$i?></td>
+                                                    <td><?=$ad['documento']?></td>
+                                                    <td>  <span class="name"><?=$ad['nombre'].' '.$ad['apellido']?></span> </td>
+                                                    <td> <span class="product"><?=$ad['area']?></span> </td>
+                                                    <td><span class="badge badge-complete"><?=$ad['empresa']?></span></td>
+                                                    <td><span class="product"><?=$ad['ingreso']?></span></td>
+                                                    <td><span class="product"><?=$ad['salida']?></span></td>
                                                     <td>
                                                         <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="serial">2.</td>
-                                                    <td> #5468 </td>
-                                                    <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">iPad</span> </td>
-                                                    <td><span class="badge badge-dark">S</span></td>
-                                                    <td><span class="product">08:00</span></td>
-                                                    <td><span class="product">17:00</span></td>
-                                                    <td>
-                                                        <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">3.</td>
-                                                    <td> #5467 </td>
-                                                    <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">SSD</span> </td>
-                                                    <td><span class="badge badge-secondary">JJ</span></td>
-                                                    <td><span class="product">08:00</span></td>
-                                                    <td><span class="product">17:00</span></td>
-                                                    <td>
-                                                        <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                    </td>
-                                                </tr>
+                                                <?php endforeach;?>
                                             </tbody>
                                         </table>
                                     </div> <!-- /.table-stats -->

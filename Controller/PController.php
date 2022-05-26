@@ -127,4 +127,18 @@ class PersonalController{
         }
     }
 
+    /*Horarios Vistas */
+
+    public static function horarioAdmin(){
+        $tabla = "personal";
+        $respuesta = PersonalModel::horarioAdmin($tabla);
+        return $respuesta;
+    }
+
+    public static function horarioOp(){
+        $tabla = "personal";
+        $respuesta = PersonalModel::horarioOp($tabla);
+        return $respuesta;
+    }
+
 }

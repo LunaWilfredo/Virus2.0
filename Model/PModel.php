@@ -223,4 +223,50 @@ class PersonalModel{
         $cn->close();
         $cn=NULL;
     }
+
+    /*Vistas Horarios */
+
+    public static function horarioAdmin($tabla){
+        $sql="  SELECT p.id AS 'idp', 
+        p.pname AS 'nombre' ,
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento',
+        a.aname AS 'area',
+        ep.ename AS 'empresa',
+        pl.plhi AS 'ingreso',
+        pl.plhs AS 'salida'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id 
+        LEFT JOIN areas a ON pl.fk_area = a.id
+        LEFT JOIN empresas ep ON pl.fk_emp = ep.id
+        WHERE (pl.fk_cargo >= 1) AND (pl.fk_cargo != 4);";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function horarioOp($tabla){
+        $sql="  SELECT p.id AS 'idp', 
+        p.pname AS 'nombre' ,
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento',
+        a.aname AS 'area',
+        ep.ename AS 'empresa',
+        pl.plhi AS 'ingreso',
+        pl.plhs AS 'salida'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id 
+        LEFT JOIN areas a ON pl.fk_area = a.id
+        LEFT JOIN empresas ep ON pl.fk_emp = ep.id
+        WHERE (pl.fk_cargo= 4);";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
 }
