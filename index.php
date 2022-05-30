@@ -5,7 +5,6 @@
     //Controller
     include_once 'Controller/UController.php';
     include_once 'Controller/PController.php';
-
     //header and lateral
     include_once 'View/Layout/header.php';  
     // Body
