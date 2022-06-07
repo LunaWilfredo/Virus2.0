@@ -294,4 +294,52 @@ class PersonalModel{
         $cn->close();
         $cn=NULL;
     }
+
+    /*Pagos */
+    public static function ViewPagosCompletos($tabla,$doc,$fechaI,$fechaF){
+        $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
+        a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
+        ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
+        ((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30)) AS'DescFaltas',
+        ap.monto AS 'AFP%',(pl.plsueldo * ap.monto ) AS 'AFPDesc',
+        (pl.plsueldo * 0.15) AS 'DescSeguro',(pl.plsueldo-((pl.plsueldo * ap.monto )+
+        (pl.plsueldo * 0.15)+((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30)))) AS 'Total'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id
+        INNER JOIN empresas ep ON ep.id=pl.fk_emp
+        INNER JOIN areas a ON a.id=pl.fk_area
+        INNER JOIN asistencias ast ON p.pdoc = ast.doc
+        INNER JOIN afp ap ON ap.id = pl.fk_afp
+        WHERE p.pdoc = '$doc' OR ast.fecha
+        BETWEEN '$fechaI' AND '$fechaF' GROUP BY p.pdoc";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+    
+    public static function ViewPagos($tabla,$doc,$fechaI,$fechaF){
+        $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
+        a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
+        ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
+        ((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30)) AS'DescFaltas',
+        ap.monto AS 'AFP%',(pl.plsueldo * ap.monto ) AS 'AFPDesc',
+        (pl.plsueldo * 0.15) AS 'DescSeguro',(pl.plsueldo-((pl.plsueldo * ap.monto )+
+        (pl.plsueldo * 0.15)+((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30)))) AS 'Total'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id
+        INNER JOIN empresas ep ON ep.id=pl.fk_emp
+        INNER JOIN areas a ON a.id=pl.fk_area
+        INNER JOIN asistencias ast ON p.pdoc = ast.doc
+        INNER JOIN afp ap ON ap.id = pl.fk_afp
+        WHERE ast.fecha BETWEEN '$fechaI' AND '$fechaF' GROUP BY p.pdoc";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
 }

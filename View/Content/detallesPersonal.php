@@ -160,7 +160,7 @@
                 <!-- /.orders -->
             </div>
 
-            <!-- .animated -->
+            <!-- .animated --> 
 
     <!-- Modal Registro-->
     <form action="" method="post">

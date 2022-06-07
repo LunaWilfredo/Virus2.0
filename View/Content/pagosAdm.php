@@ -1,47 +1,39 @@
-            <!-- Animated -->
+<?php
+if(isset($_POST['doc']) ||isset($_POST['fechaI']) && isset($_POST['fechaF'])){
+    $pagoM=PersonalController::ViewPagos();
+}else{
+    $pagoM=PersonalController::ViewPagos();
+}
+?>
+<!-- Animated -->
             <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Sueldos</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Personal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Widgets -->
                 <div class="clearfix"></div>
                 <!-- Orders -->
                 <div class="orders">
+                    <form action="" method="Post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="p-2 d-flex">
+                                    <input type="text" name="doc" class="form-control mr-2" placeholder="Buscar">
+                                </div>
+                            </div>
+
+                                <div class="col-md">
+                                    <div class="p-2 flex">
+                                        <input type="date" name="fechaI" class="form-control mr-2" value="yyyy-mm-dd">
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="p-2 d-flex">
+                                        <input type="date" name="fechaF" class="form-control mr-2" value="yyyy-mm-dd">
+                                        <button type="submit" name="" class="btn btn-secondary justify-content-end"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </form>
+
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -57,55 +49,29 @@
                                                     <th>Nombre</th>
                                                     <th>Area</th>
                                                     <th>Empresa</th>
-                                                    <th>Dias Trabajados</th>
-                                                    <th>Sueldo Base</th>
-                                                    <th>Horas Extras</th>
-                                                    <th>Feriados</th>
-                                                    <th>AFP %</th>
+                                                    <th>Dias</th>
+                                                    <th>Sueldo</th>
+                                                    <th>Faltas</th>
+                                                    <th>AFP</th>
                                                     <th>Seguro</th>
                                                     <th>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i=0;foreach($pagoM as $pm):$i++;?>
                                                 <tr>
-                                                    <td class="serial">1</td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="badge badge-complete">Y</span></td>
-                                                    <td><span class="count">7</span></td>
-                                                    <td><span class="count">930</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
+                                                    <td class="serial"><?=$i?></td>
+                                                    <td> <span class="name"><?=$pm['Nombres']." ".$pm['Apellidos']?></span> </td>
+                                                    <td> <span class="product"><?=$pm['area']?></span> </td>
+                                                    <td><span class="badge badge-complete"><?=$pm['empresa']?></span></td>
+                                                    <td><span class="count"><?=$pm['asistencias']?></span></td>
+                                                    <td><span class="count"><?=$pm['sueldo']?></span></td>
+                                                    <td><span class="count"><?=$pm['Faltas']?></span></td>
+                                                    <td><span class="count"><?=$pm['AFPDesc']?></span></td>
+                                                    <td><span class="count"><?=$pm['DescSeguro']?></span></td>
+                                                    <td><span class="count"><?=$pm['Total']?></span></td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="serial">2</td>
-                                                    <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="badge badge-dark">S</span></td>
-                                                    <td><span class="count">7</span></td>
-                                                    <td><span class="count">930</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">3</td>
-                                                    <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">Contabilidad</span> </td>
-                                                    <td><span class="badge badge-secondary">JJ</span></td>
-                                                    <td><span class="count">7</span></td>
-                                                    <td><span class="count">930</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                    <td><span class="count">0</span></td>
-                                                </tr>
+                                                <?php endforeach;?>
                                             </tbody>
                                         </table>
                                     </div> <!-- /.table-stats -->

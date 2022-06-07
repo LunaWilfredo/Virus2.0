@@ -7,7 +7,7 @@
     $empresa = PersonalController::empresa();
     $formap=PersonalController::formap();
     $banco=PersonalController::banco();
-
+ 
     // Planes
     if(isset($_GET['idp']) && !empty($_POST['hI'])){
         $plan=PersonalController::planes();
