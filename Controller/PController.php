@@ -58,6 +58,79 @@ class PersonalController{
         return $respuesta;
     }
 
+    public static function listaJJ(){
+        if(isset($_POST['doc']) && !empty($_POST['doc'])){
+            $tabla="personal";
+            $doc=$_POST['doc'];
+            $empresa="JJBoggio";
+        
+            $respuesta=PersonalModel::listaBusq($tabla,$doc,$empresa);
+            return $respuesta;
+        }else{
+            $tabla="personal";
+            $doc=" ";
+            $empresa="JJBoggio";
+
+            $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
+            return $respuesta;
+        }
+    }
+
+    public static function listaY(){
+        if(isset($_POST['doc']) && !empty($_POST['doc'])){
+            $tabla="personal";
+            $doc=$_POST['doc'];
+            $empresa="Yermedic";
+        
+            $respuesta=PersonalModel::listaBusq($tabla,$doc,$empresa);
+            return $respuesta;
+        }else{
+            $tabla="personal";
+            $doc=" ";
+            $empresa="Yermedic";
+
+            $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
+            return $respuesta;
+        }
+    }
+
+    public static function listaS(){
+        if(isset($_POST['doc']) && !empty($_POST['doc'])){
+            $tabla="personal";
+            $doc=$_POST['doc'];
+            $empresa="Sideruk";
+        
+            $respuesta=PersonalModel::listaBusq($tabla,$doc,$empresa);
+            return $respuesta;
+        }else{
+            $tabla="personal";
+            $doc=" ";
+            $empresa="Sideruk";
+
+            $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
+            return $respuesta;
+        }
+    }
+
+    static public function cambioEst(){
+        if(isset($_GET['idd'])&&!empty($_GET['idd'])){
+            $tabla = "personal";
+            $idd=$_GET['idd'];
+            $respuesta=PersonalModel::cambioEst($tabla,$idd);
+            return $respuesta;
+        }
+    }
+
+    static public function BuscarGeneral(){
+        if(isset($_POST['doc']) && !empty($_POST['doc'])){
+            $tabla="personal";
+            $doc=$_POST['doc'];
+        
+            $respuesta=PersonalModel::BuscarGeneral($tabla,$doc);
+            return $respuesta;
+        }
+    }
+
     /* Tablas de plan laboral*/
 
     public static function area(){

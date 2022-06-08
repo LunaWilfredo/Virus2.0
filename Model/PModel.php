@@ -123,6 +123,125 @@ class PersonalModel{
         $cn=NULL;
     }
 
+    static public function BuscarGeneral($tabla,$doc){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre', 
+        p.papellido AS 'apellido',
+        tp.tdname AS 'tipodoc', 
+        p.pdoc AS 'documento',
+        p.pnac AS 'nacimiento',
+        p.pnacionalidad AS 'nacionalidad',
+        p.pmovil AS 'movil',
+        ec.ecname AS 'estadocivil', 
+        s.sname AS 'sexo',
+        p.pfam AS 'hijos',
+        p.pdireccion AS 'direccion', 
+        p.pcemerg AS 'contacto', 
+        pt.prname AS 'parentesco', 
+        pl.plhi AS 'hora_ingreso',
+        pl.plhs AS 'hora_salida',
+        a.aname AS 'area',
+        c.cname AS 'cargo',
+        ps.psname AS 'pension',
+        af.afname AS 'afp_name',
+        pl.plsueldo AS 'sueldo',
+        pl.plpp AS 'periodo_pago',
+        fp.fpname AS 'forma_pago',
+        pl.plcuenta AS 'cuenta',
+        bk.bname AS 'banco',
+        pl.pltitular AS 'titular_cuenta',
+        e.ename AS 'empresa', 
+        es.ename AS 'estado'
+         FROM $tabla p 
+         LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
+         LEFT JOIN estadoC ec ON p.fk_estadoc = ec.id
+         LEFT JOIN sexos s ON p.fk_sexo = s.id
+         LEFT JOIN parentescos pt ON p.fk_ptc = pt.id
+         LEFT JOIN estados es ON p.fk_estado = es.id
+         LEFT JOIN planes pl ON pl.fk_personal = p.id
+         LEFT JOIN areas a ON pl.fk_area = a.id
+         LEFT JOIN cargos c ON pl.fk_cargo = c.id
+         LEFT JOIN pensiones ps ON pl.fk_pen = ps.id
+         LEFT JOIN afp af ON pl.fk_afp = af.id
+         LEFT JOIN fpagos fp ON pl.fk_pago = fp.id
+         LEFT JOIN bancos bk ON pl.fk_bank = bk.id
+         LEFT JOIN empresas e ON pl.fk_emp = e.id 
+         WHERE p.pname = '$doc' 
+         OR p.papellido = '$doc' 
+         OR p.pdoc = '$doc'
+         OR e.ename = '$doc'";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function listaEmpresa($tabla,$doc,$empresa){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre', 
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento', 
+        a.aname AS 'area',
+        SUBSTRING(e.ename,1,1) AS 'empresa', 
+        es.ename AS 'estado'
+        FROM $tabla p 
+        LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
+        LEFT JOIN estados es ON p.fk_estado = es.id
+        LEFT JOIN planes pl ON pl.fk_personal = p.id
+        LEFT JOIN areas a ON pl.fk_area = a.id 
+        LEFT JOIN empresas e ON pl.fk_emp = e.id 
+        WHERE e.ename = '$empresa'
+        ORDER BY p.pname; ";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function listaBusq($tabla,$doc,$empresa){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre', 
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento', 
+        a.aname AS 'area',
+        SUBSTRING(e.ename,1,1) AS 'empresa', 
+        es.ename AS 'estado'
+        FROM $tabla p 
+        LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
+        LEFT JOIN estados es ON p.fk_estado = es.id
+        LEFT JOIN planes pl ON pl.fk_personal = p.id
+        LEFT JOIN areas a ON pl.fk_area = a.id 
+        LEFT JOIN empresas e ON pl.fk_emp = e.id 
+        WHERE p.pname = '$doc' OR 
+        p.papellido = '$doc' OR
+        p.pdoc = '$doc'
+        AND e.ename = '$empresa'
+        ORDER BY p.pname; ";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function cambioEst($tabla,$idd){
+        $sql="UPDATE $tabla SET fk_estado = 2 WHERE id = $idd";
+        $cn=Conexion::conectar()->prepare($sql);
+        if($cn->execute()){
+            return 'ok';
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+        
+        $cn->close();
+        $cn=NULL;
+    }
+
     /*Tablas de plan laboral */
 
     public static function area($tabla){

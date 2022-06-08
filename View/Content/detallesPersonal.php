@@ -18,7 +18,6 @@
          }
     }
     
-    $lista = PersonalController::lista();
     $area = PersonalController::area();
     $cargo = PersonalController::cargos();
     $pension = PersonalController::pension();
@@ -30,7 +29,7 @@
     // Planes
     if(isset($_POST['hI']) && !empty($_POST['hI'])){
         $plan=PersonalController::planes();
-        if($registro='ok'){
+        if($plan='ok'){
             echo '<div class="alert alert-success" role="alert">
             Registro Exitoso!
             </div>';
@@ -40,6 +39,24 @@
              </div>';
          }
     }
+
+    //Cambiar estado
+    if(isset($_GET['idd'])&&!empty($_GET['idd'])){
+        $ce = PersonalController::cambioEst();
+        if($ce='ok'){
+            echo '<div class="alert alert-success" role="alert">
+                     Personal deshabilitado
+                </div>';
+        }
+    }
+
+    //Buscar
+    if(isset($_POST['doc']) && !empty($_POST['doc'])){
+        $lista = PersonalController::BuscarGeneral();
+    }else{
+        $lista = PersonalController::lista();
+    }
+
 ?>
     <!-- Animated -->
         
@@ -47,6 +64,16 @@
                 <div class="clearfix"></div>
                 <!-- Orders -->
                 <div class="orders">
+                    <form action="" method="Post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="p-2 d-flex">
+                                <input type="text" name="doc" class="form-control mr-2" placeholder="Buscar">
+                                <button type="submit" name="" class="btn btn-secondary justify-content-end"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -73,12 +100,10 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <!-- <form action="" method="POST"> -->
-                                            <div class="col">
-                                                <span class="label-form">Id:</span>
-                                                <input type="text" name="idp" id="idp" class="form-control" value="<?=$lt['idp'];?>">
-                                            </div>
-                                        <!-- </form> -->
+                                            <!-- <div class="col"> -->
+                                                <!-- <span class="label-form">Id:</span> -->
+                                                <input type="hidden" name="idp" id="idp" class="form-control" value="<?=$lt['idp'];?>">
+                                            <!-- </div> -->
                                         <div class="col">
                                             <span class="label-form">Nombres: <span class="form-control"><?=$lt['nombre'];?></span></span>
                                         </div>
@@ -112,9 +137,19 @@
                                             <span class="label-form">Direccion</span>
                                             <span class="form-control"><?=$lt['direccion'];?></span>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col">
                                             <span class="label-form">Contacto Emergencia</span>
                                             <span class="form-control"><?=$lt['contacto'];?></span>
+                                        </div>
+                                        <div class="col">
+                                            <span class="label-form">Area</span>
+                                            <span class="form-control"><?=$lt['area']?></span>
+                                        </div>
+                                        <div class="col">
+                                            <span class="label-form">Empresa</span>
+                                            <span class="form-control"><?=$lt['empresa']?><span>  
                                         </div>
                                     </div>
                                     
@@ -127,30 +162,31 @@
                                             <span class="label-form">T. Pension</span>
                                             <span class="form-control"><?=$lt['pension']?></span>
                                         </div>
-                                        <?php if($lt['pension'] = 'afp'):?>
+                                        <?php if($lt['pension'] == 'AFP'):?>
                                         <div class="col">
                                             <span class="label-form">Nombre AFP</span>
                                             <span class="form-control"><?=$lt['afp_name']?></span>
                                         </div>
                                         <?php endif;?>
                                         <div class="col">
-                                            <span class="label-form">Area</span>
-                                            <span class="form-control"><?=$lt['area']?></span>
-                                        </div>
-                                        <div class="col">
-                                            <span class="label-form">Empresa</span>
-                                            <span class="form-control"><?=$lt['empresa']?><span>  
-                                        </div>
-                                        <div class="col">
                                             <span class="label-form">Estado</span>
-                                            <span class="form-control bg-success  badge-complete text-light" ><?=$lt['estado']?></span>
+                                            <?php if($lt['estado'] == 'Habilitado'):?>
+                                                <span class="form-control  badge-success text-light" ><?=$lt['estado']?></span>
+                                            <?php elseif($lt['estado'] =='Deshabilitado'):?>
+                                                <span class="form-control  badge-danger text-light" ><?=$lt['estado']?></span>
+                                            <?php endif;?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer  text-center">
-                                    <a href="index.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
-                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    <a href="#!" class="btn btn-success btn-sm text-light"><i class="fa fa-pencil-square-o"></i></a>
+                                    <?php if($lt['empresa'] = NULL):?>
+                                        <a href="index.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
+                                    <?php else:?>
+                                        <button class="btn btn-success btn-lg"><i class="fa fa-check-square-o"></i></button>
+                                    <?php endif?>
+
+                                    <a href="index.php?page=detallesPersonal&idd=<?=$lt['idp']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="#!" class="btn btn-success text-light"><i class="fa fa-pencil-square-o"></i></a>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
