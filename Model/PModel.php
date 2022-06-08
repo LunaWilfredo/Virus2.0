@@ -229,6 +229,33 @@ class PersonalModel{
         $cn=NULL;
     }
 
+    public static function listaGeneral($tabla,$doc){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre', 
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento', 
+        a.aname AS 'area',
+        SUBSTRING(e.ename,1,1) AS 'empresa', 
+        es.ename AS 'estado'
+        FROM $tabla p 
+        LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
+        LEFT JOIN estados es ON p.fk_estado = es.id
+        LEFT JOIN planes pl ON pl.fk_personal = p.id
+        LEFT JOIN areas a ON pl.fk_area = a.id 
+        LEFT JOIN empresas e ON pl.fk_emp = e.id 
+        WHERE p.pname = '$doc' OR 
+        p.papellido = '$doc' OR
+        p.pdoc = '$doc'
+        OR e.ename = '$doc'
+        ORDER BY p.pname; ";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
     static public function cambioEst($tabla,$idd){
         $sql="UPDATE $tabla SET fk_estado = 2 WHERE id = $idd";
         $cn=Conexion::conectar()->prepare($sql);

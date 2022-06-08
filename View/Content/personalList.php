@@ -1,8 +1,26 @@
+<?php
+    //Buscar-listar
+    if(isset($_POST['doc']) && !empty($_POST['doc'])){
+        $personalgeneral = PersonalController::listaG();
+    }else{
+        $personalgeneral = PersonalController::lista();
+    }
+?>
             <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
                 <!-- Orders -->
                 <div class="orders">
+                    <form action="" method="Post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="p-2 d-flex">
+                                <input type="text" name="doc" class="form-control mr-2" placeholder="Buscar">
+                                <button type="submit" name="" class="btn btn-secondary justify-content-end"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -23,36 +41,30 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i=0;foreach($personalgeneral as $pg):$i++;?>
                                                 <tr>
-                                                    <td class="serial">1.</td>
-                                                    <td> #5469 </td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td><span class="badge badge-complete">Y</span></td>
+                                                    <td class="serial"><?=$i?></td>
+                                                    <td><?=$pg['documento']?></td>
+                                                    <td><span class="name"><?=$pg['nombre']." ".$pg['apellido']?></span> </td>
+                                                    <td><span class="product"><?=$pg['area']?></span></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Habilitado</span>
+                                                        <?php if($pg['empresa'] == 'Yermedic' || $pg['empresa'] == 'Y'):?>
+                                                            <span class="badge badge-info "><?=$pg['empresa']?></span>
+                                                        <?php elseif($pg['empresa'] == 'JJBoggio' || $pg['empresa'] == 'J'):?>
+                                                            <span class="badge badge-dark"><?=$pg['empresa']?></span>
+                                                        <?php elseif($pg['empresa'] == 'Sideruk' || $pg['empresa'] == 'S'):?>
+                                                            <span class="badge badge-secondary "><?=$pg['empresa']?></span>
+                                                        <?php endif?>
+                                                    </td>
+                                                    <td>
+                                                        <?php if($pg['estado'] == 'Habilitado'):?>
+                                                            <span class="badge badge-complete"><?=$pg['estado']?></span>
+                                                        <?php elseif($pg['estado'] == 'Deshabilitado'):?>
+                                                            <span class="badge badge-danger"><?=$pg['estado']?></span>
+                                                        <?php endif;?>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="serial">2.</td>
-                                                    <td> #5468 </td>
-                                                    <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">iPad</span> </td>
-                                                    <td><span class="badge badge-dark">S</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Habilitado</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">3.</td>
-                                                    <td> #5467 </td>
-                                                    <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">SSD</span> </td>
-                                                    <td><span class="badge badge-secondary">JJ</span></td>
-                                                    <td>
-                                                        <span class="badge badge-danger">Deshabilitado</span>
-                                                    </td>
-                                                </tr>
+                                                <?php endforeach ?>
                                             </tbody>
                                         </table>
                                     </div> <!-- /.table-stats -->

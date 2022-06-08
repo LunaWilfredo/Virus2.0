@@ -112,6 +112,23 @@ class PersonalController{
         }
     }
 
+    public static function listaG(){
+        if(isset($_POST['doc']) && !empty($_POST['doc'])){
+            $tabla="personal";
+            $doc=$_POST['doc'];
+        
+            $respuesta=PersonalModel::listaGeneral($tabla,$doc);
+            return $respuesta;
+        }else{
+            $tabla="personal";
+            $doc=" ";
+            $empresa=" ";
+
+            $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
+            return $respuesta;
+        }
+    }
+
     static public function cambioEst(){
         if(isset($_GET['idd'])&&!empty($_GET['idd'])){
             $tabla = "personal";
