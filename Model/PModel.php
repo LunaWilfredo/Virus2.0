@@ -385,7 +385,30 @@ class PersonalModel{
         INNER JOIN planes pl ON pl.fk_personal=p.id 
         LEFT JOIN areas a ON pl.fk_area = a.id
         LEFT JOIN empresas ep ON pl.fk_emp = ep.id
-        WHERE (pl.fk_cargo >= 1) AND (pl.fk_cargo != 4);";
+        WHERE (pl.fk_area >= 1) AND (pl.fk_area != 5);";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function HAB($tabla,$doc){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre' ,
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento',
+        a.aname AS 'area',
+        ep.ename AS 'empresa',
+        pl.plhi AS 'ingreso',
+        pl.plhs AS 'salida'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id 
+        LEFT JOIN areas a ON pl.fk_area = a.id
+        LEFT JOIN empresas ep ON pl.fk_emp = ep.id
+        WHERE pl.fk_area !=5 AND p.pdoc ='$doc' OR p.pname ='$doc' 
+        OR p.papellido ='$doc'OR a.aname='$doc';";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();
@@ -407,7 +430,30 @@ class PersonalModel{
         INNER JOIN planes pl ON pl.fk_personal=p.id 
         LEFT JOIN areas a ON pl.fk_area = a.id
         LEFT JOIN empresas ep ON pl.fk_emp = ep.id
-        WHERE (pl.fk_cargo= 4);";
+        WHERE (pl.fk_area = 5);";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function HOB($tabla,$doc){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre' ,
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento',
+        a.aname AS 'area',
+        ep.ename AS 'empresa',
+        pl.plhi AS 'ingreso',
+        pl.plhs AS 'salida'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id 
+        LEFT JOIN areas a ON pl.fk_area = a.id
+        LEFT JOIN empresas ep ON pl.fk_emp = ep.id
+        WHERE pl.fk_area = 5 AND p.pdoc ='$doc' OR p.pname ='$doc' 
+        OR p.papellido ='$doc'OR a.aname='$doc';";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();
@@ -432,6 +478,31 @@ class PersonalModel{
         LEFT JOIN empresas ep ON pl.fk_emp = ep.id
         LEFT JOIN asistencias ast ON ast.doc = p.pdoc
         WHERE ast.fecha = CURDATE()
+        ORDER BY p.id DESC,p.pdoc,ast.fecha ;";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    public static function asistenciasB($tabla,$doc,$fechaI,$fechaF){
+        $sql="SELECT p.id AS 'idp', 
+        p.pname AS 'nombre' ,
+        p.papellido AS 'apellido',
+        p.pdoc AS 'documento',
+        a.aname AS 'area',
+        ep.ename AS 'empresa',
+        ast.fecha AS 'fecha',
+        ast.hora AS 'hora'
+        FROM $tabla p 
+        INNER JOIN planes pl ON pl.fk_personal=p.id 
+        LEFT JOIN areas a ON pl.fk_area = a.id
+        LEFT JOIN empresas ep ON pl.fk_emp = ep.id
+        LEFT JOIN asistencias ast ON ast.doc = p.pdoc
+        WHERE ast.fecha BETWEEN '$fechaI' AND '$fechaF' OR p.pname='$doc'
+        OR p.papellido='$doc' OR p.pdoc = '$doc'
         ORDER BY p.id DESC,p.pdoc,ast.fecha ;";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();

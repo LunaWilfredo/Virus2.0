@@ -1,11 +1,26 @@
  <?php 
-    $administrativo = PersonalController::horarioAdmin();
+    if(isset($_POST['doc']) && !empty($_POST['doc'])){
+        $administrativo = PersonalController::horarioAdminBuscar();
+    }else{
+        $administrativo = PersonalController::horarioAdmin();
+    }
+    
  ?>
  <!-- Animated -->
             <div class="animated fadeIn">
                 <div class="clearfix"></div>
                 <!-- Orders -->
                 <div class="orders">
+                    <form action="" method="Post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="p-2 d-flex">
+                                <input type="text" name="doc" class="form-control mr-2" placeholder="Buscar">
+                                <button type="submit" name="" class="btn btn-secondary justify-content-end"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <div class="row">
                         <div class="col">
                             <div class="card">

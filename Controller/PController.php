@@ -220,9 +220,18 @@ class PersonalController{
     /*Horarios Vistas */
 
     public static function horarioAdmin(){
-        $tabla = "personal";
-        $respuesta = PersonalModel::horarioAdmin($tabla);
-        return $respuesta;
+            $tabla = "personal";
+            $respuesta = PersonalModel::horarioAdmin($tabla);
+            return $respuesta;
+    }
+
+    public static function horarioAdminBuscar(){
+        if(isset($_POST['doc'])){
+            $doc = $_POST['doc'];
+            $tabla = "personal";
+            $respuesta = PersonalModel::HAB($tabla,$doc);
+            return $respuesta;
+        }
     }
 
     public static function horarioOp(){
@@ -231,11 +240,32 @@ class PersonalController{
         return $respuesta;
     }
 
+    public static function horarioOpBuscar(){
+        if(isset($_POST['doc'])){
+            $tabla = "personal";
+            $doc=$_POST['doc'];
+            $respuesta = PersonalModel::HOB($tabla,$doc);
+            return $respuesta;
+        }
+    }
+
     /*Asistencias */
     public static function asistencias(){
         $tabla = "personal";
         $respuesta = PersonalModel::asistencias($tabla);
         return $respuesta;
+    }
+
+    public static function asistenciasBuscar(){
+        if(isset($_POST['doc']) ||isset($_POST['fechaI']) && isset($_POST['fechaF'])){
+            $tabla="personal";
+            $doc=$_POST['doc'];
+            $fechaI=$_POST['fechaI'];
+            $fechaF=$_POST['fechaF'];
+            
+            $respuesta = PersonalModel::asistenciasB($tabla,$doc,$fechaI,$fechaF);
+            return $respuesta;
+        }
     }
 
     /*Pagos */
@@ -250,10 +280,11 @@ class PersonalController{
             $respuesta=PersonalModel::ViewPagosCompletos($tabla,$doc,$fechaI,$fechaF);
             return $respuesta;
         }else{
+                $mes=date('m');
                 $tabla="personal";
                 $doc= "";
-                $fechaI="2022-05-01";
-                $fechaF="2022-05-30";
+                $fechaI="2022-$mes-01";
+                $fechaF="2022-$mes-30";
             $respuesta=PersonalModel::ViewPagos($tabla,$doc,$fechaI,$fechaF);
             return $respuesta;
         }
