@@ -36,7 +36,7 @@ if(isset($_POST['doc']) ||isset($_POST['fechaI']) && isset($_POST['fechaF'])){
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="box-title">Detalle de Pagos Personal Mensuales </h4>
+                                    <h4 class="box-title">Detalle de Pagos Mensuales </h4>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">

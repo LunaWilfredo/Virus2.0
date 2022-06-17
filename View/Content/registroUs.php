@@ -35,7 +35,7 @@ $users = UsuariosController::lista();
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
+                                            <div class="stat-text"><span class="count"><?=COUNT($users)?></span></div>
                                             <div class="stat-heading">Usuarios</div>
                                         </div>
                                     </div>

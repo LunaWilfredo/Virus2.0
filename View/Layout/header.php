@@ -1,3 +1,20 @@
+<?php
+    if(isset($_SESSION['user']) && $_SESSION['user'] != null){
+        $usuario = $_SESSION['user'];
+        $login = UsuariosController::log($usuario);
+    }
+
+    foreach($login as $key => $log){
+        $_SESSION['rol'] = $log['fk_rol'];
+        $_SESSION['nombre_usuario'] = $log['uname'];
+    }
+
+    // Cierre de sesion
+    if(isset($_GET['cerrar']) && $_GET['cerrar'] == 'ok'){
+        $salir = New UsuariosController;
+        $salir -> cerrarSesion($_GET['cerrar']);
+    }
+?>
 <!Doctype html>
 <html class="no-js" lang="es">
 <head>
@@ -34,32 +51,32 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.php"><i class="menu-icon fa fa-home"></i>Pagina de Inicio</a>
+                        <a href="body.php"><i class="menu-icon fa fa-home"></i>Pagina de Inicio</a>
                     </li>
                     <li class="menu-title">RRHH</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Personal</a>
                         <ul class="sub-menu children dropdown-menu"> 
-                            <li><i class="fa fa-user"></i><a href="index.php?page=personalJJB">Personal JJBoggio</a></li>
-                            <li><i class="fa fa-user"></i><a href="index.php?page=personalYerm">Personal Yermedic</a></li>
-                            <li><i class="fa fa-user"></i><a href="index.php?page=personalSideruk">Personal Sideruk</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="index.php?page=detallesPersonal">Registro de Personal</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="index.php?page=personalList">Lista de Personal</a></li>
+                            <li><i class="fa fa-user"></i><a href="body.php?page=personalJJB">Personal JJBoggio</a></li>
+                            <li><i class="fa fa-user"></i><a href="body.php?page=personalYerm">Personal Yermedic</a></li>
+                            <li><i class="fa fa-user"></i><a href="body.php?page=personalSideruk">Personal Sideruk</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="body.php?page=detallesPersonal">Registro de Personal</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="body.php?page=personalList">Lista de Personal</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Horarios</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-clock-o"></i><a href="index.php?page=horarioAdmin">Horarios administrativos</a></li>
-                            <li><i class="fa fa-clock-o"></i><a href="index.php?page=horarioOp">Horarios de operacion</a></li>
-                            <li><i class="fa fa-clock-o"></i><a href="index.php?page=Asistencias">Asistencias</a></li>
+                            <li><i class="fa fa-clock-o"></i><a href="body.php?page=horarioAdmin">Horarios administrativos</a></li>
+                            <li><i class="fa fa-clock-o"></i><a href="body.php?page=horarioOp">Horarios de operacion</a></li>
+                            <li><i class="fa fa-clock-o"></i><a href="body.php?page=Asistencias">Asistencias</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-usd"></i>Pagos</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosAdm">Pagos Mensuales</a></li>
-                            <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosOpe">Pagos Semanales</a></li>
+                            <li><i class="menu-icon fa fa-usd"></i><a href="body.php?page=pagosAdm">Pagos Mensuales</a></li>
+                            <li><i class="menu-icon fa fa-usd"></i><a href="body.php?page=pagosOpe">Pagos Semanales</a></li>
                             <!-- <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosBlack">Lista Negra Pagos</a></li> -->
                         </ul>
                     </li>
@@ -68,7 +85,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-group"></i>Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-user"></i><a href="index.php?page=registroUs">Registro</a></li>
+                            <li><i class="menu-icon fa fa-user"></i><a href="body.php?page=registroUs">Registro</a></li>
                             <!-- <li><i class="menu-icon fa fa-plus"></i><a href="index.php?page=general">Panel General</a></li> -->
                         </ul>
                     </li>
@@ -99,14 +116,14 @@
             </div>
             <div class="top-right">
                 <div class="header-menu">
-                    <div class="header-left">
+                    <!-- <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
                                 <input class="form-control mr-sm-2" type="text" placeholder="Buscar ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
-                        </div>
+                        </div> -->
                         
                         <!-- Notificaciones de campana -->
                         <!-- <div class="dropdown for-notification">
@@ -173,18 +190,19 @@
                                 </a>
                             </div>
                         </div> -->
-                    </div>
+                    <!-- </div> -->
 
                     <!-- Avatar de usuario -->
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="assets/images/avatar/1.jpg" alt="User Avatar">
+                            <!-- <img class="user-avatar rounded-circle" src="assets/images/avatar/1.jpg" alt="User Avatar"> -->
+                            <span class="user-avatar rounded-circle">Y</span>
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i>Nombre de Usuario</a>
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i><?=$_SESSION['nombre_usuario']?></a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Cerrar Sesion</a>
+                            <a class="nav-link" href="body.php?cerrar=ok"><i class="fa fa-power-off"></i>Cerrar Sesion</a>
                         </div>
                     </div>
 

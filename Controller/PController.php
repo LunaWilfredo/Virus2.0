@@ -290,4 +290,26 @@ class PersonalController{
         }
     }
 
+    public static function ViewPagoSM(){
+        if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && isset($_POST['fechaF']) && !empty($_POST['fechaI'])){
+                $tabla="personal";
+                $doc=$_POST['doc'];
+                $fechaI=$_POST['fechaI'];
+                $fechaF=$_POST['fechaF'];
+            
+            $respuesta=PersonalModel::ViewPagosSemanal($tabla,$doc,$fechaI,$fechaF);
+            return $respuesta;
+        }else{
+                $mes=date('m');
+                $tabla="personal";
+                $doc= "";
+                $fechaI="2022-$mes-01";
+                $fechaF="2022-$mes-30";
+            $respuesta=PersonalModel::ViewPagoSB($tabla,$doc,$fechaI,$fechaF);
+            return $respuesta;
+        }
+    }
+
+
+
 }

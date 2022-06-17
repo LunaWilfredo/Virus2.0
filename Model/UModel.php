@@ -3,6 +3,38 @@ require_once './BD/db.php';
  
 class UsuariosModel{
 
+    static public function prelogin($user,$clave,$tabla){
+        $sql="SELECT unick,upass FROM $tabla WHERE unick='$user' AND upass='$clave'";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function login($user,$clave,$tabla){
+        $sql="SELECT * FROM $tabla WHERE unick='$user' AND upass='$clave'";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        if($cn->execute()){
+            return 'ok';
+        }
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function datosuser($user,$tabla){
+        $sql="SELECT * FROM $tabla WHERE unick='$user'";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
     static public function roles($tabla){
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
