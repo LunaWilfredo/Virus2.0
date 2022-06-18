@@ -9,14 +9,20 @@
     //header and lateral
     include_once 'View/Layout/header.php';  
     // Body
-    if(isset($_GET['page'])){
+    if(isset($_GET['page']))
+    {
         $page = $_GET['page'];
-        if($page == 'home' || $page == 'personalJJB' || $page =='Asistencias' || $page == 'detallesPersonal' || $page == 'pagosAdm' || $page == 'pagosOpe' || $page == 'personalList' || $page == 'personalSideruk' || $page == 'personalYerm' || $page == 'registroUs'|| $page == 'horarioAdmin' || $page == 'horarioOp' || $page == 'Asistencias' || $page == 'pagosWhite' || $page == 'pagosBlack' || $page == 'general'|| $page == 'planRegistro'){
+        if($page == 'home'||$page == 'personalJJB'|| $page == 'personalSideruk'|| $page == 'personalYerm'||$page =='Asistencias'||$page == 'personalList'|| $page == 'detallesPersonal'||$page='horarioAdmin'||$page='horarioOp'||$page == 'pagosAdm'||$page == 'pagosOpe'||$page == 'registroUs'||$page == 'planRegistro'||$page == 'dpEdit'||$page == 'plEdit')
+        {
             require_once 'View/Content/'.$_GET['page'].'.php';
-        }else{
+        }
+        else
+        {
             require_once 'View/Content/home.php';
         }
-    }else{
+    }
+    else
+    {
         require_once 'View/Content/home.php'; //body
     }
     // Footer

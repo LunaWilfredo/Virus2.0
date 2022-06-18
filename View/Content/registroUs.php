@@ -79,9 +79,9 @@ $users = UsuariosController::lista();
                                                 <?php $i=0;foreach($users as $user): $i++;?>
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
-                                                    <td> <span class="name"><?=$user['nombre']?></span> </td>
-                                                    <td> <span class="product"><?=$user['apellido']?></span> </td>
-                                                    <td> <span class="product"><?=$user['rol']?></span> </td>
+                                                    <td> <span class="name"><?=STRTOUPPER($user['nombre'])?></span> </td>
+                                                    <td> <span class="product"><?=STRTOUPPER($user['apellido'])?></span> </td>
+                                                    <td> <span class="product"><?=STRTOUPPER($user['rol'])?></span> </td>
                                                     <td> <span class="product"><?=$user['nick']?></span> </td>
                                                     <td> <span class="product"><?=$user['password']?></span></td>
                                                         <?php if($user['estado'] =='Habilitado'):?>
@@ -95,7 +95,7 @@ $users = UsuariosController::lista();
                                                         <?php endif;?>
                                                     <td>
                                                         <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                        <a href="index.php?page=registroUs&idb=<?=$user['id_usuario']?>" class="btn btn-danger"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+                                                        <a href="body.php?page=registroUs&idb=<?=$user['id_usuario']?>" class="btn btn-danger"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                                 <?php endforeach;?>

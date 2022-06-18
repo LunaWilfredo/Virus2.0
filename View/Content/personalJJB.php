@@ -44,9 +44,9 @@
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
                                                     <td><?=$jj['documento']?></td>
-                                                    <td><span class="name"><?=$jj['nombre']." ".$jj['apellido']?></span> </td>
-                                                    <td> <span class="product"><?=$jj['area']?></span> </td>
-                                                    <td><span class="badge badge-complete"><?=$jj['empresa']?></span></td>
+                                                    <td><span class="name"><?=STRTOUPPER($jj['nombre'])." ".STRTOUPPER($jj['apellido'])?></span> </td>
+                                                    <td> <span class="product"><?=STRTOUPPER($jj['area'])?></span> </td>
+                                                    <td><span class="badge badge-complete"><?=STRTOUPPER($jj['empresa'])?></span></td>
                                                     <td>
                                                         <span class="badge badge-complete"><?=$jj['estado']?></span>
                                                     </td>

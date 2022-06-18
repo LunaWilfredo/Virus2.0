@@ -1,24 +1,29 @@
 <?php
     require_once 'Controller/UController.php';
 
-    if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['claveuser']) && !empty($_POST['claveuser'])){
+    if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['claveuser']) && !empty($_POST['claveuser']))
+    {
         $user=$_POST['username'];
         $clave=$_POST['claveuser'];
-
         // comprovacion de usuario
         $comprobacion = UsuariosController::prelogin($user,$clave);
-
-        if($comprobacion >=1 && $comprobacion !=NULL){
-            foreach($comprobacion as $plog){
+        if($comprobacion >=1 && $comprobacion !=NULL)
+        {
+            foreach($comprobacion as $plog)
+            {
                 $userbd=$plog['unick'];
                 $clavebd=$plog['upass'];
+                $estadodb=$plog['fk_estado'];
             }
 
-            if($userbd == $user && $clavebd == $clave){
-                echo 'Login exitoso';
+            if($userbd == $user && $clavebd == $clave && $estadodb = 1 )
+            {
+                // echo 'Login exitoso';
                 $login = UsuariosController::login($user,$clave);
             }
-        }else{
+        }
+        else
+        {
             echo '
             <div class="container">
                 <div class="alert alert-danger" role="alert">
@@ -74,7 +79,7 @@
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <input type="text" class="form-control" name="claveuser" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="claveuser" placeholder="Contraseña">
                         </div>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                     </form>

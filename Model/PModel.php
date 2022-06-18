@@ -269,7 +269,7 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    /*Tablas de plan laboral */
+    // Tablas de plan laboral
 
     public static function area($tabla){
         $sql="SELECT * FROM $tabla";
@@ -370,7 +370,7 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    /*Vistas Horarios */
+    //Vistas Horarios
 
     public static function horarioAdmin($tabla){
         $sql="  SELECT p.id AS 'idp', 
@@ -462,7 +462,7 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    /*Asistencias */
+    // Asistencias
     public static function asistencias($tabla){
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
@@ -512,7 +512,7 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    /*Pagos */
+    // Pagos 
     public static function ViewPagosCompletos($tabla,$doc,$fechaI,$fechaF){
         $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
         a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
@@ -599,6 +599,18 @@ class PersonalModel{
         INNER JOIN asistencias ast ON p.pdoc = ast.doc
         INNER JOIN afp ap ON ap.id = pl.fk_afp
         WHERE ast.fecha BETWEEN '$fechaI' AND '$fechaF' GROUP BY p.pdoc";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    // Actualizar
+
+    static public function BuscarId($tabla,$idu){
+        $sql="SELECT p.id AS 'idp',p.pname AS 'nombre',p.papellido AS 'apellido',tp.tdname AS 'tipodoc',p.pdoc AS 'documento',p.pnac AS 'nacimiento',p.pnacionalidad AS 'nacionalidad',p.pmovil AS 'movil',ec.ecname AS 'estadocivil',s.sname AS 'sexo',p.pfam AS 'hijos',p.pdireccion AS 'direccion',p.pcemerg AS 'contaco',pt.prname AS 'parentesco' FROM $tabla p LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id LEFT JOIN estadoC ec ON p.fk_estadoc = ec.id LEFT JOIN sexos s ON p.fk_sexo = s.id LEFT JOIN parentescos pt ON p.fk_ptc = pt.id LEFT JOIN estados es ON p.fk_estado = es.id WHERE p.id='$idu'";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();

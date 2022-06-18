@@ -44,12 +44,18 @@
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
                                                     <td><?=$s['']?></td>
-                                                    <td><span class="name"><?=$s['nombre']." ".$s['apellido']?></span> </td>
-                                                    <td> <span class="product"><?=$s['area']?></span> </td>
+                                                    <td><span class="name"><?=STRTOUPPER($s['nombre'])." ".STRTOUPPER($s['apellido'])?></span> </td>
+                                                    <td> <span class="product"><?=STRTOUPPER($s['area'])?></span> </td>
                                                     <td><span class="badge badge-complete"><?=$s['empresa']?></span></td>
+                                                    <?php if($s['estado'] =="Habilitado"):?>
                                                     <td>
                                                         <span class="badge badge-complete"><?=$s['estado']?></span>
                                                     </td>
+                                                    <?php elseif($s['estado']=="Deshabilitado"):?>
+                                                    <td>
+                                                        <span class="badge badge-danger"><?=$s['estado']?></span>
+                                                    </td>
+                                                    <?php endif?>
                                                 </tr>
                                                 <?php endforeach;?>
                                             </tbody>

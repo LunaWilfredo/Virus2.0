@@ -79,7 +79,7 @@
                             <div class="card">
                                 <div class="d-flex">
                                     <div class="card-body">
-                                        <h4 class="box-title">Listado de Personal Registrado</h4>
+                                        <h4 class="box-title">Personal Registrado</h4>
                                     </div>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registromodal">
@@ -105,10 +105,10 @@
                                                 <input type="hidden" name="idp" id="idp" class="form-control" value="<?=$lt['idp'];?>">
                                             <!-- </div> -->
                                         <div class="col">
-                                            <span class="label-form">Nombres: <span class="form-control"><?=$lt['nombre'];?></span></span>
+                                            <span class="label-form">Nombres: <span class="form-control"><?=STRTOUPPER($lt['nombre']);?></span></span>
                                         </div>
                                         <div class="col">
-                                            <span class="label-form">Apellidos: <span class="form-control"><?=$lt['apellido'];?></span></span>
+                                            <span class="label-form">Apellidos: <span class="form-control"><?=STRTOUPPER($lt['apellido']);?></span></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Fecha de Nacimiento: <span class="form-control"><?=$lt['nacimiento'];?></span></span>
@@ -117,15 +117,15 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="label-form">Nacionalidad:</span>
-                                            <span class="form-control"><?=$lt['nacionalidad'];?></span>
+                                            <span class="form-control"><?=STRTOUPPER($lt['nacionalidad']);?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Estado Civil:</span>
-                                            <span class="form-control"><?=$lt['estadocivil'];?></span>
+                                            <span class="form-control"><?=STRTOUPPER($lt['estadocivil']);?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Sexo:</span>
-                                            <span class="form-control"><?=$lt['sexo'];?></span>
+                                            <span class="form-control"><?=STRTOUPPER($lt['sexo']);?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Movil:</span>
@@ -135,7 +135,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="label-form">Direccion</span>
-                                            <span class="form-control"><?=$lt['direccion'];?></span>
+                                            <span class="form-control"><?=STRTOUPPER($lt['direccion']);?></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -145,11 +145,11 @@
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Area</span>
-                                            <span class="form-control"><?=$lt['area']?></span>
+                                            <span class="form-control"><?=STRTOUPPER($lt['area'])?></span>
                                         </div>
                                         <div class="col">
                                             <span class="label-form">Empresa</span>
-                                            <span class="form-control"><?=$lt['empresa']?><span>  
+                                            <span class="form-control"><?=STRTOUPPER($lt['empresa'])?><span>  
                                         </div>
                                     </div>
                                     
@@ -171,22 +171,25 @@
                                         <div class="col">
                                             <span class="label-form">Estado</span>
                                             <?php if($lt['estado'] == 'Habilitado'):?>
-                                                <span class="form-control  badge-success text-light" ><?=$lt['estado']?></span>
+                                                <span class="form-control  badge-success text-light" ><?=STRTOUPPER($lt['estado'])?></span>
                                             <?php elseif($lt['estado'] =='Deshabilitado'):?>
-                                                <span class="form-control  badge-danger text-light" ><?=$lt['estado']?></span>
+                                                <span class="form-control  badge-danger text-light" ><?=STRTOUPPER($lt['estado'])?></span>
                                             <?php endif;?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer  text-center">
+                                    <!-- BTN REGISTRO PLAN LABORAL -->
                                     <?php if($lt['empresa'] = NULL):?>
-                                        <a href="index.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
+                                        <a href="body.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
                                     <?php else:?>
                                         <button class="btn btn-success btn-lg"><i class="fa fa-check-square-o"></i></button>
                                     <?php endif?>
-
-                                    <a href="index.php?page=detallesPersonal&idd=<?=$lt['idp']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                    <a href="#!" class="btn btn-success text-light"><i class="fa fa-pencil-square-o"></i></a>
+                                    <!-- BTN ELIMINAR/DESHABILITAR -->
+                                    <a href="body.php?page=detallesPersonal&idd=<?=$lt['idp']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <!-- BTN EDITAR DATOS/PLAN LABORAL -->
+                                    <a href="body.php?page=dpEdit&idu=<?=$lt['idp']?>" class="btn btn-success text-light"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="body.php?page=plEdit&idu=<?=$lt['idp']?>" class="btn btn-info text-light"><i class="fa fa-file-o"></i></a>
                                 </div>
                             </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->

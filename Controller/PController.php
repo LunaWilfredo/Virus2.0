@@ -148,7 +148,7 @@ class PersonalController{
         }
     }
 
-    /* Tablas de plan laboral*/
+    // Tablas de plan laboral
 
     public static function area(){
         $tabla="areas";
@@ -217,8 +217,7 @@ class PersonalController{
         }
     }
 
-    /*Horarios Vistas */
-
+    //Horarios Vistas
     public static function horarioAdmin(){
             $tabla = "personal";
             $respuesta = PersonalModel::horarioAdmin($tabla);
@@ -249,7 +248,7 @@ class PersonalController{
         }
     }
 
-    /*Asistencias */
+    // Asistencias
     public static function asistencias(){
         $tabla = "personal";
         $respuesta = PersonalModel::asistencias($tabla);
@@ -268,8 +267,7 @@ class PersonalController{
         }
     }
 
-    /*Pagos */
-
+    // Pagos
     public static function ViewPagos(){
         if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && isset($_POST['fechaF']) && !empty($_POST['fechaI'])){
                 $tabla="personal";
@@ -310,6 +308,16 @@ class PersonalController{
         }
     }
 
+    // Actualizar Datos
+    static public function BuscarId(){
+        if(isset($_GET['idu']) && !empty($_GET['idu']))
+        {
+            $idu=$_GET['idu'];
+            $tabla = "personal";
 
+            $respuesta=PersonalModel::BuscarId($tabla,$idu);
+            return $respuesta;
+        }
+    }
 
 }

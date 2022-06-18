@@ -44,12 +44,18 @@
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
                                                     <td><?=$y['documento']?></td>
-                                                    <td><span class="name"><?=$y['nombre'].' '.$y['apellido']?></span> </td>
-                                                    <td> <span class="product"><?=$y['area']?></span> </td>
-                                                    <td><span class="badge badge-complete"><?=$y['empresa']?></span></td>
+                                                    <td><span class="name"><?=STRTOUPPER($y['nombre']).' '.STRTOUPPER($y['apellido'])?></span> </td>
+                                                    <td> <span class="product"><?=STRTOUPPER($y['area'])?></span> </td>
+                                                    <td><span class="badge badge-complete"><?=STRTOUPPER($y['empresa'])?></span></td>
+                                                    <?php if($y['estado'] =="Habilitado"):?>
                                                     <td>
                                                         <span class="badge badge-complete"><?=$y['estado']?></span>
                                                     </td>
+                                                    <?php elseif($y['estado']=="Deshabilitado"):?>
+                                                    <td>
+                                                        <span class="badge badge-danger"><?=$y['estado']?></span>
+                                                    </td>
+                                                    <?php endif?>
                                                 </tr>
                                                 <?php endforeach;?>
                                             </tbody>

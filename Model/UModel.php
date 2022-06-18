@@ -26,7 +26,7 @@ class UsuariosModel{
     }
 
     static public function datosuser($user,$tabla){
-        $sql="SELECT * FROM $tabla WHERE unick='$user'";
+        $sql="SELECT *,substring(uname,1,1) AS 'inicial' FROM $tabla WHERE unick='$user'";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();

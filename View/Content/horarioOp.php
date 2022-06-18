@@ -25,7 +25,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="box-title">Lista de horarios Operaciones </h4>
+                                    <h4 class="box-title">Horarios Operaciones </h4>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
@@ -47,9 +47,9 @@
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
                                                     <td><?=$op['documento']?></td>
-                                                    <td>  <span class="name"><?=$op['nombre'].' '.$op['apellido']?></span> </td>
-                                                    <td> <span class="product"><?=$op['area']?></span> </td>
-                                                    <td><span class="badge badge-complete"><?=$op['empresa']?></span></td>
+                                                    <td>  <span class="name"><?=STRTOUPPER($op['nombre']).' '.STRTOUPPER($op['apellido'])?></span> </td>
+                                                    <td> <span class="product"><?=STRTOUPPER($op['area'])?></span> </td>
+                                                    <td><span class="badge badge-complete"><?=STRTOUPPER($op['empresa'])?></span></td>
                                                     <td><span class="product"><?=$op['ingreso']?></span></td>
                                                     <td><span class="product"><?=$op['salida']?></span></td>
                                                     <td>

@@ -32,7 +32,7 @@ if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && !em
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Tabla de Asistencias</strong>
+                                <strong class="card-title">Registro de Asistencias</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -50,9 +50,9 @@ if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && !em
                                         <?php foreach($asistencias as $ast): ?>
                                         <tr>
                                             <td><?=$ast['documento']?></td>
-                                            <td><?=$ast['nombre'].' '.$ast['apellido']?></td>
-                                            <td><?=$ast['area']?></td>
-                                            <td><?=$ast['empresa']?></td>
+                                            <td><?=STRTOUPPER($ast['nombre']).' '.STRTOUPPER($ast['apellido'])?></td>
+                                            <td><?=STRTOUPPER($ast['area'])?></td>
+                                            <td><?=STRTOUPPER($ast['empresa'])?></td>
                                             <td><?=$ast['hora']?></td>
                                             <td><?=$ast['fecha']?></td>
                                         </tr>

@@ -25,7 +25,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="box-title">Lista Resumen de Personal </h4>
+                                    <h4 class="box-title">Resumen de Personal </h4>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
@@ -45,15 +45,15 @@
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
                                                     <td><?=$pg['documento']?></td>
-                                                    <td><span class="name"><?=$pg['nombre']." ".$pg['apellido']?></span> </td>
-                                                    <td><span class="product"><?=$pg['area']?></span></td>
+                                                    <td><span class="name"><?=STRTOUPPER($pg['nombre'])." ".STRTOUPPER($pg['apellido'])?></span> </td>
+                                                    <td><span class="product"><?=STRTOUPPER($pg['area'])?></span></td>
                                                     <td>
                                                         <?php if($pg['empresa'] == 'Yermedic' || $pg['empresa'] == 'Y'):?>
-                                                            <span class="badge badge-info "><?=$pg['empresa']?></span>
+                                                            <span class="badge badge-info "><?=STRTOUPPER($pg['empresa'])?></span>
                                                         <?php elseif($pg['empresa'] == 'JJBoggio' || $pg['empresa'] == 'J'):?>
-                                                            <span class="badge badge-dark"><?=$pg['empresa']?></span>
+                                                            <span class="badge badge-dark"><?=STRTOUPPER($pg['empresa'])?></span>
                                                         <?php elseif($pg['empresa'] == 'Sideruk' || $pg['empresa'] == 'S'):?>
-                                                            <span class="badge badge-secondary "><?=$pg['empresa']?></span>
+                                                            <span class="badge badge-secondary "><?=STRTOUPPER($pg['empresa'])?></span>
                                                         <?php endif?>
                                                     </td>
                                                     <td>
