@@ -3,31 +3,36 @@ require_once 'Model/PModel.php';
 
 class PersonalController{
 
-    static public function tipodoc(){
+    static public function tipodoc()
+    {
         $tabla="tpdoc";
         $respuesta=PersonalModel::tipodoc($tabla);
         return $respuesta;
     }
 
-    static public function estadoc(){
+    static public function estadoc()
+    {
         $tabla="estadoC";
         $respuesta=PersonalModel::estadoc($tabla);
         return $respuesta;
     }
 
-    static public function sexo(){
+    static public function sexo()
+    {
         $tabla="sexos";
         $respuesta=PersonalModel::sexo($tabla);
         return $respuesta;
     }
 
-    static public function parent(){
+    static public function parent()
+    {
         $tabla="parentescos";
         $respuesta=PersonalModel::parent($tabla);
         return $respuesta;
     }
 
-    static public function registra(){
+    static public function registra()
+    {
         if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
             
             $tabla = "personal";
@@ -52,13 +57,15 @@ class PersonalController{
         }
     }
 
-    static public function lista(){
+    static public function lista()
+    {
         $tabla='personal';
         $respuesta=PersonalModel::lista($tabla);
         return $respuesta;
     }
 
-    public static function listaJJ(){
+    public static function listaJJ()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
@@ -76,7 +83,8 @@ class PersonalController{
         }
     }
 
-    public static function listaY(){
+    public static function listaY()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
@@ -94,7 +102,8 @@ class PersonalController{
         }
     }
 
-    public static function listaS(){
+    public static function listaS()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
@@ -112,7 +121,8 @@ class PersonalController{
         }
     }
 
-    public static function listaG(){
+    public static function listaG()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
@@ -129,7 +139,8 @@ class PersonalController{
         }
     }
 
-    static public function cambioEst(){
+    static public function cambioEst()
+    {
         if(isset($_GET['idd'])&&!empty($_GET['idd'])){
             $tabla = "personal";
             $idd=$_GET['idd'];
@@ -138,7 +149,8 @@ class PersonalController{
         }
     }
 
-    static public function BuscarGeneral(){
+    static public function BuscarGeneral()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
@@ -150,49 +162,57 @@ class PersonalController{
 
     // Tablas de plan laboral
 
-    public static function area(){
+    public static function area()
+    {
         $tabla="areas";
         $respuesta=PersonalModel::area($tabla);
         return $respuesta;
     }
 
-    public static function cargos(){
+    public static function cargos()
+    {
         $tabla="cargos";
         $respuesta=PersonalModel::cargos($tabla);
         return $respuesta;
     }
 
-    public static function pension(){
+    public static function pension()
+    {
         $tabla="pensiones";
         $respuesta=PersonalModel::pension($tabla);
         return $respuesta;
     }
 
-    public static function afp(){
+    public static function afp()
+    {
         $tabla="afp";
         $respuesta=PersonalModel::afp($tabla);
         return $respuesta;
     }
 
-    public static function empresa(){
+    public static function empresa()
+    {
         $tabla="empresas";
         $respuesta=PersonalModel::empresa($tabla);
         return $respuesta;
     }
 
-    public static function formap(){
+    public static function formap()
+    {
         $tabla="fpagos";
         $respuesta=PersonalModel::formap($tabla);
         return $respuesta;
     }
 
-    public static function banco(){
+    public static function banco()
+    {
         $tabla="bancos";
         $respuesta=PersonalModel::banco($tabla);
         return $respuesta;
     }
 
-    public static function planes(){
+    public static function planes()
+    {
         if(isset($_GET['idp']) && !empty($_POST['hI'])){
             $tabla="planes";
             $datos=array(
@@ -218,13 +238,15 @@ class PersonalController{
     }
 
     //Horarios Vistas
-    public static function horarioAdmin(){
+    public static function horarioAdmin()
+    {
             $tabla = "personal";
             $respuesta = PersonalModel::horarioAdmin($tabla);
             return $respuesta;
     }
 
-    public static function horarioAdminBuscar(){
+    public static function horarioAdminBuscar()
+    {
         if(isset($_POST['doc'])){
             $doc = $_POST['doc'];
             $tabla = "personal";
@@ -233,13 +255,15 @@ class PersonalController{
         }
     }
 
-    public static function horarioOp(){
+    public static function horarioOp()
+    {
         $tabla = "personal";
         $respuesta = PersonalModel::horarioOp($tabla);
         return $respuesta;
     }
 
-    public static function horarioOpBuscar(){
+    public static function horarioOpBuscar()
+    {
         if(isset($_POST['doc'])){
             $tabla = "personal";
             $doc=$_POST['doc'];
@@ -249,13 +273,15 @@ class PersonalController{
     }
 
     // Asistencias
-    public static function asistencias(){
+    public static function asistencias()
+    {
         $tabla = "personal";
         $respuesta = PersonalModel::asistencias($tabla);
         return $respuesta;
     }
 
-    public static function asistenciasBuscar(){
+    public static function asistenciasBuscar()
+    {
         if(isset($_POST['doc']) ||isset($_POST['fechaI']) && isset($_POST['fechaF'])){
             $tabla="personal";
             $doc=$_POST['doc'];
@@ -268,7 +294,8 @@ class PersonalController{
     }
 
     // Pagos
-    public static function ViewPagos(){
+    public static function ViewPagos()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && isset($_POST['fechaF']) && !empty($_POST['fechaI'])){
                 $tabla="personal";
                 $doc=$_POST['doc'];
@@ -288,7 +315,8 @@ class PersonalController{
         }
     }
 
-    public static function ViewPagoSM(){
+    public static function ViewPagoSM()
+    {
         if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && isset($_POST['fechaF']) && !empty($_POST['fechaI'])){
                 $tabla="personal";
                 $doc=$_POST['doc'];
@@ -309,13 +337,79 @@ class PersonalController{
     }
 
     // Actualizar Datos
-    static public function BuscarId(){
+    static public function BuscarId()
+    {
         if(isset($_GET['idu']) && !empty($_GET['idu']))
         {
             $idu=$_GET['idu'];
             $tabla = "personal";
 
             $respuesta=PersonalModel::BuscarId($tabla,$idu);
+            return $respuesta;
+        }
+    }
+
+    static public function ActualizarDatos()
+    {
+        if(isset($_POST['nombres'])&&!empty($_POST['nombres'])&&isset($_POST['idu'])&&!empty($_POST['idu']))
+        {
+            $idu=$_POST['idu'];
+            $tabla = "personal";
+            $datos = array(
+                "nombres"=>$_POST['nombres'],
+                "apellidos"=>$_POST['apellidos'],
+                "tipodoc"=>$_POST['Tdoc'],
+                "doc"=>$_POST['doc'],
+                "fecha"=>$_POST['fecha'],
+                "nacion"=>$_POST['nacion'],
+                "movil"=>$_POST['movil'],
+                "estadoc"=>$_POST['ecivil'],
+                "sexo"=>$_POST['sexo'],
+                "hijos"=>$_POST['hijos'],
+                "direccion"=>$_POST['direccion'],
+                "contacto"=>$_POST['contacto'],
+                "relacion"=>$_POST['relacion']
+            );
+            //var_dump($datos);
+            $respuesta = PersonalModel::ActualizarDatos($tabla,$datos,$idu);
+            return $respuesta;
+        }
+    }
+
+    static public function BuscarPlan(){
+        if(isset($_GET['idu']) && !empty($_GET['idu']))
+        {
+            $idu=$_GET['idu'];
+            $tabla = "personal";
+
+            $respuesta=PersonalModel::BuscarPlan($tabla,$idu);
+            return $respuesta;
+        }
+    }
+
+    static public function ActualizarPlanes()
+    {
+        if(isset($_POST['nombres'])&&!empty($_POST['nombres'])&&isset($_POST['idu'])&&!empty($_POST['idu']))
+        {
+            $idu=$_POST['idu'];
+            $tabla = "personal";
+            $datos = array(
+                "nombres"=>$_POST['nombres'],
+                "apellidos"=>$_POST['apellidos'],
+                "tipodoc"=>$_POST['Tdoc'],
+                "doc"=>$_POST['doc'],
+                "fecha"=>$_POST['fecha'],
+                "nacion"=>$_POST['nacion'],
+                "movil"=>$_POST['movil'],
+                "estadoc"=>$_POST['ecivil'],
+                "sexo"=>$_POST['sexo'],
+                "hijos"=>$_POST['hijos'],
+                "direccion"=>$_POST['direccion'],
+                "contacto"=>$_POST['contacto'],
+                "relacion"=>$_POST['relacion']
+            );
+            //var_dump($datos);
+            $respuesta = PersonalModel::ActualizarDatos($tabla,$datos,$idu);
             return $respuesta;
         }
     }
