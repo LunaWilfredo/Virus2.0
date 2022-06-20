@@ -39,7 +39,7 @@
                                                     <th>Empresa</th>
                                                     <th>Hora de Ingreso</th>
                                                     <th>Hora de Salida</th>
-                                                    <th></th>
+                                                    <!-- <th></th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -52,9 +52,9 @@
                                                     <td><span class="badge badge-complete"><?=STRTOUPPER($ad['empresa'])?></span></td>
                                                     <td><span class="product"><?=$ad['ingreso']?></span></td>
                                                     <td><span class="product"><?=$ad['salida']?></span></td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                                 <?php endforeach;?>
                                             </tbody>

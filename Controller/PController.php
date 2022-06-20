@@ -306,10 +306,11 @@ class PersonalController{
             return $respuesta;
         }else{
                 $mes=date('m');
+                $year=date('Y');
                 $tabla="personal";
                 $doc= "";
-                $fechaI="2022-$mes-01";
-                $fechaF="2022-$mes-30";
+                $fechaI="$year-$mes-01";
+                $fechaF="$year-$mes-30";
             $respuesta=PersonalModel::ViewPagos($tabla,$doc,$fechaI,$fechaF);
             return $respuesta;
         }
@@ -376,7 +377,8 @@ class PersonalController{
         }
     }
 
-    static public function BuscarPlan(){
+    static public function BuscarPlan()
+    {
         if(isset($_GET['idu']) && !empty($_GET['idu']))
         {
             $idu=$_GET['idu'];
@@ -389,28 +391,28 @@ class PersonalController{
 
     static public function ActualizarPlanes()
     {
-        if(isset($_POST['nombres'])&&!empty($_POST['nombres'])&&isset($_POST['idu'])&&!empty($_POST['idu']))
+        if(isset($_POST['idpl'])&&!empty($_POST['idpl']))
         {
-            $idu=$_POST['idu'];
-            $tabla = "personal";
-            $datos = array(
-                "nombres"=>$_POST['nombres'],
-                "apellidos"=>$_POST['apellidos'],
-                "tipodoc"=>$_POST['Tdoc'],
-                "doc"=>$_POST['doc'],
-                "fecha"=>$_POST['fecha'],
-                "nacion"=>$_POST['nacion'],
-                "movil"=>$_POST['movil'],
-                "estadoc"=>$_POST['ecivil'],
-                "sexo"=>$_POST['sexo'],
-                "hijos"=>$_POST['hijos'],
-                "direccion"=>$_POST['direccion'],
-                "contacto"=>$_POST['contacto'],
-                "relacion"=>$_POST['relacion']
-            );
-            //var_dump($datos);
-            $respuesta = PersonalModel::ActualizarDatos($tabla,$datos,$idu);
-            return $respuesta;
+            $idpl=$_POST['idpl'];
+            $tabla="planes";
+            $datos=array(
+                "hi"=>$_POST['hI'],
+                "hS"=>$_POST['hS'],
+                "areas"=>$_POST['area'],
+                "cargo"=>$_POST['cargo'],
+                "pension"=>$_POST['pension'],
+                "nafp"=>$_POST['nafp'],
+                "empresa"=>$_POST['empresa'],
+                "sueldo"=>$_POST['sueldo'],
+                "periodoP"=>$_POST['periodoP'],
+                "formaP"=>$_POST['formaP'],
+                "cuenta"=>$_POST['cuenta'],
+                "entidad"=>$_POST['entidad'],
+                "titular"=>$_POST['titular']
+                );
+                // var_dump($datos);
+                $respuesta=PersonalModel::ActualizarPlanes($tabla,$datos,$idpl);
+                return $respuesta;
         }
     }
 

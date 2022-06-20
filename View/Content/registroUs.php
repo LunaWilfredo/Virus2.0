@@ -86,15 +86,15 @@ $users = UsuariosController::lista();
                                                     <td> <span class="product"><?=$user['password']?></span></td>
                                                         <?php if($user['estado'] =='Habilitado'):?>
                                                     <td>
-                                                        <span class="badge badge-complete">Habilitado</span>
+                                                        <span class="badge badge-complete">H</span>
                                                     </td>
                                                         <?php elseif($user['estado'] =='Deshabilitado'):?>
                                                     <td>
-                                                        <span class="badge badge-danger">Deshabilitado</span>
+                                                        <span class="badge badge-danger">D</span>
                                                     </td>      
                                                         <?php endif;?>
                                                     <td>
-                                                        <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        <!-- <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                                                         <a href="body.php?page=registroUs&idb=<?=$user['id_usuario']?>" class="btn btn-danger"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>

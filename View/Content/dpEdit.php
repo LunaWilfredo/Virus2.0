@@ -9,7 +9,7 @@
     if(isset($_POST['nombres']) && !empty($_POST['nombres'])&&isset($_POST['idu'])&&!empty($_POST['idu']))
     {
         $update=PersonalController::ActualizarDatos();
-        if($registro='ok')
+        if($update='ok')
         {
             echo '<script>
                     if(window.history.replaceState){

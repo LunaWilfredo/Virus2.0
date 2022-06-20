@@ -113,7 +113,7 @@ class PersonalModel{
          LEFT JOIN afp af ON pl.fk_afp = af.id
          LEFT JOIN fpagos fp ON pl.fk_pago = fp.id
          LEFT JOIN bancos bk ON pl.fk_bank = bk.id
-         LEFT JOIN empresas e ON pl.fk_emp = e.id 
+         LEFT JOIN empresas e ON pl.fk_emp = e.id
          ORDER BY p.id DESC;";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -178,7 +178,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function listaEmpresa($tabla,$doc,$empresa){
+    public static function listaEmpresa($tabla,$doc,$empresa)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre', 
         p.papellido AS 'apellido',
@@ -202,7 +203,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function listaBusq($tabla,$doc,$empresa){
+    public static function listaBusq($tabla,$doc,$empresa)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre', 
         p.papellido AS 'apellido',
@@ -229,7 +231,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function listaGeneral($tabla,$doc){
+    public static function listaGeneral($tabla,$doc)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre', 
         p.papellido AS 'apellido',
@@ -256,7 +259,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function cambioEst($tabla,$idd){
+    static public function cambioEst($tabla,$idd)
+    {
         $sql="UPDATE $tabla SET fk_estado = 2 WHERE id = $idd";
         $cn=Conexion::conectar()->prepare($sql);
         if($cn->execute()){
@@ -271,7 +275,8 @@ class PersonalModel{
 
     // Tablas de plan laboral
 
-    public static function area($tabla){
+    public static function area($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -281,7 +286,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function cargos($tabla){
+    public static function cargos($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -291,7 +297,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function pension($tabla){
+    public static function pension($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -301,7 +308,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function afp($tabla){
+    public static function afp($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -311,7 +319,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function empresa($tabla){
+    public static function empresa($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -321,7 +330,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function formap($tabla){
+    public static function formap($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -331,7 +341,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function banco($tabla){
+    public static function banco($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -341,7 +352,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function planes($tabla,$datos){
+    public static function planes($tabla,$datos)
+    {
         $sql="INSERT INTO $tabla (`plhi`, `plhs`, `fk_area`, `fk_cargo`, `fk_pen`, `fk_afp`, `plsueldo`, `plpp`, `fk_pago`, `plcuenta`, `fk_bank`, `pltitular`, `fk_emp`, `fk_personal`) VALUES (:hi,:hS,:areas,:cargo,:pension,:nafp,:sueldo,:periodoP,:formaP,:cuenta,:entidad,:titular,:empresa,:idp)";
         $cn=Conexion::conectar()->prepare($sql);
 
@@ -371,7 +383,8 @@ class PersonalModel{
     }
 
     //Vistas Horarios
-    public static function horarioAdmin($tabla){
+    public static function horarioAdmin($tabla)
+    {
         $sql="  SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
         p.papellido AS 'apellido',
@@ -393,7 +406,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function HAB($tabla,$doc){
+    public static function HAB($tabla,$doc)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
         p.papellido AS 'apellido',
@@ -416,7 +430,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function horarioOp($tabla){
+    public static function horarioOp($tabla)
+    {
         $sql="  SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
         p.papellido AS 'apellido',
@@ -438,7 +453,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function HOB($tabla,$doc){
+    public static function HOB($tabla,$doc)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
         p.papellido AS 'apellido',
@@ -462,7 +478,8 @@ class PersonalModel{
     }
 
     // Asistencias
-    public static function asistencias($tabla){
+    public static function asistencias($tabla)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
         p.papellido AS 'apellido',
@@ -486,7 +503,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function asistenciasB($tabla,$doc,$fechaI,$fechaF){
+    public static function asistenciasB($tabla,$doc,$fechaI,$fechaF)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre' ,
         p.papellido AS 'apellido',
@@ -512,7 +530,8 @@ class PersonalModel{
     }
 
     // Pagos 
-    public static function ViewPagosCompletos($tabla,$doc,$fechaI,$fechaF){
+    public static function ViewPagosCompletos($tabla,$doc,$fechaI,$fechaF)
+    {
         $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
         a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
         ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
@@ -536,7 +555,8 @@ class PersonalModel{
         $cn=NULL;
     }
     
-    public static function ViewPagos($tabla,$doc,$fechaI,$fechaF){
+    public static function ViewPagos($tabla,$doc,$fechaI,$fechaF)
+    {
         $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
         a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
         ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
@@ -559,7 +579,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function ViewPagosSemanal($tabla,$doc,$fechaI,$fechaF){
+    public static function ViewPagosSemanal($tabla,$doc,$fechaI,$fechaF)
+    {
         $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
         a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
         ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
@@ -583,7 +604,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    public static function ViewPagoSB($tabla,$doc,$fechaI,$fechaF){
+    public static function ViewPagoSB($tabla,$doc,$fechaI,$fechaF)
+    {
         $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
         a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
         ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
@@ -679,6 +701,35 @@ class PersonalModel{
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function ActualizarPlanes($tabla,$datos,$idpl)
+    {
+        $sql="UPDATE $tabla SET plhi=:hi,plhs=:hS,fk_area=:areas,fk_cargo=:cargo,fk_pen=:pension,fk_afp=:nafp,plsueldo=:sueldo,plpp=:periodoP,fk_pago=:formaP,plcuenta=:cuenta,fk_bank=:entidad,pltitular=:titular,fk_emp=:empresa WHERE id =$idpl ";
+        $cn=Conexion::conectar()->prepare($sql);
+
+        $cn->bindParam(':hi',$datos['hi'],PDO::PARAM_STR);
+        $cn->bindParam(':hS',$datos['hS'],PDO::PARAM_STR);
+        $cn->bindParam(':areas',$datos['areas'],PDO::PARAM_INT);
+        $cn->bindParam(':cargo',$datos['cargo'],PDO::PARAM_INT);
+        $cn->bindParam(':pension',$datos['pension'],PDO::PARAM_INT);
+        $cn->bindParam(':nafp',$datos['nafp'],PDO::PARAM_INT);
+        $cn->bindParam(':sueldo',$datos['sueldo'],PDO::PARAM_STR);
+        $cn->bindParam(':periodoP',$datos['periodoP'],PDO::PARAM_INT);
+        $cn->bindParam(':formaP',$datos['formaP'],PDO::PARAM_INT);
+        $cn->bindParam(':cuenta',$datos['cuenta'],PDO::PARAM_STR);
+        $cn->bindParam(':entidad',$datos['entidad'],PDO::PARAM_INT);
+        $cn->bindParam(':titular',$datos['titular'],PDO::PARAM_STR);
+        $cn->bindParam(':empresa',$datos['empresa'],PDO::PARAM_INT);
+
+        if($cn->execute()){
+            return 'ok';
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
 
         $cn->close();
         $cn=NULL;

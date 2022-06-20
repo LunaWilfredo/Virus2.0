@@ -1,18 +1,16 @@
 <?php
-      $area = PersonalController::area();
-      $cargo = PersonalController::cargos();
-      $pension = PersonalController::pension();
-      $afp=PersonalController::afp();
-      $empresa = PersonalController::empresa();
-      $formap=PersonalController::formap();
-      $banco=PersonalController::banco();
-  
-
-/////
-      if(isset($_POST['nombres']) && !empty($_POST['nombres'])&&isset($_POST['idu'])&&!empty($_POST['idu']))
+    $area = PersonalController::area();
+    $cargo = PersonalController::cargos();
+    $pension = PersonalController::pension();
+    $afp=PersonalController::afp();
+    $empresa = PersonalController::empresa();
+    $formap=PersonalController::formap();
+    $banco=PersonalController::banco();
+    
+    if(isset($_POST['idpl'])&&!empty($_POST['idpl']))
     {
-        //$update=PersonalController::ActualizarDatos();
-        if($registro='ok')
+        $update=PersonalController::ActualizarPlanes();
+        if($update == 'ok')
         {
             echo '<script>
                     if(window.history.replaceState){
@@ -39,7 +37,6 @@
         $lista = PersonalController::BuscarPlan();
     }
 
-  
 ?>
      <!-- Animated -->
 <div class="animated fadeIn">
@@ -54,10 +51,10 @@
                             <div class="card-body">
                             <!-- CONTENT-->
                                 <div class="row">
-                                    <div class="col">
-                                        <label for="horarioI">IDPL</label>
-                                        <input type="text" class="form-control" name="idu" id="idu" value="<?=$lt['idpl']?>">
-                                    </div>
+                                    <!-- <div class="col"> -->
+                                        <!-- <label for="horarioI">IDPL</label> -->
+                                        <input type="hidden" class="form-control" name="idpl" id="idpl" value="<?=$lt['idpl']?>">
+                                    <!-- </div> -->
                                     <div class="col">
                                         <label for="horarioI">Hora Ing</label>
                                         <input type="time" class="form-control" name="hI" id="hI" value="<?=$lt['hora_ingreso']?>">
