@@ -5,13 +5,17 @@
     $parentesco=PersonalController::parent();
 
     // Personal
-    if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
+    if(isset($_POST['nombres']) && !empty($_POST['nombres']))
+    {
         $registro=PersonalController::registra();
-        if($registro='ok'){
+        if($registro='ok')
+        {
             echo '<div class="alert alert-success" role="alert">
             Registro Exitoso!
             </div>';
-         }else{
+         }
+         else
+         {
              echo '<div class="alert alert-danger" role="alert">
              Error de Registro!
              </div>';
@@ -27,13 +31,17 @@
     $banco=PersonalController::banco();
 
     // Planes
-    if(isset($_POST['hI']) && !empty($_POST['hI'])){
+    if(isset($_POST['hI']) && !empty($_POST['hI']))
+    {
         $plan=PersonalController::planes();
-        if($plan='ok'){
+        if($plan='ok')
+        {
             echo '<div class="alert alert-success" role="alert">
             Registro Exitoso!
             </div>';
-         }else{
+         }
+         else
+         {
              echo '<div class="alert alert-danger" role="alert">
              Error de Registro!
              </div>';
@@ -41,7 +49,8 @@
     }
 
     //Cambiar estado
-    if(isset($_GET['idd'])&&!empty($_GET['idd'])){
+    if(isset($_GET['idd'])&&!empty($_GET['idd']))
+    {
         $ce = PersonalController::cambioEst();
         if($ce='ok'){
             echo '<div class="alert alert-success" role="alert">
@@ -51,9 +60,12 @@
     }
 
     //Buscar
-    if(isset($_POST['doc']) && !empty($_POST['doc'])){
+    if(isset($_POST['doc']) && !empty($_POST['doc']))
+    {
         $lista = PersonalController::BuscarGeneral();
-    }else{
+    }
+    else
+    {
         $lista = PersonalController::lista();
     }
 
@@ -214,13 +226,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="nombres">Nombres</label>
-                                    <input type="text" class="form-control" id="nombres" name="nombres">
+                                    <input type="text" class="form-control" id="nombres" name="nombres" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="apellidos">Apellidos</label>
-                                    <input type="text" class="form-control" id="apellidos" name="apellidos">
+                                    <input type="text" class="form-control" id="apellidos" name="apellidos" required>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +250,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="doc">Doc.Id</label>
-                                    <input type="text" class="form-control" name="doc" id="doc" maxlength="20">
+                                    <input type="text" class="form-control" name="doc" id="doc" maxlength="20" required>
                                 </div>
                             </div>
                             <div class="col">
@@ -252,13 +264,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="nacion">Nacionalidad</label>
-                                    <input type="text" class="form-control" name="nacion" id="nacion">
+                                    <input type="text" class="form-control" name="nacion" id="nacion" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="movil">Movil</label>
-                                    <input type="text" class="form-control" name="movil" id="movil" maxlength="9">
+                                    <input type="text" class="form-control" name="movil" id="movil" maxlength="9" required>
                                 </div>
                             </div>
                             <div class="col">
@@ -290,13 +302,13 @@
                         </div>
                         <div class="form-group">
                             <label for="direccion">Direccion</label>
-                            <textarea class="form-control" name="direccion" id="direccion" rows="1" placeholder="Direcion & Referencia"></textarea>
+                            <textarea class="form-control" name="direccion" id="direccion" rows="1" placeholder="Direcion & Referencia" required></textarea>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="contacto">Contacto de Emergencia</label>
-                                    <input type="text" name="contacto" id="contacto" class="form-control" placeholder="Numero">
+                                    <input type="text" name="contacto" id="contacto" class="form-control" placeholder="Numero" required>
                                 </div>
                             </div>
                             <div class="col">

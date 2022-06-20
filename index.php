@@ -75,11 +75,11 @@
                     <form>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
+                            <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" required>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <input type="password" class="form-control" name="claveuser" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="claveuser" placeholder="Contraseña" required>
                         </div>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                     </form>

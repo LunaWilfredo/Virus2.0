@@ -1,17 +1,22 @@
 <?php 
 
-if(isset($_GET['idb']) && !empty($_GET['idb'])){
+if(isset($_GET['idb']) && !empty($_GET['idb']))
+{
     $idb = $_GET['idb'];
     $borrar=UsuariosController::borrar($idb);
 }
 
-if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+if(isset($_POST['nombre']) && !empty($_POST['nombre']))
+{
    $registrar = UsuariosController::registro();
-   if($registrar='ok'){
+   if($registrar='ok')
+   {
        echo '<div class="alert alert-success" role="alert">
        Registro Exitoso!
        </div>';
-    }else{
+    }
+    else
+    {
         echo '<div class="alert alert-danger" role="alert">
         Error de Registro!
         </div>';
@@ -150,13 +155,13 @@ $users = UsuariosController::lista();
                             <div class="col">
                                 <div class="form-group">
                                     <label for="nick">Nombre de Usuario</label>
-                                    <input type="text" class="form-control" name="nick" id="nick" maxlength="">
+                                    <input type="text" class="form-control" name="nick" id="nick" maxlength="" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="pass">Contraseña</label>
-                                    <input type="text" class="form-control" name="pass" id="passu" maxlength="12">
+                                    <input type="text" class="form-control" name="pass" id="passu" maxlength="12" required>
                                 </div>
                             </div>
                         </div>

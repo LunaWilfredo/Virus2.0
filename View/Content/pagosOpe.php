@@ -45,7 +45,7 @@ if(isset($_POST['doc']) ||isset($_POST['fechaI']) && isset($_POST['fechaF'])){
                                                     <th>Nombre</th>
                                                     <th>Area</th>
                                                     <th>Empresa</th>
-                                                    <th>HR</th>
+                                                    <th>Dias</th>
                                                     <th>Sueldo Base</th>
                                                     <!-- <th>AF</th> -->
                                                     <!-- <th>H 25%</th>

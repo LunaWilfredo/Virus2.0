@@ -3,7 +3,8 @@ require_once './BD/db.php';
 
 class PersonalModel{
 
-    static public function tipodoc($tabla){
+    static public function tipodoc($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -13,7 +14,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function estadoc($tabla){
+    static public function estadoc($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -23,7 +25,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function sexo($tabla){
+    static public function sexo($tabla)
+    {
         $sql="SELECT id,SUBSTRING(sname,1,3) as nombre FROM $tabla ";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -33,7 +36,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function parent($tabla){
+    static public function parent($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -43,7 +47,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function registra($tabla,$datos){
+    static public function registra($tabla,$datos)
+    {
         $sql="INSERT INTO $tabla ( `pname`, `papellido`, `fk_tpdoc`, `pdoc`, `pnac`, `pnacionalidad`, `pmovil`, `fk_estadoc`, `fk_sexo`, `pfam`, `pdireccion`, `pcemerg`, `fk_ptc`, `fk_estado`) VALUES (:nombres,:apellidos,:tipodoc,:doc,:fecha,:nacion,:movil,:estadoc,:sexo,:hijos,:direccion,:contacto,:relacion,1)";
 
         $cn=Conexion::conectar()->prepare($sql);
@@ -71,7 +76,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function lista($tabla){
+    static public function lista($tabla)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre', 
         p.papellido AS 'apellido',
@@ -123,7 +129,8 @@ class PersonalModel{
         $cn=NULL;
     }
 
-    static public function BuscarGeneral($tabla,$doc){
+    static public function BuscarGeneral($tabla,$doc)
+    {
         $sql="SELECT p.id AS 'idp', 
         p.pname AS 'nombre', 
         p.papellido AS 'apellido',
@@ -584,7 +591,7 @@ class PersonalModel{
         $sql="SELECT p.id AS 'idp',p.pname AS 'Nombres',p.papellido AS 'Apellidos',
         a.aname AS 'area', SUBSTRING(ep.ename,1,1) AS 'empresa',pl.plsueldo AS 'sueldo',
         ROUND(COUNT(ast.doc)/2) AS 'asistencias',(30-ROUND(COUNT(ast.doc)/2)) AS 'Faltas',
-        ((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30/8)) AS'DescFaltas',
+        ((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30)) AS'DescFaltas',
         ap.monto AS 'AFP%',(pl.plsueldo * ap.monto ) AS 'AFPDesc',
         (pl.plsueldo * 0.15) AS 'DescSeguro',(pl.plsueldo-((pl.plsueldo * ap.monto )+
         (pl.plsueldo * 0.15)+((30-ROUND(COUNT(ast.doc)/2))*(pl.plsueldo/30)))) AS 'Total'
