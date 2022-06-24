@@ -192,7 +192,7 @@
                                 </div>
                                 <div class="card-footer  text-center">
                                     <!-- BTN REGISTRO PLAN LABORAL -->
-                                    <?php if($lt['empresa'] = NULL):?>
+                                    <?php if(empty($lt['empresa'])):?>
                                         <a href="body.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
                                     <?php else:?>
                                         <button class="btn btn-success btn-lg"><i class="fa fa-check-square-o"></i></button>

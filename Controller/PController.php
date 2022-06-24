@@ -33,8 +33,8 @@ class PersonalController{
 
     static public function registra()
     {
-        if(isset($_POST['nombres']) && !empty($_POST['nombres'])){
-            
+        if(isset($_POST['nombres']) && !empty($_POST['nombres']))
+        {
             $tabla = "personal";
             $datos = array(
                 "nombres"=>$_POST['nombres'],
@@ -317,7 +317,7 @@ class PersonalController{
     }
 
     public static function ViewPagoSM()
-    {
+    { 
         if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && isset($_POST['fechaF']) && !empty($_POST['fechaI']))
         {
                 $tabla="personal";

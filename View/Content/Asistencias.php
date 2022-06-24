@@ -65,4 +65,4 @@ if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && !em
 
 
                 </div>
-            </div><!-- .animated -->
+            </div><!-- .animated --> 

@@ -3,7 +3,8 @@ require_once 'Model/UModel.php';
 
 class UsuariosController{
 
-    static public function prelogin($user,$clave){
+    static public function prelogin($user,$clave)
+    {
         if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['claveuser']) && !empty($_POST['claveuser'])){
             $user=$_POST['username'];
             $clave=$_POST['claveuser'];

@@ -20,7 +20,7 @@
             echo " <div class='alert alert-success'>Registro Exitoso</div>
                 <script>
                     setTimeout(function(){
-                        window.location = 'index.php?page=detallesPersonal';
+                        window.location = 'body.php?page=detallesPersonal';
                     },3000);
                 </script>
             ";
