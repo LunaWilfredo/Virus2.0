@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS empresas(
 /*Tabla Estado*/
 CREATE TABLE IF NOT EXISTS estados(
 	id int not null auto_increment primary key,
-    ename varchar(255)
+    esname varchar(255)
 )ENGINE=INNODB;
 
 /*Tabla Areas*/
