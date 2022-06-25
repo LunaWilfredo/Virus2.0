@@ -9,10 +9,10 @@
     //header and lateral
     include_once 'View/Layout/header.php';  
     // Body
-    if(isset($_GET['page']))
+    if(isset($_GET['page'])&&!empty($_GET['page']))
     {
         $page = $_GET['page'];
-        if($page == 'home'||$page == 'personalJJB'|| $page == 'personalSideruk'|| $page == 'personalYerm'||$page =='Asistencias'||$page == 'personalList'|| $page == 'detallesPersonal'||$page='horarioAdmin'||$page='horarioOp'||$page == 'pagosAdm'||$page == 'pagosOpe'||$page == 'registroUs'||$page == 'planRegistro'||$page == 'dpEdit'||$page == 'plEdit')
+        if($page=='home'||$page=='personalJJB'||$page=='personalSideruk'||$page== 'personalYerm'||$page=='Asistencias'||$page=='personalList'||$page== 'detallesPersonal'||$page='horarioAdmin'||$page='horarioOp'||$page=='pagosAdm'||$page=='pagosOpe'||$page=='registroUs'||$page=='planRegistro'||$page=='dpEdit'||$page=='plEdit')
         {
             require_once 'View/Content/'.$_GET['page'].'.php';
         }

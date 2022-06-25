@@ -47,13 +47,13 @@
 <body>
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
+        <nav class="navbar navbar-expand-lg navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="body.php"><i class="menu-icon fa fa-home"></i>Inicio</a>
                     </li>
-                    <?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] != 1):?>
+                    <?php if($_SESSION['rol']==1 ||$_SESSION['rol']!=1):?>
                     <li class="menu-title">RRHH</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Personal</a>
@@ -78,11 +78,10 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-usd"></i><a href="body.php?page=pagosAdm">Mensuales</a></li>
                             <li><i class="menu-icon fa fa-usd"></i><a href="body.php?page=pagosOpe">Semanales</a></li>
-                            <!-- <li><i class="menu-icon fa fa-usd"></i><a href="index.php?page=pagosBlack">Lista Negra Pagos</a></li> -->
                         </ul>
                     </li>
                     <?php endif?>
-                    <?php if($_SESSION['rol'] == 1):?>
+                    <?php if($_SESSION['rol']==1):?>
                     <li class="menu-title">Gerencia</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-group"></i>Usuarios</a>
@@ -129,7 +128,7 @@
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="#"><i class="fa fa-user"></i><?=STRTOUPPER($_SESSION['nombre_usuario'])?></a>
 
-                            <a class="nav-link" href="body.php?cerrar=ok"><i class="fa fa-power-off"></i>Cerrar Sesion</a>
+                            <a class="nav-link text-danger" href="body.php?cerrar=ok"><i class="fa fa-power-off"></i>Cerrar Sesion</a>
                         </div>
                     </div>
 

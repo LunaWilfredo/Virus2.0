@@ -741,4 +741,70 @@ class PersonalModel{
         $cn->close();
         $cn=NULL;
     }
+    //vista de cantidades
+    static public function cantidadP($tabla)
+    {
+        $sql="SELECT COUNT(id) as 'cantidad' FROM $tabla";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function cantidadPH($tabla)
+    {
+        $sql="SELECT COUNT(id) as 'cantidad' FROM $tabla WHERE fk_estado = 1";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function cantidadPDH($tabla)
+    {
+        $sql="SELECT COUNT(id) as 'cantidad' FROM $tabla WHERE fk_estado = 2";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function cantidadAdmin($tabla)
+    {
+        $sql="SELECT COUNT(p.id) as 'cantidad' FROM $tabla p INNER JOIN planes pl ON p.id=pl.fk_personal WHERE pl.fk_cargo!=4";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function cantidadOP($tabla)
+    {
+        $sql="SELECT COUNT(p.id) as 'cantidad' FROM $tabla p INNER JOIN planes pl ON p.id=pl.fk_personal WHERE pl.fk_cargo = 4";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function cantidadEmp($tabla,$empresa)
+    {
+        $sql="SELECT COUNT(p.id) as 'cantidad' FROM $tabla p INNER JOIN planes pl ON p.id=pl.fk_personal WHERE pl.fk_emp = $empresa";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
 }

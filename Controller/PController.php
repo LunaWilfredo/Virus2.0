@@ -418,5 +418,65 @@ class PersonalController{
                 return $respuesta;
         }
     }
+    //Vista de cantidades
+    static public function cantidadP()
+    {
+        $tabla="personal";
+        $respuesta=PersonalModel::cantidadP($tabla);
+        return $respuesta;
+    }
+
+    static public function cantidadPH()
+    {
+        $tabla="personal";
+        $respuesta=PersonalModel::cantidadPH($tabla);
+        return $respuesta;
+    }
+
+    static public function cantidadPDH()
+    {
+        $tabla="personal";
+        $respuesta=PersonalModel::cantidadPDH($tabla);
+        return $respuesta;
+    }
+
+    static public function cantidadAdmin()
+    {
+        $tabla="personal";
+        $respuesta=PersonalModel::cantidadAdmin($tabla);
+        return $respuesta;
+    }
+
+    static public function cantidadOP()
+    {
+        $tabla="personal";
+        $respuesta=PersonalModel::cantidadOP($tabla);
+        return $respuesta;
+    }
+
+    static public function cantidadY()
+    {
+        $tabla="personal";
+        $empresa = 1;
+        $respuesta=PersonalModel::cantidadEmp($tabla,$empresa);
+        return $respuesta;
+    }
+
+    static public function cantidadJ()
+    {
+        $tabla="personal";
+        $empresa = 2;
+        $respuesta=PersonalModel::cantidadEmp($tabla,$empresa);
+        return $respuesta;
+    }
+
+    static public function cantidadS()
+    {
+        $tabla="personal";
+        $empresa =3;
+        $respuesta=PersonalModel::cantidadEmp($tabla,$empresa);
+        return $respuesta;
+    }
+
 
 }

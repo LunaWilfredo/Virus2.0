@@ -1,6 +1,5 @@
 <?php
     require_once 'Controller/UController.php';
-
     if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['claveuser']) && !empty($_POST['claveuser']))
     {
         $user=$_POST['username'];
@@ -15,11 +14,18 @@
                 $clavebd=$plog['upass'];
                 $estadodb=$plog['fk_estado'];
             }
-
-            if($userbd == $user && $clavebd == $clave && $estadodb = 1 )
+            if($userbd==$user&&$clavebd==$clave&&$estadodb==1)
             {
-                // echo 'Login exitoso';
                 $login = UsuariosController::login($user,$clave);
+            }
+            else
+            {
+                echo '
+                <div class="container">
+                    <div class="alert alert-danger" role="alert">
+                        Usuario no habilitado!
+                    </div>
+                </div>';
             }
         }
         else

@@ -3,8 +3,9 @@ require_once './BD/db.php';
  
 class UsuariosModel{
 
-    static public function prelogin($user,$clave,$tabla){
-        $sql="SELECT unick,upass FROM $tabla WHERE unick='$user' AND upass='$clave'";
+    static public function prelogin($user,$clave,$tabla)
+    {
+        $sql="SELECT unick,upass,fk_estado FROM $tabla WHERE unick='$user' AND upass='$clave'";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();
@@ -13,7 +14,8 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function login($user,$clave,$tabla){
+    static public function login($user,$clave,$tabla)
+    {
         $sql="SELECT * FROM $tabla WHERE unick='$user' AND upass='$clave'";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -25,7 +27,8 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function datosuser($user,$tabla){
+    static public function datosuser($user,$tabla)
+    {
         $sql="SELECT *,substring(uname,1,1) AS 'inicial' FROM $tabla WHERE unick='$user'";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -35,7 +38,8 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function roles($tabla){
+    static public function roles($tabla)
+    {
         $sql="SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -45,7 +49,8 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function area($tabla){
+    static public function area($tabla)
+    {
         $sql = "SELECT * FROM $tabla";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -56,7 +61,8 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function registro($tabla,$datos){
+    static public function registro($tabla,$datos)
+    {
         $sql = "INSERT INTO $tabla (uname,uape,unick,upass,fk_rol,fk_estado) VALUES (:nombre,:apellido,:nick,:pass,:rol,1);";
         $cn = Conexion::conectar()->prepare($sql);
         $cn->bindParam(":nombre",$datos['nombre'],PDO::PARAM_STR);
@@ -74,7 +80,8 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function lista($tabla){
+    static public function lista($tabla)
+    {
         $sql="SELECT u.id as 'id_usuario',u.uname as 'nombre',u.uape as 'apellido',u.unick as 'nick',u.upass as 'password',r.id as 'id_rol',r.rname as 'rol', e.id as 'id_estado',e.ename as 'estado' FROM $tabla u INNER JOIN roles r ON u.fk_rol = r.id INNER JOIN estados e ON u.fk_estado = e.id;";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -84,11 +91,24 @@ class UsuariosModel{
         $cn=NULL;
     }
 
-    static public function borrar($tabla,$idb){
+    static public function borrar($tabla,$idb)
+    {
         $sql = "DELETE FROM $tabla WHERE id = '$idb' ";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn;
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    //vista de cantidades
+    static public function cantidadU($tabla)
+    {
+        $sql="SELECT COUNT(id) as 'cantidad' FROM $tabla ";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
 
         $cn->close();
         $cn=NULL;
