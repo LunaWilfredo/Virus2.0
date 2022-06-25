@@ -53,7 +53,7 @@
                     <li class="active">
                         <a href="body.php"><i class="menu-icon fa fa-home"></i>Inicio</a>
                     </li>
-                    <?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 3):?>
+                    <?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] != 1):?>
                     <li class="menu-title">RRHH</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Personal</a>
