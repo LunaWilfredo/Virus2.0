@@ -26,7 +26,7 @@ $Sideruk=PersonalController::cantidadS();
                             </div>
                         </div>
                     </div>
-
+                    <?php if($_SESSION['rol']==1):?>
                     <div class="col-lg col-md">
                         <div class="card">
                             <div class="card-body">
@@ -44,6 +44,7 @@ $Sideruk=PersonalController::cantidadS();
                             </div>
                         </div>
                     </div>
+                    <?php endif;?>
                 </div>
 
                 <div class="row">

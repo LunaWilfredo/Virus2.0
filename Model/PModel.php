@@ -200,7 +200,7 @@ class PersonalModel{
         LEFT JOIN planes pl ON pl.fk_personal = p.id
         LEFT JOIN areas a ON pl.fk_area = a.id 
         LEFT JOIN empresas e ON pl.fk_emp = e.id 
-        WHERE e.ename = '$empresa'
+        WHERE e.ename = '$empresa' AND p.fk_estado = 1
         ORDER BY p.pname; ";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -281,7 +281,6 @@ class PersonalModel{
     }
 
     // Tablas de plan laboral
-
     public static function area($tabla)
     {
         $sql="SELECT * FROM $tabla";

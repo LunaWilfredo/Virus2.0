@@ -47,7 +47,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="registromodal">Datos de Personal</h5>
+                            <h5 class="modal-title" id="registromodal">Actualizar Datos de Personal</h5>
                         </div>
                         <div class="modal-body">
                             <div class="row">
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            <a href="body.php?page=detallesPersonal" class="btn btn-danger">Cancelar</a>
                             <button type="submit" class="btn btn-success">Actualizar</button>
                         </div>
                     </div>

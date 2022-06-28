@@ -6,7 +6,7 @@
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm text-center">
-                        Copyright &copy; 2022 Laboratorios Yemedic & WLuna
+                        Copyright &copy; 2022 Laboratorios Yemedic
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@
                                                 <?php $i=0;foreach($sideruk as $s): $i++;?>
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
-                                                    <td><?=$s['']?></td>
+                                                    <td><?=$s['documento']?></td>
                                                     <td><span class="name"><?=STRTOUPPER($s['nombre'])." ".STRTOUPPER($s['apellido'])?></span> </td>
                                                     <td> <span class="product"><?=STRTOUPPER($s['area'])?></span> </td>
                                                     <td><span class="badge badge-complete"><?=$s['empresa']?></span></td>
