@@ -84,6 +84,7 @@ class PersonalModel{
         tp.tdname AS 'tipodoc', 
         p.pdoc AS 'documento',
         p.pnac AS 'nacimiento',
+        (YEAR(CURDATE())-YEAR(p.pnac)) AS 'edad',
         p.pnacionalidad AS 'nacionalidad',
         p.pmovil AS 'movil',
         ec.ecname AS 'estadocivil', 
@@ -104,7 +105,9 @@ class PersonalModel{
         pl.plcuenta AS 'cuenta',
         bk.bname AS 'banco',
         pl.pltitular AS 'titular_cuenta',
-        SUBSTRING(e.ename,1,1) AS 'empresa', 
+        pl.fk_emp as 'fk_emp',
+        SUBSTRING(e.ename,1,1) AS 'empresa',
+        p.fk_estado AS 'fk_estado', 
         es.ename AS 'estado'
          FROM $tabla p 
          LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
@@ -192,6 +195,7 @@ class PersonalModel{
         p.papellido AS 'apellido',
         p.pdoc AS 'documento', 
         a.aname AS 'area',
+        pl.fk_emp AS 'fk_empresa',
         SUBSTRING(e.ename,1,1) AS 'empresa', 
         es.ename AS 'estado'
         FROM $tabla p 
@@ -200,7 +204,7 @@ class PersonalModel{
         LEFT JOIN planes pl ON pl.fk_personal = p.id
         LEFT JOIN areas a ON pl.fk_area = a.id 
         LEFT JOIN empresas e ON pl.fk_emp = e.id 
-        WHERE e.ename = '$empresa' AND p.fk_estado = 1
+        WHERE pl.fk_emp = $empresa AND p.fk_estado = 1
         ORDER BY p.pname; ";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
@@ -798,7 +802,7 @@ class PersonalModel{
 
     static public function cantidadEmp($tabla,$empresa)
     {
-        $sql="SELECT COUNT(p.id) as 'cantidad' FROM $tabla p INNER JOIN planes pl ON p.id=pl.fk_personal WHERE pl.fk_emp = $empresa";
+        $sql="SELECT COUNT(p.id) as 'cantidad',p.fk_estado FROM $tabla p INNER JOIN planes pl ON p.id=pl.fk_personal WHERE pl.fk_emp = $empresa AND p.fk_estado=1";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();

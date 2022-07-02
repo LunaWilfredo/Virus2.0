@@ -123,7 +123,7 @@
                                             <span class="label-form">Apellidos: <span class="form-control"><?=STRTOUPPER($lt['apellido']);?></span></span>
                                         </div>
                                         <div class="col">
-                                            <span class="label-form">Fecha de Nacimiento: <span class="form-control"><?=$lt['nacimiento'];?></span></span>
+                                            <span class="label-form">Fecha de Nacimiento: <span class="form-control"><?=DATE("d-m-Y",strtotime($lt['nacimiento']));?></span></span>
                                         </div>
                                     </div>
                                     <div class="row">

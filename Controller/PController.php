@@ -69,14 +69,14 @@ class PersonalController{
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
-            $empresa="JJBoggio";
+            $empresa=2;
         
             $respuesta=PersonalModel::listaBusq($tabla,$doc,$empresa);
             return $respuesta;
         }else{
             $tabla="personal";
             $doc=" ";
-            $empresa="JJBoggio";
+            $empresa=2;
 
             $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
             return $respuesta;
@@ -88,14 +88,14 @@ class PersonalController{
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
-            $empresa="Yermedic";
+            $empresa=1;
         
             $respuesta=PersonalModel::listaBusq($tabla,$doc,$empresa);
             return $respuesta;
         }else{
             $tabla="personal";
             $doc=" ";
-            $empresa="Yermedic";
+            $empresa=1;
 
             $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
             return $respuesta;
@@ -107,14 +107,14 @@ class PersonalController{
         if(isset($_POST['doc']) && !empty($_POST['doc'])){
             $tabla="personal";
             $doc=$_POST['doc'];
-            $empresa="Sideruk";
+            $empresa=3;
         
             $respuesta=PersonalModel::listaBusq($tabla,$doc,$empresa);
             return $respuesta;
         }else{
             $tabla="personal";
             $doc=" ";
-            $empresa="Sideruk";
+            $empresa=3;
 
             $respuesta=PersonalModel::listaEmpresa($tabla,$doc,$empresa);
             return $respuesta;

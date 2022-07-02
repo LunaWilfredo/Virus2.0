@@ -35,6 +35,8 @@
                                                     <th class="serial">#</th>
                                                     <th>Doc.Id</th>
                                                     <th>Nombre</th>
+                                                    <th>Cumpleaños</th>
+                                                    <th>Edad</th>
                                                     <th>Area</th>
                                                     <th>Empresa</th>
                                                     <th>Estado</th>
@@ -45,21 +47,23 @@
                                                 <tr>
                                                     <td class="serial"><?=$i?></td>
                                                     <td><?=$pg['documento']?></td>
-                                                    <td><span class="name"><?=STRTOUPPER($pg['nombre'])." ".STRTOUPPER($pg['apellido'])?></span> </td>
+                                                    <td><span class="name"><?=STRTOUPPER($pg['nombre'])." ".STRTOUPPER($pg['apellido'])?></span></td>
+                                                    <td><span class="name"><?=STRTOUPPER(DATE("d/m/Y",STRTOTIME($pg['nacimiento'])))?></span></td>
+                                                    <td><span class="name"><?=STRTOUPPER($pg['edad'])?></span></td>
                                                     <td><span class="product"><?=STRTOUPPER($pg['area'])?></span></td>
                                                     <td>
-                                                        <?php if($pg['empresa'] == 'Yermedic' || $pg['empresa'] == 'Y'):?>
+                                                        <?php if($pg['empresa'] == 'Yermedic' || $pg['empresa'] == 'Y' || $pg['fk_emp']==1):?>
                                                             <span class="badge badge-info "><?=STRTOUPPER($pg['empresa'])?></span>
-                                                        <?php elseif($pg['empresa'] == 'JJBoggio' || $pg['empresa'] == 'J'):?>
+                                                        <?php elseif($pg['empresa'] == 'JJBoggio' || $pg['empresa'] == 'J' || $pg['fk_emp']==2):?>
                                                             <span class="badge badge-dark"><?=STRTOUPPER($pg['empresa'])?></span>
-                                                        <?php elseif($pg['empresa'] == 'Sideruk' || $pg['empresa'] == 'S'):?>
+                                                        <?php elseif($pg['empresa'] == 'Sideruk' || $pg['empresa'] == 'S'|| $pg['fk_emp']==3):?>
                                                             <span class="badge badge-secondary "><?=STRTOUPPER($pg['empresa'])?></span>
                                                         <?php endif?>
                                                     </td>
                                                     <td>
-                                                        <?php if($pg['estado'] == 'Habilitado'):?>
+                                                        <?php if($pg['fk_estado'] == 1):?>
                                                             <span class="badge badge-complete"><?=$pg['estado']?></span>
-                                                        <?php elseif($pg['estado'] == 'Deshabilitado'):?>
+                                                        <?php elseif($pg['fk_estado'] == 2):?>
                                                             <span class="badge badge-danger"><?=$pg['estado']?></span>
                                                         <?php endif;?>
                                                     </td>
