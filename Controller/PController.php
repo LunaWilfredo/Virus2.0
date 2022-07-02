@@ -478,5 +478,18 @@ class PersonalController{
         return $respuesta;
     }
 
+    // Graficos
+    static public function Pgrafico(){
+        $tabla="personal";
+        $respuesta=PersonalModel::Pgrafico($tabla);
+        return $respuesta;
+    }
+
+    static public function Egrafico(){
+        $tabla="planes";
+        $respuesta=PersonalModel::Egrafico($tabla);
+        return $respuesta;
+    }
+
 
 }

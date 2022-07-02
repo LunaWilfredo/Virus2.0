@@ -114,4 +114,17 @@ class UsuariosModel{
         $cn=NULL;
     }
 
+    //Graficos
+    static public function Ugrafico($tabla){
+        $sql=" SELECT COUNT(u.id) AS 'cantidad',e.ename AS 'estado' FROM usuarios u
+        INNER JOIN estados e ON e.id=u.fk_estado
+        GROUP BY e.ename;";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
 } 

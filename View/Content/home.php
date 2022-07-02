@@ -9,6 +9,10 @@ $Operacion=PersonalController::cantidadOP();
 $Yermedic=PersonalController::cantidadY();
 $JJBoggio=PersonalController::cantidadJ();
 $Sideruk=PersonalController::cantidadS();
+// Graficos
+$graficoU=UsuariosController::Ugrafico();
+$graficoP=PersonalController::Pgrafico();
+$graficoE=PersonalController::Egrafico();
 
 ?>
             <!-- Animated -->
@@ -192,6 +196,24 @@ $Sideruk=PersonalController::cantidadS();
                         </div>
                     </div>
 
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <!-- Grafico 1 -->
+                        <label for="" class="text-primary">Usuarios</label>
+                        <div id="usuarioschart" style="width: 400px; height: auto;"></div>
+                    </div>
+                    <div class="col">
+                        <!-- Grafico 2 -->
+                        <label for="" class="text-primary">Personal</label>
+                        <div id="personalchart" style="width: 400px; height: auto;"></div>
+                    </div>
+                    <div class="col">
+                        <!-- Grafico 3 -->
+                        <label for="" class="text-primary">Personal x Empresa</label>
+                        <div id="empresachart" style="width: 400px; height: auto;"></div>
+                    </div>
                 </div>
                 <!-- /Widgets -->            
 

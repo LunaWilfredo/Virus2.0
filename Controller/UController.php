@@ -111,4 +111,11 @@ class UsuariosController{
         return $respuesta;
     }
 
+    // Graficos
+    static public function Ugrafico(){
+        $tabla="usuarios";
+        $respuesta=UsuariosModel::Ugrafico($tabla);
+        return $respuesta;
+    }
+
 }

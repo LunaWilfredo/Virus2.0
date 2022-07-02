@@ -40,9 +40,70 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="assets/js/init/fullcalendar-init.js"></script>
 
-    <!--Local Stuff-->
+    <!--Graficos-->
     <script>
-        
+    // grafico cantidad de usuario
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      // Define the chart to be drawn.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Element');
+      data.addColumn('number', 'Percentage');
+      <?php foreach($graficoU as $gu):?>
+      data.addRows([
+        ['<?=$gu['estado']?>', <?=$gu['cantidad']?>]
+      ]);
+      <?php endforeach?>
+
+      // Instantiate and draw the chart.
+      var chart = new google.visualization.PieChart(document.getElementById('usuarioschart'));
+      chart.draw(data, null);
+    }
     </script>
+
+    <script>
+        // grafico cantidad de personal
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      // Define the chart to be drawn.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Element');
+      data.addColumn('number', 'Percentage');
+      <?php foreach($graficoP as $gp):?>
+      data.addRows([
+        ['<?=$gp['estado']?>', <?=$gp['cantidad']?>]
+      ]);
+      <?php endforeach?>
+
+      // Instantiate and draw the chart.
+      var chart = new google.visualization.PieChart(document.getElementById('personalchart'));
+      chart.draw(data, null);
+    }
+    </script>
+
+<script>
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      // Define the chart to be drawn.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Element');
+      data.addColumn('number', 'Percentage');
+      <?php foreach($graficoE as $ge):?>
+      data.addRows([
+        ['<?=$ge['empresa']?>', <?=$ge['cantidad']?>]
+      ]);
+      <?php endforeach?>
+
+      // Instantiate and draw the chart.
+      var chart = new google.visualization.PieChart(document.getElementById('empresachart'));
+      chart.draw(data, null);
+    }
+  </script>
 </body>
 </html>

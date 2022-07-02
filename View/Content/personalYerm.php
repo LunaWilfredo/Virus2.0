@@ -46,7 +46,7 @@
                                                     <td><?=$y['documento']?></td>
                                                     <td><span class="name"><?=STRTOUPPER($y['nombre']).' '.STRTOUPPER($y['apellido'])?></span> </td>
                                                     <td> <span class="product"><?=STRTOUPPER($y['area'])?></span> </td>
-                                                    <td><span class="badge badge-complete"><?=STRTOUPPER($y['empresa'])?></span></td>
+                                                    <td><span class="badge badge-info"><?=STRTOUPPER($y['empresa'])?></span></td>
                                                     <?php if($y['estado'] =="Habilitado"):?>
                                                     <td>
                                                         <span class="badge badge-complete"><?=$y['estado']?></span>

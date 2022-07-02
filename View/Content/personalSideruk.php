@@ -46,7 +46,7 @@
                                                     <td><?=$s['documento']?></td>
                                                     <td><span class="name"><?=STRTOUPPER($s['nombre'])." ".STRTOUPPER($s['apellido'])?></span> </td>
                                                     <td> <span class="product"><?=STRTOUPPER($s['area'])?></span> </td>
-                                                    <td><span class="badge badge-complete"><?=$s['empresa']?></span></td>
+                                                    <td><span class="badge badge-secondary"><?=$s['empresa']?></span></td>
                                                     <?php if($s['estado'] =="Habilitado"):?>
                                                     <td>
                                                         <span class="badge badge-complete"><?=$s['estado']?></span>

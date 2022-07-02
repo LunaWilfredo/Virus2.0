@@ -104,7 +104,7 @@ class PersonalModel{
         pl.plcuenta AS 'cuenta',
         bk.bname AS 'banco',
         pl.pltitular AS 'titular_cuenta',
-        e.ename AS 'empresa', 
+        SUBSTRING(e.ename,1,1) AS 'empresa', 
         es.ename AS 'estado'
          FROM $tabla p 
          LEFT JOIN tpdoc tp ON p.fk_tpdoc = tp.id 
@@ -799,6 +799,31 @@ class PersonalModel{
     static public function cantidadEmp($tabla,$empresa)
     {
         $sql="SELECT COUNT(p.id) as 'cantidad' FROM $tabla p INNER JOIN planes pl ON p.id=pl.fk_personal WHERE pl.fk_emp = $empresa";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    //graficos
+    static public function Pgrafico($tabla){
+        $sql="SELECT COUNT(p.id) AS 'cantidad',e.ename AS 'estado' FROM personal p
+        INNER JOIN estados e ON e.id=p.fk_estado
+        GROUP BY e.ename";
+        $cn=Conexion::conectar()->prepare($sql);
+        $cn->execute();
+        return $cn->fetchAll();
+
+        $cn->close();
+        $cn=NULL;
+    }
+
+    static public function Egrafico($tabla){
+        $sql="SELECT COUNT(pl.id) AS 'cantidad',ep.ename AS 'empresa' FROM planes pl
+        INNER JOIN empresas ep ON ep.id=pl.fk_emp
+        GROUP BY ep.ename";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();

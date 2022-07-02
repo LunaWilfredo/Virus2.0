@@ -195,10 +195,11 @@
                                     <?php if(empty($lt['empresa'])):?>
                                         <a href="body.php?page=planRegistro&idp=<?=$lt['idp'];?>" class="btn btn-primary"><i class="fa fa-inbox"></i></a>
                                     <?php else:?>
-                                        <button class="btn btn-success btn-lg"><i class="fa fa-check-square-o"></i></button>
+                                        <button class="btn btn-success btn-lg"></button>
+                                        <span class="text-success"><i class="fa fa-check-square-o"></i></span>
                                     <?php endif?>
-                                    <!-- BTN ELIMINAR/DESHABILITAR -->
-                                    <a href="body.php?page=detallesPersonal&idd=<?=$lt['idp']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <!-- BTN DESHABILITAR -->
+                                    <a href="body.php?page=detallesPersonal&idd=<?=$lt['idp']?>" class="btn btn-danger"><i class="fa fa-lock"></i></a>
                                     <!-- BTN EDITAR DATOS/PLAN LABORAL -->
                                     <a href="body.php?page=dpEdit&idu=<?=$lt['idp']?>" class="btn btn-success text-light"><i class="fa fa-pencil-square-o"></i></a>
                                     <a href="body.php?page=plEdit&idu=<?=$lt['idp']?>" class="btn btn-info text-light"><i class="fa fa-file-o"></i></a>
