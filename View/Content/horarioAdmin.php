@@ -39,7 +39,7 @@
                                                     <th>Empresa</th>
                                                     <th>Hora de Ingreso</th>
                                                     <th>Hora de Salida</th>
-                                                    <!-- <th></th> -->
+                                                    <th>Horas Laborales</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -52,6 +52,17 @@
                                                     <td><span class="badge badge-complete"><?=STRTOUPPER($ad['empresa'])?></span></td>
                                                     <td><span class="product"><?=$ad['ingreso']?></span></td>
                                                     <td><span class="product"><?=$ad['salida']?></span></td>
+                                                    <td>
+                                                        <?php 
+                                                        $hi = strtotime($ad['ingreso']);
+                                                        $hs = strtotime($ad['salida']);
+                                                        $h=$hs-$hi;
+                                                        echo date("h",$h);
+                                                        // var_dump($hi);
+                                                        // var_dump($hs);
+                                                        // var_dump($h);
+                                                        ?>
+                                                    </td>
                                                     <!-- <td>
                                                         <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     </td> -->

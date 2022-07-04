@@ -42,8 +42,10 @@ if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && !em
                                             <th>Nombre</th>
                                             <th>Area</th>
                                             <th>Empresa</th>
-                                            <th>H.Marcacion</th>
                                             <th>Fecha</th>
+                                            <th>H.I</th>
+                                            <th>H.S</th>
+                                            <th>Horas Realizadas</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,8 +55,22 @@ if(isset($_POST['doc']) && !empty($_POST['doc'])||isset($_POST['fechaI']) && !em
                                             <td><?=STRTOUPPER($ast['nombre']).' '.STRTOUPPER($ast['apellido'])?></td>
                                             <td><?=STRTOUPPER($ast['area'])?></td>
                                             <td><?=STRTOUPPER($ast['empresa'])?></td>
-                                            <td><?=$ast['hora']?></td>
                                             <td><?=$ast['fecha']?></td>
+                                            <td><?=$ast['horaI']?></td>
+                                            <td><?=$ast['horaS']?></td>
+                                            <td>
+                                                <?php
+                                                if($ast['horaS'] != NULL){
+                                                    $hi= new time($ast['horaI']);
+                                                    $hs=new time($ast['horaS']);
+                                                    $h=$hi->DIFF($hs);
+                                                    echo $h;
+                                                }else{
+                                                    $h=0;
+                                                    echo $h;
+                                                }
+                                                ?>
+                                            </td>
                                         </tr>
                                         <?php endforeach;?>
                                     </tbody>

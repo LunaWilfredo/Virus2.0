@@ -496,15 +496,16 @@ class PersonalModel{
         p.pdoc AS 'documento',
         a.aname AS 'area',
         ep.ename AS 'empresa',
-        ast.fecha AS 'fecha',
-        ast.hora AS 'hora'
+        ast.afecha AS 'fecha',
+        ast.ahi AS 'horaI',
+        ast.ahs AS 'horaS'
         FROM $tabla p 
         INNER JOIN planes pl ON pl.fk_personal=p.id 
         LEFT JOIN areas a ON pl.fk_area = a.id
         LEFT JOIN empresas ep ON pl.fk_emp = ep.id
-        LEFT JOIN asistencias ast ON ast.doc = p.pdoc
-        WHERE ast.fecha = CURDATE()
-        ORDER BY p.id DESC,p.pdoc,ast.fecha ;";
+        LEFT JOIN asistencias ast ON ast.fk_per = p.id
+        WHERE ast.afecha = CURDATE()
+        ORDER BY p.id DESC,p.pdoc,ast.afecha ;";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();
@@ -521,16 +522,17 @@ class PersonalModel{
         p.pdoc AS 'documento',
         a.aname AS 'area',
         ep.ename AS 'empresa',
-        ast.fecha AS 'fecha',
-        ast.hora AS 'hora'
+        ast.afecha AS 'fecha',
+        ast.ahi AS 'horaI',
+        ast.ahs AS 'horaS'
         FROM $tabla p 
         INNER JOIN planes pl ON pl.fk_personal=p.id 
         LEFT JOIN areas a ON pl.fk_area = a.id
         LEFT JOIN empresas ep ON pl.fk_emp = ep.id
-        LEFT JOIN asistencias ast ON ast.doc = p.pdoc
-        WHERE ast.fecha BETWEEN '$fechaI' AND '$fechaF' OR p.pname='$doc'
+        LEFT JOIN asistencias ast ON ast.fk_per = p.id
+        WHERE ast.afecha BETWEEN '$fechaI' AND '$fechaF' OR p.pname='$doc'
         OR p.papellido='$doc' OR p.pdoc = '$doc'
-        ORDER BY p.id DESC,p.pdoc,ast.fecha ;";
+        ORDER BY p.id DESC,p.pdoc,ast.afecha ";
         $cn=Conexion::conectar()->prepare($sql);
         $cn->execute();
         return $cn->fetchAll();

@@ -74,13 +74,13 @@
                             <li><i class="fa fa-clock-o"></i><a href="body.php?page=Asistencias">Asistencias</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    <!-- <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-usd"></i>Pagos</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-usd"></i><a href="body.php?page=pagosAdm">Mensuales</a></li>
                             <li><i class="menu-icon fa fa-usd"></i><a href="body.php?page=pagosOpe">Semanales</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <?php endif?>
                     <?php if($_SESSION['rol']==1):?>
                     <li class="menu-title">Gerencia</li><!-- /.menu-title -->
